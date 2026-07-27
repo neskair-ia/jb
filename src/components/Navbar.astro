@@ -6,9 +6,16 @@ import { CONTACT } from '../config';
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-20">
       
-      <!-- Logo placeholder -->
+      <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 text-[#0e2146] dark:text-white border-2 border-[#0e2146] dark:border-white rounded-lg flex items-center justify-center font-bold text-xl group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
+        <img 
+          src="/images/logo.png" 
+          alt="JB Logo" 
+          class="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] dark:group-hover:shadow-[0_0_20px_rgba(255,255,255,0.6)]"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Fallback si la imagen no existe aún -->
+        <div class="hidden w-12 h-12 text-[#0e2146] dark:text-white border-2 border-[#0e2146] dark:border-white rounded-lg items-center justify-center font-bold text-xl transition-colors group-hover:text-blue-600 group-hover:border-blue-600">
           JB
         </div>
         <span class="font-bold text-xl text-[#0e2146] dark:text-white hidden sm:block">
