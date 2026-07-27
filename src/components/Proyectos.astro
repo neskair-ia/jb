@@ -2,24 +2,24 @@
 import { PROJECTS_INTRO, CLIENTS } from '../config';
 ---
 
-<section id="proyectos" class="py-24 bg-slate-50 relative border-t border-slate-100">
+<section id="proyectos" class="py-24 bg-white/5 relative border-t border-white/10">
   <div class="container mx-auto px-4">
     
     <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#0e2146]">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
         Trabajos que hablan por sí solos
       </h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
+      <p class="text-lg text-white/80 leading-relaxed">
         {PROJECTS_INTRO}
       </p>
     </div>
 
     <!-- Carrusel de Logos de Clientes (Infinite scroll animation) -->
-    <div class="relative w-full overflow-hidden bg-white py-10 rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(14,33,70,0.05)] border border-slate-100 mb-20 animate-on-scroll">
+    <div class="relative w-full overflow-hidden bg-transparent py-10 rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] border border-white/10 mb-20 animate-on-scroll">
       <div class="flex whitespace-nowrap animate-marquee">
         {/* Double the array for seamless infinite scroll */}
         {[...CLIENTS, ...CLIENTS].map((client) => (
-          <div class="mx-8 flex items-center justify-center w-40 h-20 bg-slate-50 rounded-xl border border-slate-100 text-slate-400 font-bold text-xl uppercase tracking-wider hover:text-[#0e2146] hover:border-[#0e2146]/20 transition-all cursor-default">
+          <div class="mx-8 flex items-center justify-center w-40 h-20 bg-white/5 rounded-xl border border-white/10 text-white/60 font-bold text-xl uppercase tracking-wider hover:text-white hover:border-white/20 transition-all cursor-default">
             {client}
           </div>
         ))}
@@ -29,8 +29,8 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
     <!-- Galería Placeholder (donde irán las fotos de proyectos) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {[1, 2, 3].map((_, index) => (
-        <div class="animate-on-scroll group relative aspect-video bg-[#0e2146]/5 rounded-3xl overflow-hidden border border-slate-200 hover:border-blue-500 transition-colors" style={`transition-delay: ${index * 150}ms`}>
-          <div class="absolute inset-0 flex flex-col items-center justify-center text-[#0e2146]/40 group-hover:text-[#0e2146] transition-colors">
+        <div class="animate-on-scroll group relative aspect-video bg-blue-600 rounded-3xl overflow-hidden border border-white/10 hover:border-blue-500 transition-colors" style={`transition-delay: ${index * 150}ms`}>
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-white/40 group-hover:text-white transition-colors">
             <svg class="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>

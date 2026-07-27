@@ -2,13 +2,13 @@
 import { INFRASTRUCTURE } from '../config';
 ---
 
-<section id="infraestructura" class="py-24 bg-white relative">
+<section id="infraestructura" class="py-24 bg-transparent relative">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#0e2146]">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
         Infraestructura y Capacidad
       </h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
+      <p class="text-lg text-white/80 leading-relaxed">
         Contamos con la tecnología, maquinaria y personal certificado para ejecutar proyectos de gran escala con precisión milimétrica.
       </p>
     </div>
@@ -16,16 +16,16 @@ import { INFRASTRUCTURE } from '../config';
     <!-- Accordion Grid -->
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
       {INFRASTRUCTURE.map((item, index) => (
-        <details class="animate-on-scroll group bg-slate-50 border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-[#0e2146]">
+        <details class="animate-on-scroll group bg-white/5 border border-white/10 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-white">
             {item.title}
             <span class="relative flex shrink-0 items-center justify-center w-6 h-6 transition duration-300 group-open:-rotate-180">
-              <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-5 h-5 text-white/60 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+          <div class="px-6 pb-6 text-white/80 text-sm leading-relaxed border-t border-white/10 pt-4">
             {item.description}
           </div>
         </details>
