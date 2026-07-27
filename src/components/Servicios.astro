@@ -2,14 +2,14 @@
 import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
 ---
 
-<section id="servicios" class="py-24 bg-white/5 relative overflow-hidden">
+<section id="servicios" class="py-24 bg-[#FFFCFC]/5 relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     
     <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Qué Hacemos
       </h2>
-      <p class="text-lg text-white/80 leading-relaxed">
+      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed">
         {SERVICES_INTRO}
       </p>
     </div>
@@ -17,7 +17,7 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
     <!-- Pilares de Servicio -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
       {PILLARS.map((pillar, index) => (
-        <div class="animate-on-scroll p-8 rounded-3xl bg-[#0e2146] text-white shadow-xl hover:-translate-y-2 transition-transform duration-300" style={`transition-delay: ${index * 100}ms`}>
+        <div class="animate-on-scroll p-8 rounded-3xl bg-[#0e2146] text-[#FFFCFC] shadow-xl hover:-translate-y-2 transition-transform duration-300" style={`transition-delay: ${index * 100}ms`}>
           <h3 class="text-xl font-bold mb-4">{pillar.title}</h3>
           <p class="text-blue-100/80 text-sm leading-relaxed">{pillar.description}</p>
         </div>
@@ -26,19 +26,19 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
 
     <!-- Catálogo de Servicios (Carrusel o Grid Compacto) -->
     <div class="max-w-5xl mx-auto">
-      <h3 class="text-3xl font-bold mb-10 text-center text-white animate-on-scroll">Nuestros Servicios</h3>
+      <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC] animate-on-scroll">Nuestros Servicios</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {SERVICES.map((service, index) => (
-          <div class="animate-on-scroll group relative p-6 rounded-2xl bg-transparent border border-white/10 hover:border-blue-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.4)] transition-all duration-300">
+          <div class="animate-on-scroll group relative p-6 rounded-2xl bg-transparent border border-[#FFFCFC]/10 hover:border-blue-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.4)] transition-all duration-300">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 group-hover:bg-[#0e2146] group-hover:text-white transition-colors">
+              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-[#FFFCFC] shrink-0 group-hover:bg-[#0e2146] group-hover:text-[#FFFCFC] transition-colors">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <div>
-                <h4 class="text-lg font-bold text-white mb-2">{service.title}</h4>
-                <p class="text-white/80 text-sm leading-relaxed">{service.description}</p>
+                <h4 class="text-lg font-bold text-[#FFFCFC] mb-2">{service.title}</h4>
+                <p class="text-[#FFFCFC]/80 text-sm leading-relaxed">{service.description}</p>
               </div>
             </div>
           </div>

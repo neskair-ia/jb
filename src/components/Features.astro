@@ -5,26 +5,26 @@ import { FEATURES } from '../config';
 <section id="features" class="py-24 bg-transparent dark:bg-slate-900 relative">
   <div class="container mx-auto px-4 z-10 relative">
     <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-[#FFFCFC]">
         ¿Por qué elegirnos?
       </h2>
-      <p class="text-lg text-white/80 dark:text-white/60">
+      <p class="text-lg text-[#FFFCFC]/80 dark:text-[#FFFCFC]/60">
         Nuestra arquitectura está diseñada para ofrecer el máximo rendimiento, seguridad y una experiencia de usuario inigualable.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {FEATURES.map((feature, index) => (
-        <div class="animate-on-scroll group relative p-8 rounded-3xl bg-white/5 dark:bg-slate-800/50 border border-white/10 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" style={`transition-delay: ${index * 150}ms`}>
+        <div class="animate-on-scroll group relative p-8 rounded-3xl bg-[#FFFCFC]/5 dark:bg-slate-800/50 border border-[#FFFCFC]/10 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" style={`transition-delay: ${index * 150}ms`}>
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
           <div class="relative z-10">
             <div class="w-14 h-14 rounded-2xl bg-transparent dark:bg-slate-700 shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
               {feature.icon}
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">
+            <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-[#FFFCFC]">
               {feature.title}
             </h3>
-            <p class="text-white/80 dark:text-white/60 leading-relaxed">
+            <p class="text-[#FFFCFC]/80 dark:text-[#FFFCFC]/60 leading-relaxed">
               {feature.description}
             </p>
           </div>
