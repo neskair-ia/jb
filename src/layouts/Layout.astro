@@ -91,6 +91,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.url);
 						}
 					});
 				});
+
+				// Observer para las micro-animaciones al hacer scroll
+				const observerOptions = {
+					root: null,
+					rootMargin: '0px',
+					threshold: 0.15
+				};
+
+				const observer = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('is-visible');
+						}
+					});
+				}, observerOptions);
+
+				const animatedElements = document.querySelectorAll('.animate-on-scroll');
+				animatedElements.forEach(el => observer.observe(el));
 			});
 		</script>
 	</body>
