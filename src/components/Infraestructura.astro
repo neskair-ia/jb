@@ -13,36 +13,29 @@ import { INFRASTRUCTURE } from '../config';
       </p>
     </div>
 
-    <!-- Accordion Grid -->
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Image Cards Grid (4 columns to fit everything nicely) -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {INFRASTRUCTURE.map((item, index) => (
-        <details class="animate-on-scroll group bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-[#FFFCFC]">
-            {item.title}
-            <span class="relative flex shrink-0 items-center justify-center w-6 h-6 transition duration-300 group-open:-rotate-180">
-              <svg class="w-5 h-5 text-[#FFFCFC]/60 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="px-6 pb-6 text-[#FFFCFC]/80 text-sm leading-relaxed border-t border-[#FFFCFC]/10 pt-4">
-            {item.description}
+        <div class="animate-on-scroll group relative aspect-square rounded-[2rem] overflow-hidden bg-transparent border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30">
+          <!-- Imagen de fondo (placeholder por ahora) -->
+          <img 
+            src={`https://placehold.co/400x400/1E2D64/FFFCFC?text=${item.title.split(' ').join('+')}`} 
+            alt={item.title} 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" 
+          />
+          
+          <!-- Gradiente oscuro para legibilidad -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+          
+          <!-- Contenido -->
+          <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <h4 class="text-lg font-bold text-[#FFFCFC] mb-2 group-hover:text-blue-300 transition-colors leading-tight">{item.title}</h4>
+            <p class="text-[#FFFCFC]/80 text-xs leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+              {item.description}
+            </p>
           </div>
-        </details>
+        </div>
       ))}
     </div>
   </div>
 </section>
-
-<style>
-  details > summary {
-    list-style: none;
-  }
-  details[open] summary ~ * {
-    animation: sweep .5s ease-in-out;
-  }
-  @keyframes sweep {
-    0%    {opacity: 0; transform: translateY(-10px)}
-    100%  {opacity: 1; transform: translateY(0)}
-  }
-</style>
