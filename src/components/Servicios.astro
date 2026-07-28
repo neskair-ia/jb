@@ -24,22 +24,30 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
       ))}
     </div>
 
-    <!-- Catálogo de Servicios (Carrusel o Grid Compacto) -->
-    <div class="max-w-5xl mx-auto">
+    <!-- Catálogo de Servicios -->
+    <div class="max-w-6xl mx-auto">
       <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC] animate-on-scroll">Nuestros Servicios</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Grid ajustado para que entren bien en pantalla (3 columnas en desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {SERVICES.map((service, index) => (
-          <div class="animate-on-scroll group relative p-6 rounded-2xl bg-transparent border border-[#FFFCFC]/10 hover:border-blue-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.4)] transition-all duration-300">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-[#FFFCFC] shrink-0 group-hover:bg-[#0e2146] group-hover:text-[#FFFCFC] transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-lg font-bold text-[#FFFCFC] mb-2">{service.title}</h4>
-                <p class="text-[#FFFCFC]/80 text-sm leading-relaxed">{service.description}</p>
-              </div>
+          <div class="animate-on-scroll group relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-transparent border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30">
+            <!-- Imagen de fondo (placeholder por ahora) -->
+            <img 
+              src={`https://placehold.co/600x450/1E2D64/FFFCFC?text=${service.title.split(' ').join('+')}`} 
+              alt={service.title} 
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" 
+            />
+            
+            <!-- Gradiente oscuro para que el texto sea siempre legible -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+            
+            <!-- Contenido del servicio -->
+            <div class="absolute inset-0 p-8 flex flex-col justify-end">
+              <h4 class="text-xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors">{service.title}</h4>
+              <p class="text-[#FFFCFC]/80 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                {service.description}
+              </p>
             </div>
           </div>
         ))}
