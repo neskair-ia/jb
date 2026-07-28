@@ -6,20 +6,26 @@ import { HERO } from '../config';
   <!-- Background minimalista (sin brillos molestos) -->
   <div class="absolute inset-0 z-0 bg-transparent"></div>
 
-  <!-- Background Image Area (Fading into the blue) -->
-  <div class="absolute inset-0 lg:left-[35%] z-0 overflow-hidden">
-    <!-- Gradient overlays to mimetize with the background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1E2D64] via-[#1E2D64]/60 to-transparent z-10"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64] z-10"></div>
-    <div class="absolute inset-0 bg-[#1E2D64]/20 z-10"></div>
+  <!-- Background Video Area -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <!-- Gradient overlays to mimetize with the background and make text readable -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0e2146] via-[#0e2146]/80 to-[#0e2146]/30 z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0e2146] via-transparent to-[#0e2146]/50 z-10"></div>
     
-    <!-- Placeholder for rotating images/videos -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center opacity-30 border border-dashed border-[#FFFCFC]/10 m-4 rounded-[2rem]">
-        <svg class="w-20 h-20 text-[#FFFCFC] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <span class="text-[#FFFCFC] font-medium tracking-wide text-sm px-4 text-center">Zona para carrusel de fotos o video de fondo</span>
-    </div>
+    <!-- Capa sutil de color para que el video se tiña del tono corporativo sin verse negro/crudo -->
+    <div class="absolute inset-0 bg-[#1E2D64]/30 mix-blend-multiply z-10"></div>
+    <div class="absolute inset-0 bg-[#0e2146]/40 z-10"></div>
+    
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      class="absolute inset-0 w-full h-full object-cover opacity-90"
+    >
+      <!-- Usando el nombre exacto que tiene el archivo actualmente -->
+      <source src="/hero-video.mp4.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <div class="container mx-auto px-4 z-10 relative flex items-center h-full">
