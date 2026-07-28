@@ -15,9 +15,11 @@ export const CONTACT = {
   whatsappRaw: '+54 9 3814 09-0232',
   phoneBase64: 'KDM4MSkgNjQ1MjkwMA==',
   emailBase64: 'ZGlyZWNjaW9uQGpiaW5nZW5pZXJpYWNvcnBvcmF0aXZhLmNvbS5hcg==',
+  emailRaw: 'direccion@jbingenieriacorporativa.com.ar',
   address: 'Parque Industrial Kanamico Ruta Prov. 301 KM 17.5 - Lules, Tucumán, Argentina.',
   instagram: 'https://www.instagram.com/jbingenieriacorporativa/',
   linkedin: 'https://ar.linkedin.com/company/jb-ingenieria-corporativa',
+  facebook: 'https://www.facebook.com/JBCiaPublicitaria',
 };
 
 export const HERO = {
