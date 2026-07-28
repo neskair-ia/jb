@@ -54,6 +54,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.url);
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body class="font-sans antialiased text-[#FFFCFC] bg-[#1E2D64] min-h-screen pt-20">
+		<!-- Splash Screen Video (Pantalla de carga) -->
+		<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#0e2146] flex items-center justify-center transition-opacity duration-1000" oncontextmenu="return false;">
+			<video 
+				id="splash-video"
+				autoplay 
+				muted 
+				playsinline 
+				class="w-full h-full object-cover pointer-events-none select-none"
+				oncontextmenu="return false;"
+			>
+				<source src="/hero-video.mp4.mp4" type="video/mp4" />
+			</video>
+		</div>
+
 		<slot />
 
 		<!-- Floating WhatsApp Button -->
@@ -69,8 +83,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.url);
 		</button>
 
 		<script>
-			// Lógica Anti-Spam global
+			// Lógica Anti-Spam global y Pantalla de Carga
 			document.addEventListener('DOMContentLoaded', () => {
+				
+				// Lógica de la pantalla de carga (Splash Screen)
+				const splashScreen = document.getElementById('splash-screen');
+				const splashVideo = document.getElementById('splash-video') as HTMLVideoElement;
+				
+				if (splashScreen && splashVideo) {
+					// Evitar scroll temporalmente
+					document.body.style.overflow = 'hidden';
+					
+					let hasFaded = false;
+					const hideSplash = () => {
+						if (hasFaded) return;
+						hasFaded = true;
+						splashScreen.style.opacity = '0';
+						document.body.style.overflow = '';
+						setTimeout(() => {
+							splashScreen.remove();
+						}, 1000); // Dar tiempo a que termine la transición de opacidad
+					};
+
+					// Si el video termina, ocultamos la pantalla
+					splashVideo.addEventListener('ended', hideSplash);
+					
+					// Tiempo máximo de seguridad (ej: 4 segundos) por si el video es muy largo o falla
+					setTimeout(hideSplash, 4000);
+				}
+
+				// Lógica Anti-Spam
 				const buttons = document.querySelectorAll('.secure-contact-btn');
 				buttons.forEach(btn => {
 					btn.addEventListener('click', (e) => {
