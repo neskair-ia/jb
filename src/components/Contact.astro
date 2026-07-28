@@ -5,7 +5,39 @@ import { CONTACT } from '../config';
 <section id="contacto" class="py-24 bg-[#0e2146] text-[#FFFCFC] border-t border-[#0e2146]">
   <div class="container mx-auto px-4 animate-on-scroll">
     <div class="max-w-4xl mx-auto">
-      
+      <!-- Apartado de Reseñas -->
+      <details class="animate-on-scroll group bg-transparent/5 border border-[#FFFCFC]/10 rounded-[1.5rem] mb-16 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer p-8 font-bold text-2xl text-[#FFFCFC]">
+          Reseñas de nuestros clientes
+          <span class="relative flex shrink-0 items-center justify-center w-8 h-8 transition duration-300 group-open:-rotate-180 bg-white/10 rounded-full">
+            <svg class="w-5 h-5 text-[#FFFCFC]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        
+        <div class="p-8 pt-0 border-t border-[#FFFCFC]/10 mt-4 overflow-hidden relative">
+          <!-- Marquee Container -->
+          <div class="flex whitespace-nowrap animate-marquee py-4">
+            <!-- Review placeholders (duplicados para efecto infinito) -->
+            {[1, 2, 3, 4, 1, 2, 3, 4].map((item, index) => (
+              <div class="mx-4 flex flex-col justify-center w-80 h-40 bg-white/5 rounded-2xl border border-white/10 p-6 whitespace-normal shrink-0">
+                <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                  <!-- 5 estrellas -->
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-sm text-[#FFFCFC]/80 line-clamp-3 mb-2">"Espacio reservado para la reseña del cliente. Excelente servicio..."</p>
+                <span class="text-xs text-[#FFFCFC]/50 font-bold uppercase tracking-wider">Cliente {item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </details>
+
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
           Comencemos tu próximo proyecto

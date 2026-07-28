@@ -1,5 +1,15 @@
 ---
 import { CONTACT } from '../config';
+const currentPath = Astro.url.pathname;
+
+const getLinkClass = (path: string) => {
+  const isActive = currentPath === path || currentPath === path + '/';
+  const baseClass = "text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-full";
+  if (isActive) {
+    return `${baseClass} text-[#FFFCFC] bg-[#FFFCFC]/10 shadow-[0_0_20px_rgba(255,252,252,0.2)] border border-[#FFFCFC]/20`;
+  }
+  return `${baseClass} text-[#FFFCFC]/70 hover:text-[#FFFCFC] hover:bg-[#FFFCFC]/5`;
+};
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#1E2D64]/90 backdrop-blur-md border-b border-[#FFFCFC]/10 transition-all duration-300">
@@ -24,12 +34,12 @@ import { CONTACT } from '../config';
       </a>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="/" class="text-sm font-medium text-[#FFFCFC]/80 hover:text-[#FFFCFC] transition-colors">Inicio</a>
-        <a href="/nosotros" class="text-sm font-medium text-[#FFFCFC]/80 hover:text-[#FFFCFC] transition-colors">Nosotros</a>
-        <a href="/servicios" class="text-sm font-medium text-[#FFFCFC]/80 hover:text-[#FFFCFC] transition-colors">Servicios</a>
-        <a href="/infraestructura" class="text-sm font-medium text-[#FFFCFC]/80 hover:text-[#FFFCFC] transition-colors">Infraestructura</a>
-        <a href="/proyectos" class="text-sm font-medium text-[#FFFCFC]/80 hover:text-[#FFFCFC] transition-colors">Proyectos</a>
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="/" class={getLinkClass('/')}>Inicio</a>
+        <a href="/nosotros" class={getLinkClass('/nosotros')}>Nosotros</a>
+        <a href="/servicios" class={getLinkClass('/servicios')}>Servicios</a>
+        <a href="/infraestructura" class={getLinkClass('/infraestructura')}>Infraestructura</a>
+        <a href="/proyectos" class={getLinkClass('/proyectos')}>Proyectos</a>
       </nav>
 
       <!-- Contact Buttons -->
