@@ -62,25 +62,14 @@ import { CONTACT } from '../config';
         </button>
       </div>
 
-      <!-- Mapa Interactivo (Vista Satélite) -->
-      <div class="w-full h-[350px] md:h-[400px] rounded-[2rem] overflow-hidden mb-8 relative border border-[#FFFCFC]/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] group animate-on-scroll">
-        <!-- Overlay sutil para oscurecer ligerísimamente y que no encandile, desaparece al pasar el mouse -->
-        <div class="absolute inset-0 bg-[#0e2146]/20 pointer-events-none z-10 transition-colors duration-700 group-hover:bg-transparent"></div>
-        <iframe 
-          src="https://maps.google.com/maps?q=Parque%20Industrial%20Kanamico,%20Lules,%20Tucuman&t=k&z=17&ie=UTF8&iwloc=&output=embed" 
-          class="absolute inset-0 w-full h-full border-0 opacity-90 transition-opacity duration-700 group-hover:opacity-100" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-
       <!-- Divider -->
       <div class="w-full h-px bg-transparent/10 my-10"></div>
 
       <!-- Footer Info -->
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex flex-col sm:flex-row items-center gap-6">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full">
+        
+        <!-- Izquierda: Logo y Dirección -->
+        <div class="flex flex-col sm:flex-row items-center gap-6 lg:shrink-0">
           <img 
             src="/images/logo.png" 
             alt="JB Ingeniería Corporativa" 
@@ -91,12 +80,24 @@ import { CONTACT } from '../config';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span class="max-w-sm text-left leading-relaxed">{CONTACT.address}</span>
+            <span class="max-w-[250px] text-left leading-relaxed">{CONTACT.address}</span>
           </div>
         </div>
 
-        <!-- Redes Sociales -->
-        <div class="flex items-center gap-4">
+        <!-- Centro: Mapa Miniatura -->
+        <div class="w-full lg:w-[400px] h-[150px] rounded-[1.5rem] overflow-hidden relative border border-[#FFFCFC]/10 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] group shrink-0">
+          <div class="absolute inset-0 bg-[#0e2146]/20 pointer-events-none z-10 transition-colors duration-700 group-hover:bg-transparent"></div>
+          <iframe 
+            src="https://maps.google.com/maps?q=Parque%20Industrial%20Kanamico,%20Lules,%20Tucuman&t=k&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="absolute inset-0 w-full h-full border-0 opacity-90 transition-opacity duration-700 group-hover:opacity-100" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- Derecha: Redes Sociales -->
+        <div class="flex items-center gap-4 lg:shrink-0">
           <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-transparent/5 flex items-center justify-center text-[#FFFCFC] hover:bg-transparent hover:text-[#FFFCFC] transition-colors">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
