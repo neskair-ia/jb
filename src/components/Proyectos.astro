@@ -6,7 +6,7 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
   <div class="container mx-auto px-4">
     
     <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#1E2D64]">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#1E2D64]">
         Trabajos que hablan por sí solos
       </h2>
       <p class="text-lg text-slate-600 leading-relaxed">
@@ -20,7 +20,7 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
       <div class="flex whitespace-nowrap animate-marquee">
         {/* Double the array for seamless infinite scroll */}
         {[...CLIENTS, ...CLIENTS].map((client) => (
-          <div class="mx-8 flex items-center justify-center w-40 h-20 bg-transparent rounded-xl cursor-default group">
+          <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-transparent rounded-xl cursor-default group">
             <img 
               src="/images/logo.png" 
               alt="Cliente" 
