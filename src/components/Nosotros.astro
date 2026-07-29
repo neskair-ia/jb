@@ -9,21 +9,21 @@ import { ABOUT } from '../config';
       <!-- Quiénes Somos -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 animate-on-scroll">
         <!-- Imagen -->
-        <div class="order-2 lg:order-1 relative rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 aspect-[3/4] lg:aspect-auto lg:h-[650px] group">
+        <div class="order-2 lg:order-1 relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 aspect-[3/4] lg:aspect-auto lg:h-[650px] group">
           <img src="/images/quienes-somos.png" alt="Instalaciones JB Ingeniería" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x800/1E2D64/FFFCFC?text=Foto+JB'" />
-          <!-- Sutil gradiente para que la foto se funda un poco con la oscuridad abajo -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-transparent opacity-60"></div>
+          <!-- Sutil gradiente oscuro para que la foto tenga peso -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
         </div>
         
         <!-- Texto -->
         <div class="order-1 lg:order-2 text-left">
-          <div class="inline-block px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-300 text-sm font-semibold mb-6">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-800 text-sm font-semibold mb-6">
             Nuestra Historia
           </div>
-          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-[#FFFCFC]">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-[#1E2D64]">
             Quiénes Somos
           </h2>
-          <div class="text-lg text-[#FFFCFC]/80 leading-relaxed space-y-6">
+          <div class="text-lg text-slate-600 leading-relaxed space-y-6">
             {ABOUT.whoWeAre.split('\n').map(paragraph => (
               <p>{paragraph}</p>
             ))}
@@ -33,27 +33,29 @@ import { ABOUT } from '../config';
 
       <!-- Misión y Visión -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-        <div class="animate-on-scroll p-8 rounded-3xl bg-gradient-to-br from-blue-400 to-blue-900 text-[#FFFCFC] shadow-xl">
-          <div class="w-12 h-12 bg-transparent/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
+        <!-- Card Misión (Acusando el Azul de la Marca para dar balance) -->
+        <div class="animate-on-scroll p-8 rounded-3xl bg-gradient-to-br from-[#1E2D64] to-blue-900 text-[#FFFCFC] shadow-xl">
+          <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <h3 class="text-2xl font-bold mb-4">Nuestra Misión</h3>
-          <p class="text-blue-100 leading-relaxed font-light">
+          <p class="text-blue-50 leading-relaxed font-light">
             {ABOUT.mission}
           </p>
         </div>
 
-        <div class="animate-on-scroll p-8 rounded-3xl bg-transparent border border-[#FFFCFC]/20 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]">
-          <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 text-[#FFFCFC]">
+        <!-- Card Visión (Clara) -->
+        <div class="animate-on-scroll p-8 rounded-3xl bg-white border border-slate-200 shadow-xl">
+          <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-blue-700">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-[#FFFCFC]">Nuestra Visión</h3>
-          <p class="text-[#FFFCFC]/80 leading-relaxed">
+          <h3 class="text-2xl font-bold mb-4 text-[#1E2D64]">Nuestra Visión</h3>
+          <p class="text-slate-600 leading-relaxed">
             {ABOUT.vision}
           </p>
         </div>
@@ -61,17 +63,17 @@ import { ABOUT } from '../config';
 
       <!-- Valores -->
       <div class="animate-on-scroll">
-        <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC]">Nuestros Valores</h3>
+        <h3 class="text-3xl font-bold mb-10 text-center text-[#1E2D64]">Nuestros Valores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {ABOUT.values.map((value, index) => (
-            <div class="p-6 rounded-2xl bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:shadow-lg transition-all duration-300">
-              <h4 class="text-xl font-bold mb-3 text-[#FFFCFC] flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300">
+              <h4 class="text-xl font-bold mb-3 text-[#1E2D64] flex items-center gap-2">
+                <span class="w-8 h-8 rounded-full bg-[#1E2D64] flex items-center justify-center text-sm text-[#FFFCFC]">
                   {index + 1}
                 </span>
                 {value.title}
               </h4>
-              <p class="text-[#FFFCFC]/80 text-sm leading-relaxed pl-10">
+              <p class="text-slate-600 text-sm leading-relaxed pl-10">
                 {value.description}
               </p>
             </div>

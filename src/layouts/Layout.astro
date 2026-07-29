@@ -54,11 +54,11 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body class="font-sans antialiased text-[#FFFCFC] bg-[#1E2D64] min-h-screen pt-20">
+	<body class="font-sans antialiased text-slate-800 bg-[#F8F9FA] min-h-screen">
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
-			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#0e2146]/50 backdrop-blur-3xl flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
+			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64]/90 backdrop-blur-3xl flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
 				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
 					<img 
 						id="splash-img"
