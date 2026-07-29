@@ -11,42 +11,50 @@ const REVIEWS = [
   {
     initials: "J.P.M.",
     name: "Juan Pablo M.",
-    text: "Impecable, productos de primera calidad, muy buena atención y predisposición con el cliente."
+    text: "Impecable, productos de primera calidad, muy buena atención y predisposición con el cliente.",
+    source: "Google"
   },
   {
     initials: "J.C.L.",
     name: "Juan Cruz L.",
-    text: "Excelente atención y productos de alta calidad."
+    text: "Excelente atención y productos de alta calidad.",
+    source: "Google"
   },
   {
     initials: "L.V.",
     name: "Lucas V.",
-    text: "Empresa dedicada a la cartelería. Excelente atención."
+    text: "Empresa dedicada a la cartelería. Excelente atención.",
+    source: "Instagram"
   },
   {
     initials: "J.N.",
     name: "Javier N.",
-    text: "Excelente."
+    text: "Excelente.",
+    source: "Google"
   },
   {
     initials: "M.R.",
     name: "Martín R.",
-    text: "Trabajo muy profesional en la cartelería exterior de nuestra empresa. Quedó espectacular."
+    text: "Trabajo muy profesional en la cartelería exterior de nuestra empresa. Quedó espectacular.",
+    source: "Google"
   },
   {
     initials: "C.G.",
     name: "Carlos G.",
-    text: "Cumplieron con los plazos y la calidad de los materiales es insuperable. Muy recomendables."
+    text: "Cumplieron con los plazos y la calidad de los materiales es insuperable. Muy recomendables.",
+    source: "Google"
   },
   {
     initials: "F.A.",
     name: "Facundo A.",
-    text: "El diseño y la estructura de los tótems superaron nuestras expectativas."
+    text: "El diseño y la estructura de los tótems superaron nuestras expectativas.",
+    source: "Instagram"
   },
   {
     initials: "D.M.",
     name: "Diego M.",
-    text: "Atención personalizada de principio a fin. Excelentes terminaciones."
+    text: "Atención personalizada de principio a fin. Excelentes terminaciones.",
+    source: "Google"
   }
 ];
 ---
@@ -137,10 +145,12 @@ const REVIEWS = [
                 </div>
                 <p class="text-[15px] text-[#FFFCFC]/90 line-clamp-3 mb-4 font-light leading-relaxed">"{review.text}"</p>
                 <div class="flex items-center gap-3 mt-auto">
-                  <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-10 h-10 rounded-full shadow-inner" />
+                  <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-10 h-10 rounded-full shadow-inner border border-[#FFFCFC]/20" />
                   <div class="flex flex-col">
                     <span class="text-sm font-bold text-[#FFFCFC]">{review.name}</span>
-                    <span class="text-xs text-[#FFFCFC]/50 uppercase tracking-wider">Local Guide</span>
+                    <span class="text-xs text-[#FFFCFC]/50 tracking-wider">
+                      Reseña de <span class="font-semibold text-[#FFFCFC]/80">{review.source}</span>
+                    </span>
                   </div>
                 </div>
               </div>
