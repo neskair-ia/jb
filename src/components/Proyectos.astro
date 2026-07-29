@@ -31,15 +31,28 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
       </div>
     </div>
 
-    <!-- Galería Placeholder (donde irán las fotos de proyectos) -->
+    <!-- Galería de Proyectos (15 Proyectos: 5 filas x 3 columnas) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {[1, 2, 3].map((_, index) => (
-        <div class="animate-on-scroll group relative aspect-video bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300" style={`transition-delay: ${index * 150}ms`}>
-          <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 group-hover:text-blue-600 transition-colors">
-            <svg class="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="font-medium">Imagen del Proyecto</span>
+      {Array.from({ length: 15 }).map((_, index) => (
+        <div class="animate-on-scroll group relative aspect-video bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-2xl hover:border-blue-400 transition-all duration-300" style={`transition-delay: ${(index % 3) * 150}ms`}>
+          
+          <!-- Contenedor de 4 fotos rotativas (CSS puro) -->
+          <div class="absolute inset-0 w-full h-full rotate-slider">
+            <img src={`https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${index+1}`} class="slide-img" alt="Foto 1" />
+            <img src={`https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${index+1}`} class="slide-img" alt="Foto 2" />
+            <img src={`https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${index+1}`} class="slide-img" alt="Foto 3" />
+            <img src={`https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${index+1}`} class="slide-img" alt="Foto 4" />
+          </div>
+
+          <!-- Gradiente inferior para legibilidad del título -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+          <!-- Título del Proyecto -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 pointer-events-none">
+            <h3 class="text-xl font-bold text-white mb-1 drop-shadow-md">
+              Proyecto {index + 1}
+            </h3>
+            <span class="text-blue-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 drop-shadow-sm">Ver detalles</span>
           </div>
         </div>
       ))}
@@ -49,6 +62,7 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
 </section>
 
 <style>
+  /* Animación del carrusel de logos */
   .animate-marquee {
     animation: marquee 30s linear infinite;
   }
@@ -58,5 +72,30 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
   @keyframes marquee {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
+  }
+
+  /* Animación de 4 fotos rotativas (Fade) */
+  .rotate-slider {
+    position: relative;
+  }
+  .rotate-slider .slide-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeSlider 16s infinite; /* 4 fotos * 4s = 16s totales */
+  }
+  /* Desfases para cada foto */
+  .rotate-slider .slide-img:nth-child(1) { animation-delay: 0s; }
+  .rotate-slider .slide-img:nth-child(2) { animation-delay: 4s; }
+  .rotate-slider .slide-img:nth-child(3) { animation-delay: 8s; }
+  .rotate-slider .slide-img:nth-child(4) { animation-delay: 12s; }
+
+  @keyframes fadeSlider {
+    0%, 20% { opacity: 1; }
+    25%, 95% { opacity: 0; }
+    100% { opacity: 1; }
   }
 </style>
