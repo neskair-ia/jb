@@ -59,16 +59,18 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		<!-- Splash Screen Video (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
 			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#0e2146]/50 backdrop-blur-3xl flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
-				<video 
-					id="splash-video"
-					autoplay 
-					muted 
-					playsinline 
-					class="w-full h-full md:w-4/5 md:h-4/5 object-contain pointer-events-none select-none scale-110 drop-shadow-2xl mix-blend-screen contrast-125 brightness-110"
-					oncontextmenu="return false;"
-				>
-					<source src="/hero-video.mp4" type="video/mp4" />
-				</video>
+				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
+					<video 
+						id="splash-video"
+						autoplay 
+						muted 
+						playsinline 
+						class="w-full h-full object-contain pointer-events-none select-none scale-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+						oncontextmenu="return false;"
+					>
+						<source src="/hero-video2.mp4" type="video/mp4" />
+					</video>
+				</div>
 			</div>
 		)}
 
@@ -176,5 +178,18 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 	.animate-on-scroll.is-visible {
 		opacity: 1;
 		transform: translateY(0);
+	}
+
+	/* Animación épica de brillo (Glow) para la pantalla de carga */
+	@keyframes pulse-glow {
+		0%, 100% {
+			filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
+		}
+		50% {
+			filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+		}
+	}
+	.animate-pulse-glow {
+		animation: pulse-glow 2.5s ease-in-out infinite;
 	}
 </style>
