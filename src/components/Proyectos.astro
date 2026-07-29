@@ -34,25 +34,30 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
     <!-- Galería de Proyectos (15 Proyectos: 5 filas x 3 columnas) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {Array.from({ length: 15 }).map((_, index) => (
-        <div class="animate-on-scroll group relative aspect-video bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-2xl hover:border-blue-400 transition-all duration-300" style={`transition-delay: ${(index % 3) * 150}ms`}>
+        <div class="animate-on-scroll group relative aspect-video bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-2xl hover:border-blue-400 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 150}ms`}>
           
-          <!-- Contenedor de 4 fotos rotativas (CSS puro) -->
+          <!-- Contenedor de 4 fotos interactivas -->
           <div class="absolute inset-0 w-full h-full rotate-slider">
-            <img src={`https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${index+1}`} class="slide-img" alt="Foto 1" />
-            <img src={`https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${index+1}`} class="slide-img" alt="Foto 2" />
-            <img src={`https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${index+1}`} class="slide-img" alt="Foto 3" />
-            <img src={`https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${index+1}`} class="slide-img" alt="Foto 4" />
+            <img src={`https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${index+1}`} class="slide-img opacity-100" alt="Foto 1" />
+            <img src={`https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 2" />
+            <img src={`https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 3" />
+            <img src={`https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 4" />
           </div>
 
           <!-- Gradiente inferior para legibilidad del título -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-          <!-- Título del Proyecto -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 pointer-events-none">
+          <!-- Título del Proyecto y Click Helper -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end transform transition-transform duration-300 pointer-events-none">
             <h3 class="text-xl font-bold text-white mb-1 drop-shadow-md">
               Proyecto {index + 1}
             </h3>
-            <span class="text-blue-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 drop-shadow-sm">Ver detalles</span>
+            <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-4 h-4 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+              <span class="text-blue-200 text-xs uppercase tracking-wider font-semibold drop-shadow-sm">Clic para ver más fotos</span>
+            </div>
           </div>
         </div>
       ))}
@@ -74,7 +79,7 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
     100% { transform: translateX(-50%); }
   }
 
-  /* Animación de 4 fotos rotativas (Fade) */
+  /* Estilos para las fotos interactivas */
   .rotate-slider {
     position: relative;
   }
@@ -84,18 +89,33 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    animation: fadeSlider 16s infinite; /* 4 fotos * 4s = 16s totales */
-  }
-  /* Desfases para cada foto */
-  .rotate-slider .slide-img:nth-child(1) { animation-delay: 0s; }
-  .rotate-slider .slide-img:nth-child(2) { animation-delay: 4s; }
-  .rotate-slider .slide-img:nth-child(3) { animation-delay: 8s; }
-  .rotate-slider .slide-img:nth-child(4) { animation-delay: 12s; }
-
-  @keyframes fadeSlider {
-    0%, 20% { opacity: 1; }
-    25%, 95% { opacity: 0; }
-    100% { opacity: 1; }
+    transition: opacity 0.6s ease-in-out;
   }
 </style>
+
+<script>
+  // Script para manejar el clic en las tarjetas de proyectos
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+      // Estado local para cada tarjeta
+      let currentIndex = 0;
+      const images = card.querySelectorAll('.slide-img');
+      const totalImages = images.length;
+      
+      card.addEventListener('click', () => {
+        // Ocultar imagen actual
+        images[currentIndex].classList.remove('opacity-100');
+        images[currentIndex].classList.add('opacity-0');
+        
+        // Calcular siguiente índice
+        currentIndex = (currentIndex + 1) % totalImages;
+        
+        // Mostrar siguiente imagen
+        images[currentIndex].classList.remove('opacity-0');
+        images[currentIndex].classList.add('opacity-100');
+      });
+    });
+  });
+</script>
