@@ -54,7 +54,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body class="font-sans antialiased text-slate-800 bg-[#F8F9FA] min-h-screen">
+	<body class="font-sans antialiased text-slate-800 bg-[#F8F9FA] min-h-screen overflow-x-hidden">
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (

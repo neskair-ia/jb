@@ -14,14 +14,14 @@ const getLinkClass = (path: string, isMobile: boolean = false) => {
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#1E2D64]/90 backdrop-blur-md border-b border-[#FFFCFC]/10 transition-all duration-300">
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16 sm:h-20">
       
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group">
         <img 
           src="/images/logo.png" 
           alt="JB Logo" 
-          class="w-24 h-24 sm:w-32 sm:h-32 object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_15px_#FFFCFC]"
+          class="w-20 h-20 sm:w-32 sm:h-32 object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_15px_#FFFCFC]"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
         <!-- Fallback si la imagen no existe aún -->
