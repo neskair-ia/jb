@@ -58,13 +58,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
-			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64]/90 backdrop-blur-3xl flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
+			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64] flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
 				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
 					<img 
 						id="splash-img"
 						src="/hero-foto.png" 
 						alt="JB Ingeniería Corporativa"
-						class="w-full h-full object-contain pointer-events-none select-none scale-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] mix-blend-screen contrast-125 brightness-110"
+						class="w-full h-full object-contain pointer-events-none select-none mix-blend-screen contrast-125 brightness-110 drop-shadow-2xl"
 						oncontextmenu="return false;"
 					/>
 				</div>
@@ -116,6 +116,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 						if (hasFaded) return;
 						hasFaded = true;
 						splashScreen.style.opacity = '0';
+						splashScreen.style.pointerEvents = 'none';
 						document.body.style.overflow = '';
 						setTimeout(() => {
 							splashScreen.remove();
@@ -211,16 +212,18 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		transform: translateY(0);
 	}
 
-	/* Animación épica de brillo (Glow) para la pantalla de carga */
+	/* Animación épica de brillo (Glow) para la pantalla de carga (Optimizada por hardware) */
 	@keyframes pulse-glow {
 		0%, 100% {
-			filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
+			transform: scale(0.98);
+			opacity: 0.9;
 		}
 		50% {
-			filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+			transform: scale(1.04);
+			opacity: 1;
 		}
 	}
 	.animate-pulse-glow {
-		animation: pulse-glow 2.0s ease-in-out infinite;
+		animation: pulse-glow 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 	}
 </style>
