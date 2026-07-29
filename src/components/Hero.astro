@@ -23,7 +23,7 @@ import { HERO } from '../config';
   </div>
 
   <div class="container mx-auto px-4 z-10 relative flex items-center h-full">
-    <div class="w-full lg:w-[60%] text-center lg:text-left py-20 lg:py-32 animate-on-scroll">
+    <div class="w-full lg:w-[60%] text-center lg:text-left py-20 lg:py-32 hero-assemble">
       <!-- Tag / Eyebrow -->
       <div class="inline-block text-[#FFFCFC]/70 uppercase tracking-widest text-xs font-semibold mb-6">
         Ingeniería Corporativa a Escala Industrial
@@ -72,5 +72,22 @@ import { HERO } from '../config';
   }
   .animate-text-glow {
     animation: text-glow 4s ease-in-out infinite;
+  }
+  
+  /* Animación épica de armado del Hero coordinada con la pantalla de carga (2.5s) */
+  .hero-assemble {
+    animation: assemble 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both;
+  }
+  @keyframes assemble {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      filter: blur(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
   }
 </style>
