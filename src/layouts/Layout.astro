@@ -108,8 +108,8 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 						}, 700); // Dar tiempo a que termine la transición de opacidad
 					};
 
-					// Tiempo exacto de seguridad: 2.5 segundos según lo solicitado
-					setTimeout(hideSplash, 2500);
+					// Tiempo exacto de seguridad: 1.5 segundos según lo solicitado
+					setTimeout(hideSplash, 1500);
 				}
 
 				// Lógica Anti-Spam
@@ -184,6 +184,6 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		}
 	}
 	.animate-pulse-glow {
-		animation: pulse-glow 2.5s ease-in-out infinite;
+		animation: pulse-glow 1.5s ease-in-out infinite;
 	}
 </style>
