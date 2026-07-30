@@ -2,21 +2,20 @@
 import { PROJECTS_INTRO, CLIENTS } from '../config';
 ---
 
-<section id="proyectos" class="py-24 bg-transparent relative border-t border-slate-200">
-  <div class="container mx-auto px-4">
+<section id="proyectos" class="py-24 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
+  <div class="container mx-auto px-4 relative z-10">
     
-    <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#1E2D64]">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Trabajos que hablan por sí solos
       </h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
+      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
         {PROJECTS_INTRO}
       </p>
     </div>
 
-    <!-- Carrusel de Logos de Clientes (Infinite scroll animation) -->
-    <!-- Contenedor oscuro para resaltar los logos blancos sobre la web clara -->
-    <div class="relative w-full overflow-hidden bg-[#1E2D64] py-10 rounded-[2rem] shadow-xl border border-slate-200 mb-20 animate-on-scroll">
+    <!-- Carrusel de Logos de Clientes -->
+    <div class="relative w-full overflow-hidden bg-[#FFFCFC]/5 backdrop-blur-md py-8 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 mb-20">
       <div class="flex whitespace-nowrap animate-marquee">
         {/* Double the array for seamless infinite scroll */}
         {[...CLIENTS, ...CLIENTS].map((client) => (
@@ -31,10 +30,10 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
       </div>
     </div>
 
-    <!-- Galería de Proyectos (15 Proyectos: 5 filas x 3 columnas) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Galería de Proyectos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {Array.from({ length: 15 }).map((_, index) => (
-        <div class="animate-on-scroll group relative aspect-video bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 shadow-md hover:shadow-2xl hover:border-blue-400 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 150}ms`}>
+        <div class="group relative aspect-[4/3] md:aspect-video bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
           
           <!-- Contenedor de 4 fotos interactivas -->
           <div class="absolute inset-0 w-full h-full rotate-slider">
@@ -48,15 +47,17 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
           <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
           <!-- Título del Proyecto y Click Helper -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end transform transition-transform duration-300 pointer-events-none">
-            <h3 class="text-xl font-bold text-white mb-1 drop-shadow-md">
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end pointer-events-none z-10">
+            <h3 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 drop-shadow-lg">
               Proyecto {index + 1}
             </h3>
-            <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg class="w-4 h-4 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            
+            <!-- Helper visible en móvil, oculto y on-hover en PC -->
+            <div class="flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-[#1E2D64]/60 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1.5 px-3 md:p-0 rounded-full md:rounded-none w-fit border border-[#FFFCFC]/10 md:border-none">
+              <svg class="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
               </svg>
-              <span class="text-blue-200 text-xs uppercase tracking-wider font-semibold drop-shadow-sm">Clic para ver más fotos</span>
+              <span class="text-blue-300 text-[10px] md:text-xs uppercase tracking-wider font-bold drop-shadow-md">Toca para ver más</span>
             </div>
           </div>
         </div>
