@@ -51,7 +51,7 @@ Object.keys(projectFiles).forEach(file => {
     </div>
 
     <!-- Galería de Proyectos -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 md:gap-10">
       {PROJECTS.map((project, index) => {
         const projectId = (index + 1).toString();
         // Imágenes de la carpeta del proyecto actual
@@ -68,7 +68,7 @@ Object.keys(projectFiles).forEach(file => {
             ];
 
         return (
-          <div class="group relative aspect-square md:aspect-[4/3] bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
+          <div class="group relative aspect-square bg-black/20 rounded-[2rem] overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
             
             <!-- Contenedor de fotos interactivas -->
             <div class="absolute inset-0 w-full h-full rotate-slider">
@@ -81,8 +81,8 @@ Object.keys(projectFiles).forEach(file => {
               ))}
             </div>
 
-            <!-- Gradiente inferior para legibilidad del título -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <!-- Gradiente inferior corto solo para legibilidad del título, sin oscurecer toda la foto -->
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
 
             <!-- Título del Proyecto y Click Helper -->
             <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end pointer-events-none z-10">
