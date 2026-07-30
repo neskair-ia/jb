@@ -11,10 +11,10 @@ Object.keys(serviceFiles).forEach(file => {
 });
 ---
 
-<section id="servicios" class="py-32 bg-transparent relative overflow-hidden">
+<section id="servicios" class="py-16 md:py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     
-    <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Qué Hacemos
       </h2>
@@ -24,9 +24,9 @@ Object.keys(serviceFiles).forEach(file => {
     </div>
 
     <!-- Pilares de Servicio -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-24">
       {PILLARS.map((pillar, index) => (
-        <div class="p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default group">
+        <div class="p-6 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default group">
           <h3 class="text-xl font-bold mb-4 text-[#FFFCFC] group-hover:text-blue-300 transition-colors">{pillar.title}</h3>
           <p class="text-[#FFFCFC]/70 text-sm leading-relaxed font-light">{pillar.description}</p>
         </div>
@@ -35,7 +35,7 @@ Object.keys(serviceFiles).forEach(file => {
 
     <!-- Catálogo de Servicios -->
     <div class="max-w-[90rem] mx-auto">
-      <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC]">Nuestros Servicios</h3>
+      <h3 class="text-3xl font-bold mb-8 md:mb-10 text-center text-[#FFFCFC]">Nuestros Servicios</h3>
       
       <!-- Grid ajustado a 3 columnas cuadradas amplias -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -52,9 +52,9 @@ Object.keys(serviceFiles).forEach(file => {
             <div class="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-[#0e1633] via-[#0e1633]/60 to-transparent pointer-events-none"></div>
             
             <!-- Contenido del servicio -->
-            <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10">
-              <h4 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors drop-shadow-lg leading-tight">{service.title}</h4>
-              <p class="text-[#FFFCFC]/85 text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+            <div class="absolute inset-0 p-5 md:p-8 flex flex-col justify-end z-10">
+              <h4 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 md:mb-3 group-hover:text-blue-300 transition-colors drop-shadow-lg leading-tight">{service.title}</h4>
+              <p class="text-[#FFFCFC]/85 text-sm md:text-[15px] leading-relaxed font-light line-clamp-2 md:line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
                 {service.description}
               </p>
             </div>

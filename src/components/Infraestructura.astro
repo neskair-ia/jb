@@ -13,19 +13,19 @@ Object.keys(infraFiles).forEach(file => {
 });
 ---
 
-<section id="infraestructura" class="py-24 bg-transparent relative min-h-screen">
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
-        Infraestructura y Capacidad
+<section id="infraestructura" class="py-16 md:py-24 bg-transparent relative overflow-hidden">
+  <div class="max-w-[95rem] mx-auto px-4 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#FFFCFC]">
+        Nuestra Infraestructura
       </h2>
-      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed">
-        Contamos con la tecnología, maquinaria y personal certificado para ejecutar proyectos de gran escala con precisión milimétrica.
+      <p class="text-base md:text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
+        Contamos con dos plantas de primer nivel para llevar a cabo cada etapa del desarrollo de los productos solicitados.
       </p>
     </div>
 
-    <!-- Image Cards Grid -->
-    <div class="max-w-[95rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    <!-- Grid Layout ajustado para ocupar el ancho disponible -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
       {INFRASTRUCTURE.map((item, index) => (
         <div class="group relative aspect-square sm:aspect-[4/3] lg:aspect-[4/3] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30 cursor-default">
           <!-- Imagen dinámica o placeholder -->
@@ -39,9 +39,11 @@ Object.keys(infraFiles).forEach(file => {
           <div class="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-[#0e1633] via-[#0e1633]/60 to-transparent pointer-events-none"></div>
           
           <!-- Contenido -->
-          <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-            <h4 class="text-2xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors leading-tight drop-shadow-md">{item.title}</h4>
-            <p class="text-[#FFFCFC]/85 text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+          <div class="absolute inset-0 p-5 md:p-8 flex flex-col justify-end">
+            <h3 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 drop-shadow-lg group-hover:text-blue-300 transition-colors">
+              {item.title}
+            </h3>
+            <p class="text-[#FFFCFC]/85 text-[14px] md:text-base leading-relaxed font-light opacity-90 group-hover:opacity-100 transition-opacity">
               {item.description}
             </p>
           </div>
