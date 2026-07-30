@@ -2,28 +2,28 @@
 import { ABOUT } from '../config';
 ---
 
-<section id="nosotros" class="py-24 bg-transparent relative overflow-hidden">
+<section id="nosotros" class="py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-6xl mx-auto">
       
       <!-- Quiénes Somos -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 animate-on-scroll">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
         <!-- Imagen -->
-        <div class="order-2 lg:order-1 relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 aspect-[3/4] lg:aspect-auto lg:h-[650px] group">
+        <div class="order-2 lg:order-1 relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#FFFCFC]/10 aspect-[3/4] lg:aspect-auto lg:h-[650px] group">
           <img src="/images/quienes-somos.png" alt="Instalaciones JB Ingeniería" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x800/1E2D64/FFFCFC?text=Foto+JB'" />
           <!-- Sutil gradiente oscuro para que la foto tenga peso -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/80 via-transparent to-transparent opacity-80"></div>
         </div>
         
         <!-- Texto -->
         <div class="order-1 lg:order-2 text-left">
-          <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-800 text-sm font-semibold mb-6">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-[#FFFCFC]/10 border border-[#FFFCFC]/20 text-blue-300 text-sm font-semibold mb-6 backdrop-blur-md">
             Nuestra Historia
           </div>
-          <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-[#1E2D64]">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-[#FFFCFC]">
             Quiénes Somos
           </h2>
-          <div class="text-lg text-slate-600 leading-relaxed space-y-6">
+          <div class="text-lg text-[#FFFCFC]/80 leading-relaxed space-y-6 font-light">
             {ABOUT.whoWeAre.split('\n').map(paragraph => (
               <p>{paragraph}</p>
             ))}
@@ -33,47 +33,47 @@ import { ABOUT } from '../config';
 
       <!-- Misión y Visión -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-        <!-- Card Misión (Acusando el Azul de la Marca para dar balance) -->
-        <div class="animate-on-scroll p-6 md:p-8 rounded-3xl bg-gradient-to-br from-[#1E2D64] to-blue-900 text-[#FFFCFC] shadow-xl">
-          <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Card Misión -->
+        <div class="p-8 md:p-10 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 transition-all duration-300">
+          <div class="w-14 h-14 bg-blue-500/20 border border-blue-400/30 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/40 transition-transform duration-300">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4">Nuestra Misión</h3>
-          <p class="text-blue-50 leading-relaxed font-light">
+          <h3 class="text-2xl font-bold mb-4 text-[#FFFCFC]">Nuestra Misión</h3>
+          <p class="text-[#FFFCFC]/70 leading-relaxed font-light">
             {ABOUT.mission}
           </p>
         </div>
 
-        <!-- Card Visión (Clara) -->
-        <div class="animate-on-scroll p-6 md:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl">
-          <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-blue-700">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Card Visión -->
+        <div class="p-8 md:p-10 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 transition-all duration-300">
+          <div class="w-14 h-14 bg-blue-500/20 border border-blue-400/30 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/40 transition-transform duration-300">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-[#1E2D64]">Nuestra Visión</h3>
-          <p class="text-slate-600 leading-relaxed">
+          <h3 class="text-2xl font-bold mb-4 text-[#FFFCFC]">Nuestra Visión</h3>
+          <p class="text-[#FFFCFC]/70 leading-relaxed font-light">
             {ABOUT.vision}
           </p>
         </div>
       </div>
 
       <!-- Valores -->
-      <div class="animate-on-scroll">
-        <h3 class="text-3xl font-bold mb-10 text-center text-[#1E2D64]">Nuestros Valores</h3>
+      <div>
+        <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC]">Nuestros Valores</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {ABOUT.values.map((value, index) => (
-            <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300">
-              <h4 class="text-xl font-bold mb-3 text-[#1E2D64] flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-[#1E2D64] flex items-center justify-center text-sm text-[#FFFCFC]">
+            <div class="p-6 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default">
+              <h4 class="text-xl font-bold mb-3 text-[#FFFCFC] flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sm text-blue-300 font-black group-hover:bg-blue-500/40 transition-colors">
                   {index + 1}
                 </span>
                 {value.title}
               </h4>
-              <p class="text-slate-600 text-sm leading-relaxed pl-10">
+              <p class="text-[#FFFCFC]/70 text-[15px] leading-relaxed pl-13 font-light ml-[52px]">
                 {value.description}
               </p>
             </div>
