@@ -1,0 +1,120 @@
+---
+const stats = [
+  {
+    number: 35,
+    prefix: "+",
+    title: "Años de Experiencia",
+    desc: "Trayectoria comprobada en el rubro."
+  },
+  {
+    number: 200,
+    prefix: "+",
+    title: "Proyectos Completados",
+    desc: "Con empresas reconocidas y líderes del mercado."
+  },
+  {
+    number: 100,
+    prefix: "",
+    suffix: "%",
+    title: "Clientes Satisfechos",
+    desc: "Las marcas más exigentes confían en nosotros proyecto a proyecto."
+  },
+  {
+    number: 30,
+    prefix: "+",
+    title: "Profesionales",
+    desc: "Expertos dispuestos a entregar calidad en cada trabajo."
+  }
+];
+---
+
+<section class="relative z-10 -mt-16 md:-mt-24 px-4 container mx-auto mb-20">
+  <div class="bg-[#1E2D64]/80 backdrop-blur-xl border border-[#FFFCFC]/10 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)]">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      
+      {stats.map((stat, index) => (
+        <div class="flex flex-col items-center md:items-start text-center md:text-left group">
+          
+          <!-- Animated Number -->
+          <div class="flex items-baseline gap-1 mb-2">
+            {stat.prefix && <span class="text-3xl md:text-4xl font-bold text-blue-400">{stat.prefix}</span>}
+            <span 
+              class="stat-number text-5xl md:text-6xl font-black text-[#FFFCFC] tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+              data-target={stat.number}
+            >
+              0
+            </span>
+            {stat.suffix && <span class="text-3xl md:text-4xl font-bold text-blue-400">{stat.suffix}</span>}
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-lg md:text-xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors">
+            {stat.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm md:text-[15px] text-[#FFFCFC]/70 font-light leading-relaxed max-w-[250px] mx-auto md:mx-0">
+            {stat.desc}
+          </p>
+
+          <!-- Divider for mobile -->
+          {index !== stats.length - 1 && (
+            <div class="w-16 h-px bg-[#FFFCFC]/10 mt-8 md:hidden"></div>
+          )}
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stat-number')?.closest('section');
+    if (!statsSection) return;
+
+    let animated = false;
+
+    const animateNumbers = () => {
+      const statElements = document.querySelectorAll('.stat-number');
+      
+      statElements.forEach(el => {
+        const target = parseInt(el.getAttribute('data-target') || '0', 10);
+        const duration = 2500; // 2.5 segundos de animación fluida
+        const start = 0;
+        let startTime: number | null = null;
+
+        const easeOutExpo = (t: number) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+        const animation = (currentTime: number) => {
+          if (!startTime) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          
+          const easeProgress = easeOutExpo(progress);
+          const currentNumber = Math.floor(easeProgress * (target - start) + start);
+          
+          el.textContent = currentNumber.toString();
+
+          if (progress < 1) {
+            requestAnimationFrame(animation);
+          } else {
+            el.textContent = target.toString();
+          }
+        };
+
+        requestAnimationFrame(animation);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        animateNumbers();
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(statsSection);
+  });
+</script>
