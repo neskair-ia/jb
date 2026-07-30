@@ -14,9 +14,9 @@ import { INFRASTRUCTURE } from '../config';
     </div>
 
     <!-- Image Cards Grid -->
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5">
+    <div class="max-w-[95rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
       {INFRASTRUCTURE.map((item, index) => (
-        <div class="group relative aspect-square sm:aspect-[4/3] lg:aspect-[16/10] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30 cursor-default">
+        <div class="group relative aspect-square sm:aspect-[4/3] lg:aspect-[4/3] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30 cursor-default">
           <!-- Imagen de fondo (placeholder por ahora) -->
           <img 
             src={`https://placehold.co/800x600/1E2D64/FFFCFC?text=${item.title.split(' ').join('+')}`} 
