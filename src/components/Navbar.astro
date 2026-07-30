@@ -4,12 +4,29 @@ const currentPath = Astro.url.pathname;
 
 const getLinkClass = (path: string, isMobile: boolean = false) => {
   const isActive = currentPath === path || currentPath === path + '/';
-  const baseClass = `text-sm font-medium transition-all duration-300 relative px-4 py-2 ${isMobile ? 'rounded-lg w-full block' : 'rounded-full'}`;
+  
+  if (isMobile) {
+    const baseMobileClass = `text-[15px] font-bold transition-all duration-300 relative px-5 py-3.5 rounded-2xl w-full flex items-center justify-between border backdrop-blur-md`;
+    if (isActive) {
+      return `${baseMobileClass} text-[#FFFCFC] bg-blue-500/20 border-blue-400/40 shadow-[0_0_15px_rgba(59,130,246,0.2)]`;
+    }
+    return `${baseMobileClass} text-[#FFFCFC]/90 bg-[#FFFCFC]/5 border-[#FFFCFC]/10 hover:bg-[#FFFCFC]/15 hover:text-[#FFFCFC] hover:border-[#FFFCFC]/30`;
+  }
+
+  const baseClass = `text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-full`;
   if (isActive) {
     return `${baseClass} text-[#FFFCFC] bg-[#FFFCFC]/10 shadow-[0_0_20px_rgba(255,252,252,0.2)] border border-[#FFFCFC]/20`;
   }
   return `${baseClass} text-[#FFFCFC]/70 hover:text-[#FFFCFC] hover:bg-[#FFFCFC]/10 hover:-translate-y-[2px] hover:shadow-[0_0_15px_rgba(255,252,252,0.2)]`;
 };
+
+const mobileMenuLinks = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Nosotros', path: '/nosotros' },
+  { name: 'Servicios', path: '/servicios' },
+  { name: 'Infraestructura', path: '/infraestructura' },
+  { name: 'Proyectos', path: '/proyectos' },
+];
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#1E2D64] via-[#1E2D64] to-transparent pb-8 transition-all duration-300 pointer-events-none">
@@ -88,14 +105,17 @@ const getLinkClass = (path: string, isMobile: boolean = false) => {
     <!-- Mobile Menu Container -->
     <div 
       id="mobile-menu" 
-      class="md:hidden hidden pb-4 pt-2 border-t border-[#FFFCFC]/10 mt-2"
+      class="md:hidden hidden pb-6 pt-3 border-t border-[#FFFCFC]/10 mt-3"
     >
-      <nav class="flex flex-col gap-2">
-        <a href="/" class={getLinkClass('/', true)}>Inicio</a>
-        <a href="/nosotros" class={getLinkClass('/nosotros', true)}>Nosotros</a>
-        <a href="/servicios" class={getLinkClass('/servicios', true)}>Servicios</a>
-        <a href="/infraestructura" class={getLinkClass('/infraestructura', true)}>Infraestructura</a>
-        <a href="/proyectos" class={getLinkClass('/proyectos', true)}>Proyectos</a>
+      <nav class="flex flex-col gap-3 px-1">
+        {mobileMenuLinks.map(link => (
+          <a href={link.path} class={getLinkClass(link.path, true)}>
+            <span class="tracking-wide">{link.name}</span>
+            <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
       </nav>
     </div>
   </div>
