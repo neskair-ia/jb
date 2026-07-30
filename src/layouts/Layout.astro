@@ -59,7 +59,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
-			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64] flex items-center justify-center transition-opacity duration-700" oncontextmenu="return false;">
+			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64] flex items-center justify-center transition-opacity duration-500" oncontextmenu="return false;">
 				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
 					<img 
 						id="splash-img"
@@ -123,11 +123,11 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 						document.body.style.overflow = '';
 						setTimeout(() => {
 							splashScreen.remove();
-						}, 700); // Dar tiempo a que termine la transición de opacidad
+						}, 500); // Dar tiempo a que termine la transición de opacidad
 					};
 
-					// Tiempo exacto de seguridad: 1.5 segundos según lo solicitado
-					setTimeout(hideSplash, 1500);
+					// Tiempo reducido para una carga más rápida
+					setTimeout(hideSplash, 800);
 				}
 
 				// Lógica Anti-Spam
