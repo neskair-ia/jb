@@ -59,20 +59,20 @@ export const SERVICES = [
 ];
 
 export const INFRASTRUCTURE = [
-  { title: 'Equipo de Trabajo', description: 'Contamos con personal altamente capacitado y certificado para realizar estructuras de alta complejidad. También contamos con la maquinaria adecuada para satisfacer las necesidades de nuestros clientes.' },
-  { title: 'Maquinaria de Soldadura', description: 'Contamos con distintas opciones de soldadura para cada proyecto: SNAW / MMA, MIG / MAG, TIG, SAW (arco sumergido).' },
-  { title: 'Desarrollos Especiales', description: 'Nuestros proyectos se realizan a medida del cliente. Contamos con dos plantas industriales adaptables a cada nuevo proyecto. También contamos con stock de materiales y grandes espesores en acero carbono, aluminio, etc.' },
-  { title: 'Capacidades', description: 'Podemos mecanizar y cortar grandes espesores superiores a 50mm. También certificamos soldaduras, uniones y acabados mediante ensayos no destructivos como tinta penetrante y magnaflux.' },
-  { title: 'Trazabilidad', description: 'Cada desarrollo organizado por nuestros ingenieros cuenta con trazabilidad indicando material, procesos, soldadores, lote, fecha de realización y calidad de acabado según métricas internas.' },
-  { title: 'Soldadores Certificados', description: 'Nuestros soldadores están certificados en el nivel 2, lo cual brinda seguridad y calidad a cada proyecto.' },
-  { title: 'Láser de Fibra Óptica', description: 'Con nuestro láser de fibra óptica podemos regresar cortes de precisión milimétrica en espesores cercanos a 20mm de acero carbono.' },
-  { title: 'Ensayo No Destructivo', description: 'Todas nuestras soldaduras deben estar aprobadas por nuestro departamento técnico bajo normas AWS para determinar su correcta aplicación.' },
-  { title: 'Plegadora de Control Numérico', description: 'Contamos con plegadoras hidráulicas de control numérico y alto tonelaje, ideal para realizar proyectos de gran envergadura.' },
-  { title: 'Certificamos Calidad', description: 'Nuestro objetivo como proyectistas es garantizar y certificar la calidad de nuestro producto final.' },
-  { title: 'Router CNC', description: 'Podemos realizar mecanizados en materiales como polímeros especiales para distintas aplicaciones técnicas.' },
-  { title: 'Pruebas de Tintas Penetrantes', description: 'Cada soldadura pasa por un riguroso proceso de pruebas con tintas penetrantes para detectar fisuras, poros o imperfecciones.' },
-  { title: 'Pintura Electrostática Secada en Horno', description: 'Las piezas fabricadas ingresan a nuestro horno de pintura electrostática. El resultado es un acabado uniforme, sin irregularidades, con alta resistencia a golpes, humedad, rayos UV y corrosión.' },
-  { title: 'Instalaciones en Obra', description: 'Todos nuestros productos son instalados por nosotros si así lo requiere el cliente.' }
+  { id: 7, title: 'Láser de Fibra Óptica', description: 'Con nuestro láser de fibra óptica podemos regresar cortes de precisión milimétrica en espesores cercanos a 20mm de acero carbono.' },
+  { id: 9, title: 'Plegadora de Control Numérico', description: 'Contamos con plegadoras hidráulicas de control numérico y alto tonelaje, ideal para realizar proyectos de gran envergadura.' },
+  { id: 11, title: 'Router CNC', description: 'Podemos realizar mecanizados en materiales como polímeros especiales para distintas aplicaciones técnicas.' },
+  { id: 13, title: 'Pintura Electrostática Secada en Horno', description: 'Las piezas fabricadas ingresan a nuestro horno de pintura electrostática. El resultado es un acabado uniforme, sin irregularidades, con alta resistencia a golpes, humedad, rayos UV y corrosión.' },
+  { id: 14, title: 'Instalaciones en Obra', description: 'Todos nuestros productos son instalados por nosotros si así lo requiere el cliente.' },
+  { id: 1, title: 'Equipo de Trabajo', description: 'Contamos con personal altamente capacitado y certificado para realizar estructuras de alta complejidad. También contamos con la maquinaria adecuada para satisfacer las necesidades de nuestros clientes.' },
+  { id: 2, title: 'Maquinaria de Soldadura', description: 'Contamos con distintas opciones de soldadura para cada proyecto: SNAW / MMA, MIG / MAG, TIG, SAW (arco sumergido).' },
+  { id: 3, title: 'Desarrollos Especiales', description: 'Nuestros proyectos se realizan a medida del cliente. Contamos con dos plantas industriales adaptables a cada nuevo proyecto. También contamos con stock de materiales y grandes espesores en acero carbono, aluminio, etc.' },
+  { id: 4, title: 'Capacidades', description: 'Podemos mecanizar y cortar grandes espesores superiores a 50mm. También certificamos soldaduras, uniones y acabados mediante ensayos no destructivos como tinta penetrante y magnaflux.' },
+  { id: 5, title: 'Trazabilidad', description: 'Cada desarrollo organizado por nuestros ingenieros cuenta con trazabilidad indicando material, procesos, soldadores, lote, fecha de realización y calidad de acabado según métricas internas.' },
+  { id: 6, title: 'Soldadores Certificados', description: 'Nuestros soldadores están certificados en el nivel 2, lo cual brinda seguridad y calidad a cada proyecto.' },
+  { id: 8, title: 'Ensayo No Destructivo', description: 'Todas nuestras soldaduras deben estar aprobadas por nuestro departamento técnico bajo normas AWS para determinar su correcta aplicación.' },
+  { id: 10, title: 'Certificamos Calidad', description: 'Nuestro objetivo como proyectistas es garantizar y certificar la calidad de nuestro producto final.' },
+  { id: 12, title: 'Pruebas de Tintas Penetrantes', description: 'Cada soldadura pasa por un riguroso proceso de pruebas con tintas penetrantes para detectar fisuras, poros o imperfecciones.' }
 ];
 
 export const PROJECTS_INTRO = 'Cada proyecto que llevamos adelante es el reflejo de un cliente, una marca y un espacio con características únicas. Los principales proyectos que realizamos son: estaciones de servicio, concesionarias, locales comerciales y espacios industriales intervenidos con imagen corporativa de alto nivel.';

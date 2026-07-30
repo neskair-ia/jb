@@ -30,13 +30,13 @@ Object.keys(infraFiles).forEach(file => {
         <div class="group relative aspect-square sm:aspect-[4/3] lg:aspect-[4/3] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/30 cursor-default">
           <!-- Imagen dinámica o placeholder -->
           <img 
-            src={infraImages[(index + 1).toString()] || `https://placehold.co/800x600/1E2D64/FFFCFC?text=${item.title.split(' ').join('+')}`} 
+            src={infraImages[item.id.toString()] || `https://placehold.co/800x600/1E2D64/FFFCFC?text=${item.title.split(' ').join('+')}`} 
             alt={item.title} 
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
           />
           
-          <!-- Gradiente oscuro para legibilidad -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+          <!-- Gradiente oscuro inferior corto para legibilidad del texto sin ensuciar la foto -->
+          <div class="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-[#0e1633] via-[#0e1633]/60 to-transparent pointer-events-none"></div>
           
           <!-- Contenido -->
           <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
