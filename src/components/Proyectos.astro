@@ -1,18 +1,11 @@
 ---
 import { PROJECTS_INTRO } from '../config';
-import fs from 'fs';
-import path from 'path';
 
-let clientLogos: string[] = [];
-try {
-  const clientesDir = path.join(process.cwd(), 'public', 'clientes');
-  clientLogos = fs.readdirSync(clientesDir).filter(file => /\.(png|jpe?g|svg|webp)$/i.test(file));
-} catch (e) {
-  // Ignorar si la carpeta no existe
-}
+const clientFiles = import.meta.glob('/public/clientes/*.{png,jpg,jpeg,svg,webp}');
+const clientLogos = Object.keys(clientFiles).map(file => file.replace('/public', ''));
 
-// Fallback por si la carpeta está vacía
-const displayLogos = clientLogos.length > 0 ? clientLogos : ['logo.png'];
+// Fallback por si no se detectan imágenes
+const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
 ---
 
 <section id="proyectos" class="py-24 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
@@ -31,12 +24,12 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['logo.png'];
     <div class="relative w-full overflow-hidden bg-[#FFFCFC]/5 backdrop-blur-md py-8 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 mb-20">
       <div class="flex whitespace-nowrap animate-marquee">
         <!-- Double the array for seamless infinite scroll -->
-        {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoFile) => (
-          <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-transparent rounded-xl cursor-default group">
+        {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoPath) => (
+          <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-[#FFFCFC] rounded-xl cursor-default group p-2">
             <img 
-              src={clientLogos.length > 0 ? `/clientes/${logoFile}` : `/images/${logoFile}`} 
+              src={logoPath} 
               alt="Cliente" 
-              class="max-w-full max-h-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md"
+              class="max-w-full max-h-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md mix-blend-multiply"
             />
           </div>
         ))}
