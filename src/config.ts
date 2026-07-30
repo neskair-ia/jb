@@ -88,3 +88,21 @@ export const CLIENTS = [
   'JEEP',
   'YPF'
 ];
+
+export const PROJECTS = [
+  { title: 'Proyecto 1' },
+  { title: 'Proyecto 2' },
+  { title: 'Proyecto 3' },
+  { title: 'Proyecto 4' },
+  { title: 'Proyecto 5' },
+  { title: 'Proyecto 6' },
+  { title: 'Proyecto 7' },
+  { title: 'Proyecto 8' },
+  { title: 'Proyecto 9' },
+  { title: 'Proyecto 10' },
+  { title: 'Proyecto 11' },
+  { title: 'Proyecto 12' },
+  { title: 'Proyecto 13' },
+  { title: 'Proyecto 14' },
+  { title: 'Proyecto 15' },
+];

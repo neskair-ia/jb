@@ -1,11 +1,25 @@
 ---
-import { PROJECTS_INTRO } from '../config';
+import { PROJECTS_INTRO, PROJECTS } from '../config';
 
 const clientFiles = import.meta.glob('/public/clientes/*.{png,jpg,jpeg,svg,webp}');
 const clientLogos = Object.keys(clientFiles).map(file => file.replace('/public', ''));
 
 // Fallback por si no se detectan imágenes
 const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
+
+// Auto-descubrir imágenes de los proyectos
+const projectFiles = import.meta.glob('/public/proyectos/**/*.{png,jpg,jpeg,webp,avif}');
+const projectImagesByFolder: Record<string, string[]> = {};
+
+Object.keys(projectFiles).forEach(file => {
+  // Extraer el número de carpeta (ej: /public/proyectos/1/foto.jpg -> "1")
+  const match = file.match(/\/public\/proyectos\/(\d+)\//);
+  if (match) {
+    const folderId = match[1];
+    if (!projectImagesByFolder[folderId]) projectImagesByFolder[folderId] = [];
+    projectImagesByFolder[folderId].push(file.replace('/public', ''));
+  }
+});
 ---
 
 <section id="proyectos" class="py-24 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
@@ -38,36 +52,57 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
 
     <!-- Galería de Proyectos -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      {Array.from({ length: 15 }).map((_, index) => (
-        <div class="group relative aspect-[4/3] md:aspect-video bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
-          
-          <!-- Contenedor de 4 fotos interactivas -->
-          <div class="absolute inset-0 w-full h-full rotate-slider">
-            <img src={`https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${index+1}`} class="slide-img opacity-100" alt="Foto 1" />
-            <img src={`https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 2" />
-            <img src={`https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 3" />
-            <img src={`https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${index+1}`} class="slide-img opacity-0" alt="Foto 4" />
-          </div>
+      {PROJECTS.map((project, index) => {
+        const projectId = (index + 1).toString();
+        // Imágenes de la carpeta del proyecto actual
+        const images = projectImagesByFolder[projectId] || [];
+        
+        // Si no hay imágenes en la carpeta, usamos 4 placeholders
+        const displayImages = images.length > 0 
+          ? images 
+          : [
+              `https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${projectId}`,
+              `https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${projectId}`,
+              `https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${projectId}`,
+              `https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${projectId}`
+            ];
 
-          <!-- Gradiente inferior para legibilidad del título -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-
-          <!-- Título del Proyecto y Click Helper -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end pointer-events-none z-10">
-            <h3 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 drop-shadow-lg">
-              Proyecto {index + 1}
-            </h3>
+        return (
+          <div class="group relative aspect-[4/3] md:aspect-video bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
             
-            <!-- Helper visible en móvil, oculto y on-hover en PC -->
-            <div class="flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-[#1E2D64]/60 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1.5 px-3 md:p-0 rounded-full md:rounded-none w-fit border border-[#FFFCFC]/10 md:border-none">
-              <svg class="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-              </svg>
-              <span class="text-blue-300 text-[10px] md:text-xs uppercase tracking-wider font-bold drop-shadow-md">Toca para ver más</span>
+            <!-- Contenedor de fotos interactivas -->
+            <div class="absolute inset-0 w-full h-full rotate-slider">
+              {displayImages.map((imgSrc, imgIndex) => (
+                <img 
+                  src={imgSrc} 
+                  class={`slide-img ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                  alt={`${project.title} - Foto ${imgIndex + 1}`} 
+                />
+              ))}
+            </div>
+
+            <!-- Gradiente inferior para legibilidad del título -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+            <!-- Título del Proyecto y Click Helper -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end pointer-events-none z-10">
+              <h3 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 drop-shadow-lg">
+                {project.title}
+              </h3>
+              
+              <!-- Helper visible en móvil, oculto y on-hover en PC (solo si hay más de 1 foto) -->
+              {displayImages.length > 1 && (
+                <div class="flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-[#1E2D64]/60 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1.5 px-3 md:p-0 rounded-full md:rounded-none w-fit border border-[#FFFCFC]/10 md:border-none">
+                  <svg class="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                  </svg>
+                  <span class="text-blue-300 text-[10px] md:text-xs uppercase tracking-wider font-bold drop-shadow-md">Toca para ver más fotos</span>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
 
   </div>
