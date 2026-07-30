@@ -22,7 +22,7 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
 
     <!-- Carrusel de Logos de Clientes -->
     <div class="relative w-full overflow-hidden bg-[#FFFCFC]/5 backdrop-blur-md py-8 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 mb-20">
-      <div class="flex whitespace-nowrap animate-marquee">
+      <div class="flex w-max whitespace-nowrap animate-marquee">
         <!-- Double the array for seamless infinite scroll -->
         {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoPath) => (
           <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-[#FFFCFC] rounded-xl cursor-default group p-2 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">

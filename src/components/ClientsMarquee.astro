@@ -14,7 +14,7 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
     </h3>
   </div>
   
-  <div class="relative w-full flex whitespace-nowrap animate-marquee-fast">
+  <div class="relative w-max flex whitespace-nowrap animate-marquee-fast">
     <!-- Triplicamos el array para asegurar un scroll infinito fluido sin cortes -->
     {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoPath) => (
       <div class="mx-6 md:mx-10 flex items-center justify-center w-24 h-10 md:w-32 md:h-14 bg-[#FFFCFC] p-2 rounded-xl shrink-0 group cursor-default hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
