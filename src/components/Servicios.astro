@@ -25,11 +25,11 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
     </div>
 
     <!-- Catálogo de Servicios -->
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-[90rem] mx-auto">
       <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC]">Nuestros Servicios</h3>
       
-      <!-- Grid ajustado a 3 columnas cuadradas -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <!-- Grid ajustado a 3 columnas cuadradas amplias -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {SERVICES.map((service, index) => (
           <div class="group relative aspect-square rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/50 cursor-pointer">
             <!-- Imagen de fondo (placeholder por ahora) -->
@@ -39,8 +39,8 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80" 
             />
             
-            <!-- Gradiente oscuro para que el texto sea siempre legible -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/40 to-transparent opacity-100 transition-opacity duration-500"></div>
+            <!-- Gradiente oscuro menos invasivo para que se vea más la foto -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/95 via-[#1E2D64]/20 to-transparent opacity-100 transition-opacity duration-500"></div>
             
             <!-- Contenido del servicio -->
             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10">
