@@ -1,5 +1,14 @@
 ---
 import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
+
+const serviceFiles = import.meta.glob('/public/servicios/*.{png,jpg,jpeg,webp,avif}');
+const serviceImages: Record<string, string> = {};
+Object.keys(serviceFiles).forEach(file => {
+  const fileName = file.split('/').pop()?.split('.')[0];
+  if (fileName) {
+    serviceImages[fileName] = file.replace('/public', '');
+  }
+});
 ---
 
 <section id="servicios" class="py-32 bg-transparent relative overflow-hidden">
@@ -32,15 +41,15 @@ import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {SERVICES.map((service, index) => (
           <div class="group relative aspect-square rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/50 cursor-pointer">
-            <!-- Imagen de fondo (placeholder por ahora) -->
+            <!-- Imagen dinámica o placeholder -->
             <img 
-              src={`https://placehold.co/800x600/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
+              src={serviceImages[service.id.toString()] || `https://placehold.co/800x600/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
               alt={service.title} 
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80" 
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
             />
             
-            <!-- Gradiente oscuro menos invasivo para que se vea más la foto -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/95 via-[#1E2D64]/20 to-transparent opacity-100 transition-opacity duration-500"></div>
+            <!-- Gradiente oscuro inferior corto para legibilidad del texto sin ensuciar la foto -->
+            <div class="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-[#0e1633] via-[#0e1633]/60 to-transparent pointer-events-none"></div>
             
             <!-- Contenido del servicio -->
             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10">

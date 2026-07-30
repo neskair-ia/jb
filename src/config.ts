@@ -50,12 +50,12 @@ export const PILLARS = [
 ];
 
 export const SERVICES = [
-  { title: 'Revestimiento interior y exterior', description: 'Acero, chapa, aluminio compuesto y otros materiales de alta resistencia para fachadas y ambientes interiores.' },
-  { title: 'Cartelería y tótems', description: 'Señalética luminosa y estructural, tótems de identificación y rótulos de marca homologados.' },
-  { title: 'Letras corpóreas', description: 'Letras en relieve de alta definición para fachadas comerciales e industriales.' },
-  { title: 'Mobiliario comercial', description: 'Diseño y fabricación de mobiliario técnico adaptado a cada espacio y requerimiento de marca.' },
-  { title: 'Equipamiento metalúrgico', description: 'Estructuras y elementos metálicos a medida para entornos industriales y comerciales.' },
-  { title: 'Instalación y montaje', description: 'Equipo propio de instalación con cobertura nacional. Nos encargamos de todo el proceso.' }
+  { id: 1, title: 'Revestimiento interior y exterior', description: 'Acero, chapa, aluminio compuesto y otros materiales de alta resistencia para fachadas y ambientes interiores.' },
+  { id: 2, title: 'Cartelería y tótems', description: 'Señalética luminosa y estructural, tótems de identificación y rótulos de marca homologados.' },
+  { id: 3, title: 'Letras corpóreas', description: 'Letras en relieve de alta definición para fachadas comerciales e industriales.' },
+  { id: 4, title: 'Mobiliario comercial', description: 'Diseño y fabricación de mobiliario técnico adaptado a cada espacio y requerimiento de marca.' },
+  { id: 5, title: 'Equipamiento metalúrgico', description: 'Estructuras y elementos metálicos a medida para entornos industriales y comerciales.' },
+  { id: 6, title: 'Instalación y montaje', description: 'Equipo propio de instalación con cobertura nacional. Nos encargamos de todo el proceso.' }
 ];
 
 export const INFRASTRUCTURE = [
