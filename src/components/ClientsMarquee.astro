@@ -1,0 +1,39 @@
+---
+import { CLIENTS } from '../config';
+---
+
+<section class="py-10 bg-[#FFFCFC]/5 border-t border-b border-[#FFFCFC]/10 overflow-hidden relative backdrop-blur-sm z-10 mt-12 mb-20">
+  <div class="container mx-auto px-4 mb-8">
+    <h3 class="text-center text-[#FFFCFC]/60 text-xs md:text-sm uppercase tracking-[0.2em] font-bold">
+      Algunas de las empresas que confían en nosotros
+    </h3>
+  </div>
+  
+  <div class="relative w-full flex whitespace-nowrap animate-marquee-fast">
+    {/* Triplicamos el array para asegurar un scroll infinito fluido sin cortes */}
+    {[...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS].map((client) => (
+      <div class="mx-8 md:mx-12 flex items-center justify-center w-28 h-12 md:w-36 md:h-16 opacity-40 hover:opacity-100 transition-opacity duration-300 group cursor-default">
+        <img 
+          src="/images/logo.png" 
+          alt={`Logo ${client}`} 
+          class="max-w-full max-h-full object-contain grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .animate-marquee-fast {
+    /* Velocidad ajustada para que sea fluido y no tan lento */
+    animation: marquee-fast 50s linear infinite;
+  }
+  .animate-marquee-fast:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-fast {
+    0% { transform: translateX(0%); }
+    /* Como cuadruplicamos el array, trasladamos un 25% para el loop perfecto */
+    100% { transform: translateX(-25%); }
+  }
+</style>
