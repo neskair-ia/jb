@@ -25,11 +25,11 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
       <div class="flex whitespace-nowrap animate-marquee">
         <!-- Double the array for seamless infinite scroll -->
         {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoPath) => (
-          <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-[#FFFCFC] rounded-xl cursor-default group p-2 shrink-0">
+          <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-[#FFFCFC] rounded-xl cursor-default group p-2 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
             <img 
               src={logoPath} 
               alt="Cliente" 
-              class="max-w-full max-h-full object-contain grayscale opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-md"
+              class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110 rounded-md"
             />
           </div>
         ))}
