@@ -1,5 +1,17 @@
 ---
-import { CLIENTS } from '../config';
+import fs from 'fs';
+import path from 'path';
+
+let clientLogos: string[] = [];
+try {
+  const clientesDir = path.join(process.cwd(), 'public', 'images', 'clientes');
+  clientLogos = fs.readdirSync(clientesDir).filter(file => /\.(png|jpe?g|svg|webp)$/i.test(file));
+} catch (e) {
+  // Ignorar si la carpeta no existe
+}
+
+// Fallback por si la carpeta está vacía
+const displayLogos = clientLogos.length > 0 ? clientLogos : ['logo.png'];
 ---
 
 <section class="py-10 bg-[#FFFCFC]/5 border-t border-b border-[#FFFCFC]/10 overflow-hidden relative backdrop-blur-sm z-10 mt-12 mb-20">
@@ -11,11 +23,11 @@ import { CLIENTS } from '../config';
   
   <div class="relative w-full flex whitespace-nowrap animate-marquee-fast">
     <!-- Triplicamos el array para asegurar un scroll infinito fluido sin cortes -->
-    {[...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS].map((client) => (
+    {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoFile) => (
       <div class="mx-8 md:mx-12 flex items-center justify-center w-28 h-12 md:w-36 md:h-16 opacity-40 hover:opacity-100 transition-opacity duration-300 group cursor-default">
         <img 
-          src="/images/logo.png" 
-          alt={`Logo ${client}`} 
+          src={clientLogos.length > 0 ? `/images/clientes/${logoFile}` : `/images/${logoFile}`} 
+          alt={`Logo Cliente`} 
           class="max-w-full max-h-full object-contain grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
         />
       </div>

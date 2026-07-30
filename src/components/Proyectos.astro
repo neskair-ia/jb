@@ -1,5 +1,18 @@
 ---
-import { PROJECTS_INTRO, CLIENTS } from '../config';
+import { PROJECTS_INTRO } from '../config';
+import fs from 'fs';
+import path from 'path';
+
+let clientLogos: string[] = [];
+try {
+  const clientesDir = path.join(process.cwd(), 'public', 'images', 'clientes');
+  clientLogos = fs.readdirSync(clientesDir).filter(file => /\.(png|jpe?g|svg|webp)$/i.test(file));
+} catch (e) {
+  // Ignorar si la carpeta no existe
+}
+
+// Fallback por si la carpeta está vacía
+const displayLogos = clientLogos.length > 0 ? clientLogos : ['logo.png'];
 ---
 
 <section id="proyectos" class="py-24 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
@@ -17,11 +30,11 @@ import { PROJECTS_INTRO, CLIENTS } from '../config';
     <!-- Carrusel de Logos de Clientes -->
     <div class="relative w-full overflow-hidden bg-[#FFFCFC]/5 backdrop-blur-md py-8 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 mb-20">
       <div class="flex whitespace-nowrap animate-marquee">
-        {/* Double the array for seamless infinite scroll */}
-        {[...CLIENTS, ...CLIENTS].map((client) => (
+        <!-- Double the array for seamless infinite scroll -->
+        {[...displayLogos, ...displayLogos, ...displayLogos, ...displayLogos].map((logoFile) => (
           <div class="mx-6 md:mx-8 flex items-center justify-center w-28 h-14 md:w-40 md:h-20 bg-transparent rounded-xl cursor-default group">
             <img 
-              src="/images/logo.png" 
+              src={clientLogos.length > 0 ? `/images/clientes/${logoFile}` : `/images/${logoFile}`} 
               alt="Cliente" 
               class="max-w-full max-h-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md"
             />
