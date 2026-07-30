@@ -23,41 +23,43 @@ Object.keys(serviceFiles).forEach(file => {
       </p>
     </div>
 
-    <!-- Pilares de Servicio -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-24">
-      {PILLARS.map((pillar, index) => (
-        <div class="p-6 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default group">
-          <h3 class="text-xl font-bold mb-4 text-[#FFFCFC] group-hover:text-blue-300 transition-colors">{pillar.title}</h3>
-          <p class="text-[#FFFCFC]/70 text-sm leading-relaxed font-light">{pillar.description}</p>
-        </div>
-      ))}
-    </div>
-
-    <!-- Catálogo de Servicios -->
-    <div class="max-w-[90rem] mx-auto">
-      <h3 class="text-3xl font-bold mb-8 md:mb-10 text-center text-[#FFFCFC]">Nuestros Servicios</h3>
-      
-      <!-- Grid ajustado a 3 columnas cuadradas amplias -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    <!-- Catálogo de Servicios (Visual Principal) -->
+    <div class="max-w-[95rem] mx-auto mb-20 md:mb-32">
+      <!-- Grid de 3 columnas para destacar fotos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
         {SERVICES.map((service, index) => (
-          <div class="group relative aspect-square rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/50 cursor-pointer">
-            <!-- Imagen dinámica o placeholder -->
-            <img 
-              src={serviceImages[service.id.toString()] || `https://placehold.co/800x600/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
-              alt={service.title} 
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
-            />
+          <div class="group cursor-default flex flex-col gap-5">
             
-            <!-- Gradiente oscuro inferior corto para legibilidad del texto sin ensuciar la foto -->
-            <div class="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-[#0e1633] via-[#0e1633]/60 to-transparent pointer-events-none"></div>
+            <!-- Imagen Limpia (Sin Filtros) -->
+            <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
+              <img 
+                src={serviceImages[service.id.toString()] || `https://placehold.co/800x1000/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
+                alt={service.title} 
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+            </div>
             
-            <!-- Contenido del servicio -->
-            <div class="absolute inset-0 p-5 md:p-8 flex flex-col justify-end z-10">
-              <h4 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 md:mb-3 group-hover:text-blue-300 transition-colors drop-shadow-lg leading-tight">{service.title}</h4>
-              <p class="text-[#FFFCFC]/85 text-sm md:text-[15px] leading-relaxed font-light line-clamp-2 md:line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+            <!-- Texto acompañante (Minimalista) -->
+            <div class="flex flex-col px-2">
+              <h4 class="text-2xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors">{service.title}</h4>
+              <p class="text-[#FFFCFC]/70 text-[15px] leading-relaxed font-light">
                 {service.description}
               </p>
             </div>
+            
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pilares de Servicio (Secundario) -->
+    <div class="max-w-7xl mx-auto border-t border-[#FFFCFC]/10 pt-16 md:pt-24">
+      <h3 class="text-2xl font-bold mb-10 text-center text-[#FFFCFC]/90">Por qué elegirnos</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {PILLARS.map((pillar, index) => (
+          <div class="p-6 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/30 transition-all duration-300 cursor-default group">
+            <h4 class="text-xl font-bold mb-4 text-[#FFFCFC] group-hover:text-blue-300 transition-colors">{pillar.title}</h4>
+            <p class="text-[#FFFCFC]/70 text-sm leading-relaxed font-light">{pillar.description}</p>
           </div>
         ))}
       </div>
