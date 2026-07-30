@@ -23,7 +23,7 @@ Object.keys(projectFiles).forEach(file => {
 ---
 
 <section id="proyectos" class="py-24 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="max-w-[95rem] mx-auto px-4 relative z-10">
     
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
@@ -68,14 +68,14 @@ Object.keys(projectFiles).forEach(file => {
             ];
 
         return (
-          <div class="group relative aspect-[4/3] md:aspect-video bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
+          <div class="group relative aspect-square md:aspect-[4/3] bg-black/20 rounded-3xl overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
             
             <!-- Contenedor de fotos interactivas -->
             <div class="absolute inset-0 w-full h-full rotate-slider">
               {displayImages.map((imgSrc, imgIndex) => (
                 <img 
                   src={imgSrc} 
-                  class={`slide-img ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                  class={`slide-img transition-transform duration-700 group-hover:scale-110 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
                   alt={`${project.title} - Foto ${imgIndex + 1}`} 
                 />
               ))}
@@ -131,7 +131,7 @@ Object.keys(projectFiles).forEach(file => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out, transform 0.7s ease-out;
   }
 </style>
 
