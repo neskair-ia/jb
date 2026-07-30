@@ -51,7 +51,7 @@ Object.keys(projectFiles).forEach(file => {
     </div>
 
     <!-- Galería de Proyectos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 md:gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
       {PROJECTS.map((project, index) => {
         const projectId = (index + 1).toString();
         // Imágenes de la carpeta del proyecto actual
@@ -68,35 +68,34 @@ Object.keys(projectFiles).forEach(file => {
             ];
 
         return (
-          <div class="group relative aspect-square bg-black/20 rounded-[2rem] overflow-hidden border border-[#FFFCFC]/10 shadow-lg hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer project-card" style={`transition-delay: ${(index % 3) * 100}ms`}>
+          <div class="group cursor-pointer project-card flex flex-col gap-5" style={`transition-delay: ${(index % 3) * 100}ms`}>
             
-            <!-- Contenedor de fotos interactivas -->
-            <div class="absolute inset-0 w-full h-full rotate-slider">
-              {displayImages.map((imgSrc, imgIndex) => (
-                <img 
-                  src={imgSrc} 
-                  class={`slide-img transition-transform duration-700 group-hover:scale-110 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
-                  alt={`${project.title} - Foto ${imgIndex + 1}`} 
-                />
-              ))}
+            <!-- Contenedor de fotos interactivas (Más alto y minimalista) -->
+            <div class="relative w-full aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
+              <div class="absolute inset-0 w-full h-full rotate-slider">
+                {displayImages.map((imgSrc, imgIndex) => (
+                  <img 
+                    src={imgSrc} 
+                    class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                    alt={`${project.title} - Foto ${imgIndex + 1}`} 
+                  />
+                ))}
+              </div>
             </div>
 
-            <!-- Gradiente inferior corto solo para legibilidad del título, sin oscurecer toda la foto -->
-            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
-
-            <!-- Título del Proyecto y Click Helper -->
-            <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end pointer-events-none z-10">
-              <h3 class="text-xl md:text-2xl font-bold text-[#FFFCFC] mb-2 drop-shadow-lg">
+            <!-- Título del Proyecto (Minimalista, debajo de la foto) -->
+            <div class="flex flex-col px-2">
+              <h3 class="text-2xl font-semibold text-[#FFFCFC] group-hover:text-blue-300 transition-colors">
                 {project.title}
               </h3>
               
-              <!-- Helper visible en móvil, oculto y on-hover en PC (solo si hay más de 1 foto) -->
+              <!-- Helper sutil -->
               {displayImages.length > 1 && (
-                <div class="flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-[#1E2D64]/60 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1.5 px-3 md:p-0 rounded-full md:rounded-none w-fit border border-[#FFFCFC]/10 md:border-none">
+                <div class="flex items-center gap-2 mt-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <svg class="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span class="text-blue-300 text-[10px] md:text-xs uppercase tracking-wider font-bold drop-shadow-md">Toca para ver más fotos</span>
+                  <span class="text-[#FFFCFC] text-sm font-light tracking-wide">{displayImages.length} fotos - Toca la imagen para ver más</span>
                 </div>
               )}
             </div>
