@@ -2,50 +2,50 @@
 import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
 ---
 
-<section id="servicios" class="py-24 bg-transparent relative overflow-hidden">
+<section id="servicios" class="py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     
-    <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#1E2D64]">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Qué Hacemos
       </h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
+      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
         {SERVICES_INTRO}
       </p>
     </div>
 
-    <!-- Pilares de Servicio (Claros) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+    <!-- Pilares de Servicio -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
       {PILLARS.map((pillar, index) => (
-        <div class="animate-on-scroll p-8 rounded-3xl bg-white border border-slate-200 shadow-xl hover:-translate-y-2 hover:border-blue-400 hover:shadow-2xl transition-all duration-300" style={`transition-delay: ${index * 100}ms`}>
-          <h3 class="text-xl font-bold mb-4 text-[#1E2D64]">{pillar.title}</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">{pillar.description}</p>
+        <div class="p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default group">
+          <h3 class="text-xl font-bold mb-4 text-[#FFFCFC] group-hover:text-blue-300 transition-colors">{pillar.title}</h3>
+          <p class="text-[#FFFCFC]/70 text-sm leading-relaxed font-light">{pillar.description}</p>
         </div>
       ))}
     </div>
 
-    <!-- Catálogo de Servicios (Tarjetas Oscuras/Imágenes para contraste) -->
+    <!-- Catálogo de Servicios -->
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold mb-10 text-center text-[#1E2D64] animate-on-scroll">Nuestros Servicios</h3>
+      <h3 class="text-3xl font-bold mb-10 text-center text-[#FFFCFC]">Nuestros Servicios</h3>
       
-      <!-- Grid ajustado para que entren bien en pantalla (2 columnas para máxima amplitud visual) -->
+      <!-- Grid ajustado (2 columnas para máxima amplitud visual) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {SERVICES.map((service, index) => (
-          <div class="animate-on-scroll group relative aspect-[4/3] sm:aspect-[3/2] rounded-[2rem] overflow-hidden bg-white border border-slate-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-300">
+          <div class="group relative aspect-[4/3] sm:aspect-[3/2] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/50 cursor-pointer">
             <!-- Imagen de fondo (placeholder por ahora) -->
             <img 
-              src={`https://placehold.co/800x600/1E2D64/FFFCFC?text=${service.title.split(' ').join('+')}`} 
+              src={`https://placehold.co/800x600/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
               alt={service.title} 
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80" 
             />
             
             <!-- Gradiente oscuro para que el texto sea siempre legible -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/40 to-transparent opacity-100 transition-opacity duration-500"></div>
             
             <!-- Contenido del servicio -->
-            <div class="absolute inset-0 p-8 flex flex-col justify-end">
-              <h4 class="text-xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors">{service.title}</h4>
-              <p class="text-[#FFFCFC]/90 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+            <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end z-10">
+              <h4 class="text-2xl font-bold text-[#FFFCFC] mb-4 group-hover:text-blue-300 transition-colors drop-shadow-lg">{service.title}</h4>
+              <p class="text-[#FFFCFC]/80 text-[15px] leading-relaxed font-light line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
                 {service.description}
               </p>
             </div>
