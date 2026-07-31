@@ -17,7 +17,7 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
     <div class="hidden lg:block absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64]/80 z-10 pointer-events-none"></div>
     
     <!-- Gradient overlays (Celular - Oscuro arriba para el texto, transparente abajo para ver la foto) -->
-    <div class="lg:hidden absolute inset-0 bg-gradient-to-b from-[#1E2D64] via-[#1E2D64]/70 to-transparent z-10 pointer-events-none"></div>
+    <div class="lg:hidden absolute top-0 inset-x-0 h-[65%] bg-gradient-to-b from-[#1E2D64]/95 via-[#1E2D64]/40 to-transparent z-10 pointer-events-none"></div>
     
     <!-- Rotating images -->
     {heroImages.length > 0 ? (
@@ -25,7 +25,7 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
         <img 
           src={imgSrc} 
           alt="JB Ingeniería Corporativa" 
-          class={`hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`} 
+          class={`hero-slide absolute inset-0 w-full h-full object-cover ${index === 2 ? 'object-[75%_center]' : 'object-center'} transition-opacity duration-[2000ms] ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`} 
         />
       ))
     ) : (
