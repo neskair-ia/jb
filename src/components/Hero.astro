@@ -10,14 +10,14 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
   <!-- Background minimalista (sin brillos molestos) -->
   <div class="absolute inset-0 z-0 bg-transparent"></div>
 
-  <!-- Background Image Area (Fading into the blue) -->
-  <div class="absolute inset-x-0 bottom-0 top-[50%] lg:top-0 lg:left-[35%] z-0 overflow-hidden">
-    <!-- Gradient overlays (Solo en desktop para mimetizar) -->
+  <!-- Background Image Area -->
+  <div class="absolute inset-0 lg:left-[35%] z-0 overflow-hidden">
+    <!-- Gradient overlays (Desktop) -->
     <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#1E2D64] via-[#1E2D64]/30 to-transparent z-10 pointer-events-none"></div>
     <div class="hidden lg:block absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64]/80 z-10 pointer-events-none"></div>
     
-    <!-- Gradient suave superior (Solo en celular para mezclar el borde con el fondo azul) -->
-    <div class="lg:hidden absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#1E2D64] to-transparent z-10 pointer-events-none"></div>
+    <!-- Gradient overlays (Celular - Oscuro arriba para el texto, transparente abajo para ver la foto) -->
+    <div class="lg:hidden absolute inset-0 bg-gradient-to-b from-[#1E2D64] via-[#1E2D64]/70 to-transparent z-10 pointer-events-none"></div>
     
     <!-- Rotating images -->
     {heroImages.length > 0 ? (
@@ -33,14 +33,14 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
     )}
   </div>
 
-  <div class="container mx-auto px-4 z-10 relative flex items-start lg:items-center h-full pt-12 lg:pt-0">
+  <div class="container mx-auto px-4 z-10 relative flex items-start lg:items-center h-full pt-16 lg:pt-0">
     <div class="w-full lg:w-[60%] text-center lg:text-left py-4 md:py-20 lg:py-32 hero-assemble">
       <!-- Tag / Eyebrow -->
-      <div class="inline-block text-[#FFFCFC]/70 uppercase tracking-widest text-[10px] md:text-xs font-semibold mb-4 md:mb-6">
+      <div class="inline-block text-[#FFFCFC]/70 uppercase tracking-widest text-[11px] md:text-xs font-semibold mb-4 md:mb-6">
         Ingeniería Corporativa a Escala Industrial
       </div>
 
-      <h1 class="text-[32px] sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-3 md:mb-6 text-[#FFFCFC] leading-[1.1]">
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 text-[#FFFCFC] leading-[1.1]">
         JB Ingeniería
         <br class="hidden sm:block"/>
         <span class="animate-text-glow inline-block text-[#FFFCFC]">
@@ -48,37 +48,37 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
         </span>
       </h1>
       
-      <p class="mt-2 md:mt-4 text-[15px] md:text-2xl text-[#FFFCFC]/80 max-w-2xl mx-auto lg:mx-0 mb-6 md:mb-10 leading-relaxed font-light">
+      <p class="mt-2 md:mt-4 text-base md:text-2xl text-[#FFFCFC]/90 max-w-2xl mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed font-light drop-shadow-md">
         {HERO.subtitle}
       </p>
 
-      <div class="flex flex-row items-center justify-center lg:justify-start gap-2.5 md:gap-5 flex-wrap">
+      <div class="flex flex-row items-center justify-center lg:justify-start gap-3 md:gap-5 flex-wrap">
         
         <!-- Botón Secundario: Conócenos -->
-        <a href="/nosotros" class="group inline-flex h-9 md:h-14 items-center justify-center rounded-full bg-[#FFFCFC]/5 px-5 md:px-8 text-[12px] md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/20 backdrop-blur-md hover:bg-[#FFFCFC]/15 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-          <span class="flex items-center gap-1.5 md:gap-2">
+        <a href="/nosotros" class="group inline-flex h-11 md:h-14 items-center justify-center rounded-full bg-[#FFFCFC]/10 px-6 md:px-8 text-sm md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/30 backdrop-blur-md hover:bg-[#FFFCFC]/20 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
+          <span class="flex items-center gap-2">
             {HERO.ctaText}
-            <svg class="w-3.5 h-3.5 opacity-0 -ml-3.5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </span>
         </a>
 
         <!-- Botón Secundario: Servicios -->
-        <a href="/servicios" class="group inline-flex h-9 md:h-14 items-center justify-center rounded-full bg-[#FFFCFC]/5 px-5 md:px-8 text-[12px] md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/20 backdrop-blur-md hover:bg-[#FFFCFC]/15 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-          <span class="flex items-center gap-1.5 md:gap-2">
+        <a href="/servicios" class="group inline-flex h-11 md:h-14 items-center justify-center rounded-full bg-[#FFFCFC]/10 px-6 md:px-8 text-sm md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/30 backdrop-blur-md hover:bg-[#FFFCFC]/20 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
+          <span class="flex items-center gap-2">
             Servicios
-            <svg class="w-3.5 h-3.5 opacity-0 -ml-3.5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </span>
         </a>
 
         <!-- Botón Principal: Proyectos -->
-        <a href="/proyectos" class="group relative inline-flex h-10 md:h-14 items-center justify-center overflow-hidden rounded-full bg-[#FFFCFC] px-6 md:px-8 text-[13px] md:text-base font-bold text-[#1E2D64] shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
-          <span class="relative z-10 flex items-center gap-1.5 md:gap-2">
+        <a href="/proyectos" class="group relative inline-flex h-12 md:h-14 items-center justify-center overflow-hidden rounded-full bg-[#FFFCFC] px-8 md:px-8 text-sm md:text-base font-bold text-[#1E2D64] shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+          <span class="relative z-10 flex items-center gap-2">
             Proyectos
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </span>
