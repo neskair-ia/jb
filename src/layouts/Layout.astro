@@ -175,6 +175,20 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 						setInterval(showTooltip, 30000);
 					}, 10000);
 				}
+
+				// Prevención infalible de arrastre de imágenes y enlaces (Global)
+				document.addEventListener('dragstart', (e) => {
+					if (e.target && (e.target.nodeName === 'IMG' || e.target.nodeName === 'A')) {
+						e.preventDefault();
+					}
+				});
+				
+				// Deshabilitar menú contextual en imágenes
+				document.addEventListener('contextmenu', (e) => {
+					if (e.target && e.target.nodeName === 'IMG') {
+						e.preventDefault();
+					}
+				});
 			});
 		</script>
 	</body>
