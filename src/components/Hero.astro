@@ -87,6 +87,14 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
       </div>
     </div>
   </div>
+
+  <!-- Animated Scroll Down Indicator (visible mostly on mobile or when not scrolled) -->
+  <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center justify-center animate-bounce-slow opacity-80 pointer-events-none">
+    <span class="text-[10px] md:text-xs text-[#FFFCFC] uppercase tracking-widest font-semibold mb-2 drop-shadow-md">Deslizar</span>
+    <div class="w-5 h-8 md:w-6 md:h-10 border-2 border-[#FFFCFC]/50 rounded-full flex justify-center p-1 backdrop-blur-sm">
+      <div class="w-1 md:w-1.5 h-1 md:h-1.5 bg-[#FFFCFC] rounded-full animate-scroll-wheel"></div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -117,6 +125,23 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
       transform: translateY(0) scale(1);
       filter: blur(0);
     }
+  }
+
+  /* Animaciones para el indicador de scroll */
+  @keyframes bounce-slow {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2.5s infinite ease-in-out;
+  }
+
+  @keyframes scroll-wheel {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(12px); opacity: 0; }
+  }
+  .animate-scroll-wheel {
+    animation: scroll-wheel 1.5s infinite cubic-bezier(0.15, 0.41, 0.69, 0.94);
   }
 </style>
 

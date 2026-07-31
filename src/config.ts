@@ -42,6 +42,8 @@ export const ABOUT = {
 
 export const SERVICES_INTRO = 'Nos especializamos en el desarrollo integral de proyectos de imagen corporativa para estaciones de servicio, concesionarias de automóviles, industrias y empresas que buscan fortalecer su presencia de marca a través de soluciones visuales de alto impacto.';
 
+export const SERVICES_INTRO_MOBILE = 'Soluciones visuales de alto impacto. Especialistas en imagen corporativa integral para industrias, estaciones y grandes marcas.';
+
 export const PILLARS = [
   { title: 'Seguridad', description: 'Todas las estructuras y carteles son diseñadas y fabricadas en nuestra planta por personal altamente calificado para cada requerimiento.' },
   { title: 'Herramientas', description: 'Contamos con todas las herramientas y maquinarias específicas para cada tipo de trabajo solicitado.' },

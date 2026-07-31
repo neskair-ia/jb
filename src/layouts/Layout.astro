@@ -200,6 +200,24 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 	}
 	html {
 		font-family: 'Inter', var(--font-fallback);
+		scrollbar-width: thin;
+		scrollbar-color: #3b82f6 #1E2D64;
+	}
+
+	/* Scrollbar súper profesional y moderno para navegadores Webkit (Chrome, Safari, Edge) */
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background: #0f172a; 
+	}
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(180deg, #60a5fa, #2563eb);
+		border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(180deg, #93c5fd, #3b82f6);
 	}
 
 	/* Evitar que las fotos y carruseles se puedan arrastrar con el mouse */

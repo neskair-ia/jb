@@ -1,5 +1,5 @@
 ---
-import { SERVICES_INTRO, PILLARS, SERVICES } from '../config';
+import { SERVICES, SERVICES_INTRO, SERVICES_INTRO_MOBILE, PILLARS } from '../config';
 
 const serviceFiles = import.meta.glob('/public/servicios/*.{png,jpg,jpeg,webp,avif}');
 const serviceImages: Record<string, string> = {};
@@ -18,8 +18,13 @@ Object.keys(serviceFiles).forEach(file => {
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Qué Hacemos
       </h2>
-      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
+      <!-- Texto versión Desktop -->
+      <p class="hidden md:block text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
         {SERVICES_INTRO}
+      </p>
+      <!-- Texto versión Celular (Más corto y directo) -->
+      <p class="md:hidden text-[15px] text-[#FFFCFC]/90 leading-relaxed px-2 font-medium">
+        {SERVICES_INTRO_MOBILE}
       </p>
     </div>
 
