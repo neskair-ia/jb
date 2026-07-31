@@ -1,5 +1,9 @@
 ---
 import { HERO } from '../config';
+
+// Importamos temporalmente las fotos de servicios para probarlas en el Hero
+const serviceFiles = import.meta.glob('/public/servicios/*.{png,jpg,jpeg,webp,avif}', { eager: true });
+const heroImages = Object.keys(serviceFiles).map(file => file.replace('/public', ''));
 ---
 
 <section id="inicio" class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1E2D64]">
@@ -13,13 +17,19 @@ import { HERO } from '../config';
     <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64] z-10"></div>
     <div class="absolute inset-0 bg-[#1E2D64]/20 z-10"></div>
     
-    <!-- Placeholder for rotating images/videos -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center opacity-30 border border-dashed border-[#FFFCFC]/10 m-4 rounded-[2rem]">
-        <svg class="w-20 h-20 text-[#FFFCFC] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <span class="text-[#FFFCFC] font-medium tracking-wide text-sm px-4 text-center">Zona para carrusel de fotos o video de fondo</span>
-    </div>
+    <!-- Rotating images -->
+    {heroImages.length > 0 ? (
+      heroImages.map((imgSrc, index) => (
+        <img 
+          src={imgSrc} 
+          alt="JB Ingeniería Corporativa" 
+          class={`hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`} 
+        />
+      ))
+    ) : (
+      <!-- Fallback just in case -->
+      <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+    )}
   </div>
 
   <div class="container mx-auto px-4 z-10 relative flex items-center h-full">
@@ -108,3 +118,24 @@ import { HERO } from '../config';
     }
   }
 </style>
+
+<script>
+  // Script para el carrusel del Hero
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 1) {
+      let currentSlide = 0;
+      
+      setInterval(() => {
+        // Ocultar slide actual
+        slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+        
+        // Calcular siguiente slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Mostrar nuevo slide
+        slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
+      }, 5000); // 5 segundos por foto
+    }
+  });
+</script>
