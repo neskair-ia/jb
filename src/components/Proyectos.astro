@@ -1,5 +1,5 @@
 ---
-import { PROJECTS_INTRO, PROJECTS } from '../config';
+import { PROJECTS_INTRO, PROJECTS_INTRO_MOBILE, PROJECTS } from '../config';
 
 const clientFiles = import.meta.glob('/public/clientes/*.{png,jpg,jpeg,svg,webp}');
 const clientLogos = Object.keys(clientFiles).map(file => file.replace('/public', ''));
