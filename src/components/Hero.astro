@@ -13,9 +13,8 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
   <!-- Background Image Area (Fading into the blue) -->
   <div class="absolute inset-0 lg:left-[35%] z-0 overflow-hidden">
     <!-- Gradient overlays to mimetize with the background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1E2D64] via-[#1E2D64]/60 to-transparent z-10"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64] z-10"></div>
-    <div class="absolute inset-0 bg-[#1E2D64]/20 z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1E2D64] via-[#1E2D64]/30 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-transparent to-[#1E2D64]/80 z-10 pointer-events-none"></div>
     
     <!-- Rotating images -->
     {heroImages.length > 0 ? (
