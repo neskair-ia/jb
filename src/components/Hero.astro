@@ -2,7 +2,7 @@
 import { HERO } from '../config';
 
 // Importamos las fotos de la carpeta inicio para el carrusel principal
-const heroFiles = import.meta.glob('/public/inicio/*.{png,jpg,jpeg,webp,avif}', { eager: true });
+const heroFiles = import.meta.glob('/public/inicio/*.{png,jpg,jpeg,webp,avif}');
 const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''));
 ---
 
