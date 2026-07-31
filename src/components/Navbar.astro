@@ -82,12 +82,18 @@ const mobileMenuLinks = [
           <span class="hidden sm:inline">WhatsApp</span>
         </button>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Menu Toggle Button (Con dot que insita al clic) -->
         <button 
           id="mobile-menu-toggle"
-          class="md:hidden flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-blue-500/90 text-[#FFFCFC] hover:bg-blue-400 transition-all duration-300 ml-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] border border-blue-400/50 backdrop-blur-sm"
+          class="md:hidden relative flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-blue-500/90 text-[#FFFCFC] hover:bg-blue-400 transition-all duration-300 ml-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] border border-blue-400/50 backdrop-blur-sm"
           aria-label="Menú"
         >
+          <!-- Punto rojo pulsante para atraer la atención -->
+          <span class="absolute -top-1 -right-1 flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500 border border-[#1E2D64]"></span>
+          </span>
+          
           <span class="text-[11px] font-bold uppercase tracking-wider">Menú</span>
           <div class="relative w-5 h-5">
             <svg id="icon-menu" class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,21 +108,23 @@ const mobileMenuLinks = [
 
     </div>
     
-    <!-- Mobile Menu Container -->
+    <!-- Mobile Menu Container (Animado de forma fluida con grid-rows) -->
     <div 
       id="mobile-menu" 
-      class="md:hidden hidden pb-6 pt-3 border-t border-[#FFFCFC]/10 mt-3"
+      class="md:hidden grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-out"
     >
-      <nav class="flex flex-col gap-3 px-1">
-        {mobileMenuLinks.map(link => (
-          <a href={link.path} class={getLinkClass(link.path, true)}>
-            <span class="tracking-wide">{link.name}</span>
-            <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        ))}
-      </nav>
+      <div class="overflow-hidden">
+        <nav class="flex flex-col gap-3 px-1 pb-6 pt-3 mt-3 border-t border-[#FFFCFC]/10">
+          {mobileMenuLinks.map(link => (
+            <a href={link.path} class={getLinkClass(link.path, true)}>
+              <span class="tracking-wide">{link.name}</span>
+              <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
   </div>
 </header>
@@ -129,15 +137,23 @@ const mobileMenuLinks = [
 
   if (toggleBtn && mobileMenu && iconMenu && iconClose) {
     toggleBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      // Toggle de menú con animación fluida de altura
+      const isClosed = mobileMenu.classList.contains('grid-rows-[0fr]');
       
-      // Animación suave de iconos en lugar de display:none brusco
-      if (mobileMenu.classList.contains('hidden')) {
-        iconMenu.classList.replace('opacity-0', 'opacity-100');
-        iconClose.classList.replace('opacity-100', 'opacity-0');
-      } else {
+      if (isClosed) {
+        mobileMenu.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]');
+        mobileMenu.classList.replace('opacity-0', 'opacity-100');
         iconMenu.classList.replace('opacity-100', 'opacity-0');
         iconClose.classList.replace('opacity-0', 'opacity-100');
+        
+        // Al abrir por primera vez, si queremos podríamos ocultar el puntito rojo
+        const dot = toggleBtn.querySelector('.animate-ping');
+        if (dot) dot.parentElement?.remove();
+      } else {
+        mobileMenu.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+        mobileMenu.classList.replace('opacity-100', 'opacity-0');
+        iconMenu.classList.replace('opacity-0', 'opacity-100');
+        iconClose.classList.replace('opacity-100', 'opacity-0');
       }
     });
   }
