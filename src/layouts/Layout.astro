@@ -74,6 +74,11 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 
 		<AmbientLight />
 
+		<!-- Barra de progreso de scroll animada (Barra lateral celular/desktop) -->
+		<div id="scroll-progress-container" class="fixed top-0 right-0 h-screen w-1 md:w-1.5 bg-[#0f172a]/40 z-[9999] overflow-hidden">
+			<div id="scroll-progress-bar" class="w-full h-0 bg-gradient-to-b from-[#60a5fa] to-[#2563eb] shadow-[0_0_10px_#60a5fa] rounded-b-full transition-[height] duration-75 ease-out"></div>
+		</div>
+
 		<slot />
 
 		<!-- Floating WhatsApp Button Container -->
@@ -189,6 +194,21 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 						e.preventDefault();
 					}
 				});
+
+				// Lógica para la barra de progreso de scroll animada (especialmente para celular)
+				const scrollProgressBar = document.getElementById('scroll-progress-bar');
+				if (scrollProgressBar) {
+					const updateScroll = () => {
+						const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+						// Evitar división por cero
+						if (scrollTotal <= 0) return; 
+						const scrollProgress = (window.scrollY / scrollTotal) * 100;
+						scrollProgressBar.style.height = `${scrollProgress}%`;
+					};
+					window.addEventListener('scroll', updateScroll, { passive: true });
+					// Inicializar
+					updateScroll();
+				}
 			});
 		</script>
 	</body>
@@ -218,6 +238,16 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 	}
 	::-webkit-scrollbar-thumb:hover {
 		background: linear-gradient(180deg, #93c5fd, #3b82f6);
+	}
+
+	/* En celulares ocultamos la barra nativa para que solo se vea la barra animada de progreso */
+	@media (max-width: 768px) {
+		::-webkit-scrollbar {
+			display: none;
+		}
+		html {
+			scrollbar-width: none;
+		}
 	}
 
 	/* Evitar que las fotos y carruseles se puedan arrastrar con el mouse */

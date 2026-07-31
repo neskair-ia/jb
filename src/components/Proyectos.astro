@@ -29,8 +29,13 @@ Object.keys(projectFiles).forEach(file => {
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
         Trabajos que hablan por sí solos
       </h2>
-      <p class="text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
+      <!-- Texto versión Desktop -->
+      <p class="hidden md:block text-lg text-[#FFFCFC]/80 leading-relaxed font-light">
         {PROJECTS_INTRO}
+      </p>
+      <!-- Texto versión Celular -->
+      <p class="md:hidden text-[15px] text-[#FFFCFC]/90 leading-relaxed font-medium px-2">
+        {PROJECTS_INTRO_MOBILE}
       </p>
     </div>
 

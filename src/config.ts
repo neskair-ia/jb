@@ -77,7 +77,9 @@ export const INFRASTRUCTURE = [
   { id: 12, title: 'Pruebas de Tintas Penetrantes', description: 'Cada soldadura pasa por un riguroso proceso de pruebas con tintas penetrantes para detectar fisuras, poros o imperfecciones.' }
 ];
 
-export const PROJECTS_INTRO = 'Cada proyecto que llevamos adelante es el reflejo de un cliente, una marca y un espacio con características únicas. Los principales proyectos que realizamos son: estaciones de servicio, concesionarias, locales comerciales y espacios industriales intervenidos con imagen corporativa de alto nivel.';
+export const PROJECTS_INTRO = 'Contamos con una amplia experiencia en el rubro, habiendo ejecutado obras para las principales compañías petroleras y automotrices. Cada imagen refleja nuestro compromiso con la excelencia.';
+
+export const PROJECTS_INTRO_MOBILE = 'Experiencia comprobada con las principales marcas. Obras que reflejan excelencia y calidad.';
 
 export const CLIENTS = [
   'REFINOR',
