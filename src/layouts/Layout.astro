@@ -187,6 +187,22 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 	html {
 		font-family: 'Inter', var(--font-fallback);
 	}
+
+	/* Evitar que las fotos y carruseles se puedan arrastrar con el mouse */
+	img {
+		-webkit-user-drag: none;
+		user-drag: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		pointer-events: none;
+	}
+	
+	/* Solo permitimos pointer-events en elementos clickeables que puedan contener imagenes */
+	a img, button img, .cursor-pointer img {
+		pointer-events: auto;
+	}
 	
 	/* Animaciones de scroll desactivadas */
 	.animate-on-scroll {
