@@ -1,9 +1,9 @@
 ---
 import { HERO } from '../config';
 
-// Importamos temporalmente las fotos de servicios para probarlas en el Hero
-const serviceFiles = import.meta.glob('/public/servicios/*.{png,jpg,jpeg,webp,avif}', { eager: true });
-const heroImages = Object.keys(serviceFiles).map(file => file.replace('/public', ''));
+// Importamos las fotos de la carpeta inicio para el carrusel principal
+const heroFiles = import.meta.glob('/public/inicio/*.{png,jpg,jpeg,webp,avif}', { eager: true });
+const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''));
 ---
 
 <section id="inicio" class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-[#1E2D64]">
