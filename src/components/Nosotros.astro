@@ -2,7 +2,7 @@
 import { ABOUT } from '../config';
 ---
 
-<section id="nosotros" class="py-16 md:py-32 bg-transparent relative overflow-hidden">
+<section id="nosotros" class="pt-28 pb-16 md:py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-6xl mx-auto">
       
@@ -32,16 +32,16 @@ import { ABOUT } from '../config';
       </div>
 
       <!-- Misión y Visión -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-20">
+      <div class="grid grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-20">
         <!-- Card Misión -->
-        <div class="p-6 md:p-10 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 transition-all duration-300">
-          <div class="w-14 h-14 bg-blue-500/20 border border-blue-400/30 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/40 transition-transform duration-300">
+        <div class="animate-on-scroll p-4 sm:p-6 md:p-10 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-blue-400 to-blue-900 text-[#FFFCFC] shadow-xl group hover:-translate-y-2 transition-all duration-300">
+          <div class="w-10 h-10 md:w-12 md:h-12 bg-transparent/10 rounded-xl flex items-center justify-center mb-4 md:mb-6 backdrop-blur-sm">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-[#FFFCFC]">Nuestra Misión</h3>
-          <p class="text-[#FFFCFC]/70 leading-relaxed font-light">
+          <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-4">Nuestra Misión</h3>
+          <p class="text-blue-100 leading-relaxed font-light text-xs md:text-base line-clamp-6 md:line-clamp-none hover:line-clamp-none transition-all">
             {ABOUT.mission}
           </p>
         </div>
@@ -54,31 +54,33 @@ import { ABOUT } from '../config';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-[#FFFCFC]">Nuestra Visión</h3>
-          <p class="text-[#FFFCFC]/70 leading-relaxed font-light">
+          <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-[#FFFCFC]">Nuestra Visión</h3>
+          <p class="text-[#FFFCFC]/80 leading-relaxed font-light text-xs md:text-base line-clamp-6 md:line-clamp-none hover:line-clamp-none transition-all">
             {ABOUT.vision}
           </p>
         </div>
       </div>
 
       <!-- Valores -->
-      <div>
-        <h3 class="text-3xl font-bold mb-8 md:mb-10 text-center text-[#FFFCFC]">Nuestros Valores</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+      <div class="animate-on-scroll">
+        <h3 class="text-2xl md:text-3xl font-bold mb-8 md:mb-10 text-center text-[#FFFCFC]">Nuestros Valores</h3>
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
           {ABOUT.values.map((value, index) => (
             <div class="p-5 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default flex flex-col xl:flex-row gap-5 md:gap-6">
               
               <!-- Text Content -->
               <div class="flex-1">
-                <h4 class="text-xl font-bold mb-3 text-[#FFFCFC] flex items-center gap-3">
-                  <span class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sm text-blue-300 font-black group-hover:bg-blue-500/40 transition-colors shrink-0">
-                    {index + 1}
-                  </span>
-                  {value.title}
-                </h4>
-                <p class="text-[#FFFCFC]/70 text-[15px] leading-relaxed font-light xl:ml-[52px]">
-                  {value.description}
-                </p>
+                <div class="p-4 md:p-5 lg:p-8 rounded-2xl md:rounded-[2rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:shadow-lg transition-all duration-300">
+                  <h4 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-[#FFFCFC] flex flex-col xl:flex-row items-start xl:items-center gap-2 xl:gap-3">
+                    <span class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs shrink-0 text-white">
+                      {index + 1}
+                    </span>
+                    {value.title}
+                  </h4>
+                  <p class="text-[#FFFCFC]/80 text-[11px] md:text-sm leading-relaxed xl:pl-11 line-clamp-4 hover:line-clamp-none transition-all">
+                    {value.description}
+                  </p>
+                </div>
               </div>
 
               <!-- Video Placeholder -->

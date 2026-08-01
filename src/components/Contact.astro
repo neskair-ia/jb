@@ -135,8 +135,8 @@ const REVIEWS = [
         
         <div class="overflow-hidden relative w-full mb-12 mask-image-fade">
           <!-- Marquee Container (Moving Right) -->
-          <div class="flex whitespace-nowrap animate-marquee-right py-4">
-            <!-- Review placeholders (duplicados para efecto infinito) -->
+          <div class="flex w-max whitespace-nowrap animate-marquee-right py-4">
+            <!-- Exactamente 2 copias para un loop perfecto de 50% con w-max -->
             {[...REVIEWS, ...REVIEWS].map((review, index) => (
               <div class="mx-3 md:mx-4 flex flex-col justify-center w-[280px] sm:w-80 h-52 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 rounded-[2rem] p-5 md:p-8 whitespace-normal shrink-0 hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-300">
                 <div class="flex items-center gap-1 text-yellow-400 mb-3 md:mb-4">
@@ -254,7 +254,7 @@ const REVIEWS = [
 
 <style>
   .animate-marquee-right {
-    animation: marquee-right 10s linear infinite;
+    animation: marquee-right 25s linear infinite;
   }
   .animate-marquee-right:hover {
     animation-play-state: paused;

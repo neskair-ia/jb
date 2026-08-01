@@ -11,7 +11,7 @@ Object.keys(serviceFiles).forEach(file => {
 });
 ---
 
-<section id="servicios" class="py-16 md:py-32 bg-transparent relative overflow-hidden">
+<section id="servicios" class="pt-28 pb-16 md:py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     
     <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -31,25 +31,25 @@ Object.keys(serviceFiles).forEach(file => {
     <!-- Catálogo de Servicios (Visual Principal) -->
     <div class="max-w-[95rem] mx-auto mb-20 md:mb-32">
       <!-- Grid de 3 columnas para destacar fotos -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-x-8 md:gap-y-16">
         {SERVICES.map((service, index) => (
           <div class="group cursor-default flex flex-col gap-5">
             
-            <!-- Imagen Limpia (Sin Filtros) -->
-            <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
+            <div class="relative w-full aspect-[4/5] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
               <img 
                 src={serviceImages[service.id.toString()] || `https://placehold.co/800x1000/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
                 alt={service.title} 
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
-            </div>
-            
-            <!-- Texto acompañante (Minimalista) -->
-            <div class="flex flex-col px-2">
-              <h4 class="text-2xl font-bold text-[#FFFCFC] mb-3 group-hover:text-blue-300 transition-colors">{service.title}</h4>
-              <p class="text-[#FFFCFC]/70 text-[15px] leading-relaxed font-light">
-                {service.description}
-              </p>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+              
+              <!-- Contenido del servicio -->
+              <div class="absolute inset-0 p-3 md:p-8 flex flex-col justify-end">
+                <h4 class="text-sm md:text-xl font-bold text-[#FFFCFC] mb-1 md:mb-3 group-hover:text-blue-300 transition-colors leading-tight">{service.title}</h4>
+                <p class="text-[#FFFCFC]/80 text-[10px] md:text-sm leading-snug md:leading-relaxed line-clamp-3 lg:line-clamp-3 group-hover:line-clamp-none transition-all duration-500 hidden sm:block">
+                  {service.description}
+                </p>
+              </div>
             </div>
             
           </div>
@@ -59,12 +59,12 @@ Object.keys(serviceFiles).forEach(file => {
 
     <!-- Pilares de Servicio (Secundario) -->
     <div class="max-w-7xl mx-auto border-t border-[#FFFCFC]/10 pt-16 md:pt-24">
-      <h3 class="text-2xl font-bold mb-10 text-center text-[#FFFCFC]/90">Por qué elegirnos</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      <h3 class="text-2xl md:text-3xl font-bold mb-10 text-center text-[#FFFCFC] animate-on-scroll">Por qué elegirnos</h3>
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {PILLARS.map((pillar, index) => (
-          <div class="p-6 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/30 transition-all duration-300 cursor-default group">
-            <h4 class="text-xl font-bold mb-4 text-[#FFFCFC] group-hover:text-blue-300 transition-colors">{pillar.title}</h4>
-            <p class="text-[#FFFCFC]/70 text-sm leading-relaxed font-light">{pillar.description}</p>
+          <div class="animate-on-scroll p-4 md:p-8 rounded-2xl md:rounded-[2rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 shadow-xl hover:-translate-y-2 hover:border-[#FFFCFC]/20 transition-all duration-300 backdrop-blur-xl" style={`transition-delay: ${index * 100}ms`}>
+            <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4 text-[#FFFCFC]">{pillar.title}</h3>
+            <p class="text-blue-100/80 text-xs md:text-sm leading-relaxed line-clamp-4">{pillar.description}</p>
           </div>
         ))}
       </div>
