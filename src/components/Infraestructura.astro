@@ -39,13 +39,21 @@ Object.keys(infraFiles).forEach(file => {
           </div>
           
           <!-- Contenido de Texto (Limpio y fuera de la foto) -->
-          <div class="flex flex-col px-2">
-            <h3 class="text-2xl font-bold text-[#FFFCFC] mb-2 group-hover:text-blue-300 transition-colors">
+          <div class="flex flex-col px-1 md:px-2">
+            <h3 class="text-[11px] sm:text-base md:text-2xl font-bold text-[#FFFCFC] mb-1 md:mb-2 group-hover:text-blue-300 transition-colors leading-tight">
               {item.title}
             </h3>
-            <p class="text-[#FFFCFC]/70 text-[15px] leading-relaxed font-light">
+            
+            <!-- Lógica CSS-only para "Seguir leyendo" -->
+            <input type="checkbox" id={`infra-${index}`} class="peer hidden" />
+            
+            <p class="text-[#FFFCFC]/70 text-[10px] sm:text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 peer-checked:line-clamp-none transition-all duration-300">
               {item.description}
             </p>
+            
+            <label for={`infra-${index}`} class="text-blue-400 text-[10px] md:text-sm mt-1 md:mt-2 cursor-pointer peer-checked:hidden font-bold hover:text-blue-300 select-none">
+              Seguir leyendo...
+            </label>
           </div>
         </div>
       ))}

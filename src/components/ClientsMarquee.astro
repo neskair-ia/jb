@@ -14,30 +14,41 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
     </h3>
   </div>
   
-  <div class="relative w-max flex whitespace-nowrap animate-marquee-fast">
-    <!-- Usamos 2 copias para un loop perfecto de 50% -->
-    {[...displayLogos, ...displayLogos].map((logoPath) => (
-      <div class="mx-3 sm:mx-6 md:mx-10 flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 bg-[#FFFCFC] p-2 md:p-4 rounded-lg md:rounded-xl shrink-0 group cursor-default hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-        <img 
-          src={logoPath} 
-          alt={`Logo Cliente`} 
-          class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 rounded-sm md:rounded-md"
-        />
-      </div>
-    ))}
+  <div class="flex overflow-hidden w-full">
+    <div class="flex whitespace-nowrap animate-marquee-fast shrink-0">
+      {displayLogos.map((logoPath) => (
+        <div class="mx-3 sm:mx-6 md:mx-10 flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 bg-[#FFFCFC] p-2 md:p-4 rounded-lg md:rounded-xl shrink-0 group cursor-default hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+          <img 
+            src={logoPath} 
+            alt="Logo Cliente" 
+            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 rounded-sm md:rounded-md"
+          />
+        </div>
+      ))}
+    </div>
+    <div class="flex whitespace-nowrap animate-marquee-fast shrink-0">
+      {displayLogos.map((logoPath) => (
+        <div class="mx-3 sm:mx-6 md:mx-10 flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 bg-[#FFFCFC] p-2 md:p-4 rounded-lg md:rounded-xl shrink-0 group cursor-default hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+          <img 
+            src={logoPath} 
+            alt="Logo Cliente" 
+            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 rounded-sm md:rounded-md"
+          />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
   .animate-marquee-fast {
-    /* Velocidad equilibrada para lectura (60s) */
-    animation: marquee-fast 60s linear infinite;
+    animation: marquee-fast 50s linear infinite;
   }
   .animate-marquee-fast:hover {
     animation-play-state: paused;
   }
   @keyframes marquee-fast {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
   }
 </style>

@@ -41,22 +41,34 @@ Object.keys(projectFiles).forEach(file => {
 
     <!-- Carrusel de Logos de Clientes -->
     <div class="relative w-full overflow-hidden bg-[#FFFCFC]/5 backdrop-blur-md py-8 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] border border-[#FFFCFC]/10 mb-20">
-      <div class="flex w-max whitespace-nowrap animate-marquee">
-        <!-- Exactamente 2 copias para un loop perfecto de 50% -->
-        {[...displayLogos, ...displayLogos].map((logoPath) => (
-          <div class="mx-3 md:mx-5 flex items-center justify-center w-28 h-20 md:w-48 md:h-28 bg-[#FFFCFC] rounded-xl cursor-default group p-3 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-            <img 
-              src={logoPath} 
-              alt="Cliente" 
-              class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-        ))}
+      <div class="flex overflow-hidden w-full">
+        <div class="flex whitespace-nowrap animate-marquee shrink-0">
+          {displayLogos.map((logoPath) => (
+            <div class="mx-3 md:mx-5 flex items-center justify-center w-28 h-20 md:w-48 md:h-28 bg-[#FFFCFC] rounded-xl cursor-default group p-3 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+              <img 
+                src={logoPath} 
+                alt="Cliente" 
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
+        <div class="flex whitespace-nowrap animate-marquee shrink-0">
+          {displayLogos.map((logoPath) => (
+            <div class="mx-3 md:mx-5 flex items-center justify-center w-28 h-20 md:w-48 md:h-28 bg-[#FFFCFC] rounded-xl cursor-default group p-3 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+              <img 
+                src={logoPath} 
+                alt="Cliente" 
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
 
     <!-- Galería de Proyectos -->
-    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+    <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-8">
       {PROJECTS.map((project, index) => {
         const projectId = (index + 1).toString();
         // Imágenes de la carpeta del proyecto actual
@@ -115,14 +127,14 @@ Object.keys(projectFiles).forEach(file => {
 <style>
   /* Animación del carrusel de logos */
   .animate-marquee {
-    animation: marquee 120s linear infinite;
+    animation: marquee 80s linear infinite;
   }
   .animate-marquee:hover {
     animation-play-state: paused;
   }
   @keyframes marquee {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
   }
 
   /* Estilos para las fotos interactivas */
