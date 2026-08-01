@@ -40,20 +40,28 @@ Object.keys(infraFiles).forEach(file => {
           
           <!-- Contenido de Texto (Limpio y fuera de la foto) -->
           <div class="flex flex-col px-1 md:px-2">
-            <h3 class="text-[11px] sm:text-base md:text-2xl font-bold text-[#FFFCFC] mb-1 md:mb-2 group-hover:text-blue-300 transition-colors leading-tight">
+            <h3 class="text-sm sm:text-base md:text-2xl font-bold text-[#FFFCFC] mb-1 md:mb-2 group-hover:text-blue-300 transition-colors leading-tight">
               {item.title}
             </h3>
             
-            <!-- Lógica CSS-only para "Seguir leyendo" -->
-            <input type="checkbox" id={`infra-${index}`} class="peer hidden" />
-            
-            <p class="text-[#FFFCFC]/70 text-[10px] sm:text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 peer-checked:line-clamp-none transition-all duration-300">
-              {item.description}
-            </p>
-            
-            <label for={`infra-${index}`} class="text-blue-400 text-[10px] md:text-sm mt-1 md:mt-2 cursor-pointer peer-checked:hidden font-bold hover:text-blue-300 select-none">
-              Seguir leyendo...
-            </label>
+            {["Pintura Electrostática Secada en Horno", "Equipo de Trabajo", "Desarrollos Especiales", "Capacidades", "Ensayo No Destructivo", "Pruebas de Tintas Penetrantes"].includes(item.title) ? (
+              <>
+                <!-- Lógica CSS-only para "Seguir leyendo" -->
+                <input type="checkbox" id={`infra-${index}`} class="peer hidden" />
+                <p class="text-[#FFFCFC]/70 text-xs sm:text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 peer-checked:line-clamp-none transition-all duration-300">
+                  {item.description}
+                </p>
+                <div class="mt-2 flex peer-checked:hidden">
+                  <label for={`infra-${index}`} class="inline-flex items-center justify-center px-3 py-1 rounded-full border border-blue-400 text-blue-400 text-[10px] sm:text-xs cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                    Seguir leyendo
+                  </label>
+                </div>
+              </>
+            ) : (
+              <p class="text-[#FFFCFC]/70 text-xs sm:text-sm md:text-[15px] leading-relaxed font-light transition-all duration-300">
+                {item.description}
+              </p>
+            )}
           </div>
         </div>
       ))}
