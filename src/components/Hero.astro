@@ -87,26 +87,26 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
       </div>
 
       <!-- Social Proof (Estrellas y Avatares) -->
-      <div class="mt-8 md:mt-12 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 backdrop-blur-md px-5 py-3 rounded-full shadow-lg hover:bg-[#FFFCFC]/10 transition-colors cursor-default drop-shadow-xl animate-fade-in-up hidden sm:flex">
+      <div class="mt-8 md:mt-12 flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg hover:bg-[#FFFCFC]/10 transition-colors cursor-default drop-shadow-xl animate-fade-in-up hidden sm:flex w-max">
         <!-- Avatares superpuestos -->
-        <div class="flex -space-x-3">
-          <img class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Juan+Pablo&background=2563eb&color=fff&bold=true" alt="Cliente">
-          <img class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Lucas+V&background=0ea5e9&color=fff&bold=true" alt="Cliente">
-          <img class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Martin+R&background=3b82f6&color=fff&bold=true" alt="Cliente">
-          <img class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Diego+M&background=0284c7&color=fff&bold=true" alt="Cliente">
-          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1E2D64] bg-[#FFFCFC] text-[#1E2D64] flex items-center justify-center text-[10px] md:text-xs font-bold shadow-sm z-10">+50</div>
+        <div class="flex -space-x-2.5">
+          <img class="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Juan+Pablo&background=2563eb&color=fff&bold=true" alt="Cliente">
+          <img class="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Lucas+V&background=0ea5e9&color=fff&bold=true" alt="Cliente">
+          <img class="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Martin+R&background=3b82f6&color=fff&bold=true" alt="Cliente">
+          <img class="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#1E2D64] shadow-sm" src="https://ui-avatars.com/api/?name=Diego+M&background=0284c7&color=fff&bold=true" alt="Cliente">
+          <div class="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-[#1E2D64] bg-[#FFFCFC] text-[#1E2D64] flex items-center justify-center text-[9px] md:text-[11px] font-bold shadow-sm z-10">+50</div>
         </div>
         
         <!-- Estrellas y texto -->
-        <div class="flex flex-col items-center sm:items-start">
-          <div class="flex items-center gap-1 text-yellow-400 drop-shadow-sm">
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <div class="flex flex-col items-center sm:items-start pl-1">
+          <div class="flex items-center gap-0.5 text-[#FFC107] drop-shadow-[0_0_8px_rgba(255,193,7,0.6)] mb-0.5">
+            <svg class="w-4 h-4 md:w-4.5 md:h-4.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 md:w-4.5 md:h-4.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 md:w-4.5 md:h-4.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 md:w-4.5 md:h-4.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 md:w-4.5 md:h-4.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-          <span class="text-[11px] md:text-sm font-medium text-[#FFFCFC]/90 drop-shadow-md">
+          <span class="text-[11px] md:text-[13px] font-medium text-[#FFFCFC]/90 drop-shadow-md tracking-tight">
             +50 marcas confían en nosotros
           </span>
         </div>
