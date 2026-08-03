@@ -135,7 +135,7 @@ const REVIEWS = [
         
         <div class="overflow-hidden relative w-full mb-12 mask-image-fade">
           <!-- Marquee Container (Moving Right) -->
-          <div class="flex overflow-hidden w-full">
+          <div class="marquee-wrapper-right flex overflow-hidden w-full">
             <div class="flex w-max whitespace-nowrap animate-marquee-right shrink-0 py-4">
               {REVIEWS.map((review, index) => (
                 <div class="mx-3 md:mx-4 flex flex-col justify-center w-[280px] sm:w-80 h-52 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 rounded-[2rem] p-5 md:p-8 whitespace-normal shrink-0 hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-300">
@@ -277,7 +277,7 @@ const REVIEWS = [
   .animate-marquee-right {
     animation: marquee-right 70s linear infinite;
   }
-  .animate-marquee-right:hover {
+  .marquee-wrapper-right:hover .animate-marquee-right {
     animation-play-state: paused;
   }
   @keyframes marquee-right {
