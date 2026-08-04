@@ -1,7 +1,7 @@
 export const SITE = {
   title: 'JB Ingeniería Corporativa S.R.L',
   description: 'Especialistas en imagen corporativa a escala industrial. Diseñamos, fabricamos e instalamos cada proyecto con los más altos estándares de calidad.',
-  url: 'https://jb-ingenieria-corporativa.pages.dev',
+  url: 'https://jbingenieriacorporativa.com',
   author: 'JB Ingeniería',
 };
 
