@@ -211,10 +211,21 @@ const REVIEWS = [
       </div>
 
       <!-- Footer Info -->
-      <div class="flex flex-col lg:flex-row items-center justify-between lg:justify-center gap-8 lg:gap-16 w-full px-4 lg:px-0">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full px-4 lg:px-0">
+
+        <!-- Izquierda: Logo (Solo Escritorio) -->
+        <div class="hidden lg:flex w-[250px] shrink-0 items-center justify-start">
+          <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-xl bg-transparent border-0">
+            <img 
+              src="/logo_jb.jpeg" 
+              alt="JB Ingeniería Logo" 
+              class="w-full h-full object-contain"
+            />
+          </div>
+        </div>
 
         <!-- Centro: Dirección y Contacto -->
-        <div class="text-sm text-blue-100/80 flex flex-col gap-5 w-full lg:w-auto items-center justify-center border-y lg:border-y-0 lg:border-r border-[#FFFCFC]/10 py-6 lg:py-0 lg:px-12 lg:mr-8">
+        <div class="text-sm text-blue-100/80 flex flex-col gap-5 w-full lg:w-auto items-center justify-center lg:border-x border-[#FFFCFC]/10 py-2 lg:py-0 lg:px-12 flex-1">
           <a href="https://maps.app.goo.gl/EMcxxEBpR6eLVWNu5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full hover:text-white hover:scale-105 transition-all group">
             <svg class="w-5 h-5 shrink-0 text-[#FFFCFC] group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
