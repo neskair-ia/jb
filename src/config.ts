@@ -101,11 +101,5 @@ export const PROJECTS = [
   { title: 'Proyecto 6' },
   { title: 'Proyecto 7' },
   { title: 'Proyecto 8' },
-  { title: 'Proyecto 9' },
-  { title: 'Proyecto 10' },
-  { title: 'Proyecto 11' },
-  { title: 'Proyecto 12' },
-  { title: 'Proyecto 13' },
-  { title: 'Proyecto 14' },
-  { title: 'Proyecto 15' },
+  { title: 'Proyecto 9' }
 ];
