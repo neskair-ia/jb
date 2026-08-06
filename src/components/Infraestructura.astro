@@ -48,10 +48,10 @@ Object.keys(infraFiles).forEach(file => {
               <>
                 <!-- Lógica CSS-only para "Seguir leyendo" -->
                 <input type="checkbox" id={`infra-${index}`} class="peer hidden" />
-                <p class="text-[#FFFCFC]/70 text-xs sm:text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 peer-checked:line-clamp-none transition-all duration-300">
+                <p class="text-[#FFFCFC]/70 text-xs sm:text-sm md:text-[15px] leading-relaxed font-light line-clamp-3 md:line-clamp-none peer-checked:line-clamp-none transition-all duration-300">
                   {item.description}
                 </p>
-                <div class="mt-2 flex peer-checked:hidden">
+                <div class="mt-2 flex md:hidden peer-checked:hidden">
                   <label for={`infra-${index}`} class="inline-flex items-center justify-center px-3 py-1 rounded-full border border-blue-400 text-blue-400 text-[10px] sm:text-xs cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
                     Seguir leyendo
                   </label>
