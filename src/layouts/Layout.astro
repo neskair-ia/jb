@@ -149,7 +149,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 								const decoded = atob(base64Data);
 								if (type === 'email') window.location.href = `mailto:${decoded}`;
 								else if (type === 'tel') window.location.href = `tel:${decoded}`;
-								else if (type === 'whatsapp') window.open(`https://wa.me/${decoded}`, '_blank');
+								else if (type === 'whatsapp') window.open(`https://wa.me/${decoded}?text=Vengo%20de%20la%20pagina%20web%2C%20quiero%20una%20cotizaci%C3%B3n%20de...`, '_blank');
 							} catch (error) {
 								console.error('Error al procesar el contacto seguro.');
 							}
