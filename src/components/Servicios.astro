@@ -41,12 +41,12 @@ Object.keys(serviceFiles).forEach(file => {
                 alt={service.title} 
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/80 to-transparent opacity-90 group-hover:opacity-95 backdrop-blur-[3px] transition-all duration-500"></div>
               
               <!-- Contenido del servicio -->
-              <div class="absolute inset-0 p-3 md:p-8 flex flex-col justify-end">
-                <h4 class="text-sm md:text-xl font-bold text-[#FFFCFC] mb-1 md:mb-3 group-hover:text-blue-300 transition-colors leading-tight">{service.title}</h4>
-                <p class="text-[#FFFCFC]/80 text-[10px] md:text-sm leading-snug md:leading-relaxed line-clamp-3 lg:line-clamp-3 group-hover:line-clamp-none transition-all duration-500 hidden sm:block">
+              <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
+                <h4 class="text-base md:text-2xl font-bold text-[#FFFCFC] mb-2 md:mb-3 group-hover:text-blue-300 transition-colors leading-tight">{service.title}</h4>
+                <p class="text-[#FFFCFC]/90 text-[11px] md:text-base leading-snug md:leading-relaxed line-clamp-3 lg:line-clamp-3 group-hover:line-clamp-none transition-all duration-500 hidden sm:block">
                   {service.description}
                 </p>
               </div>
@@ -59,12 +59,14 @@ Object.keys(serviceFiles).forEach(file => {
 
     <!-- Pilares de Servicio (Secundario) -->
     <div class="max-w-7xl mx-auto border-t border-[#FFFCFC]/10 pt-16 md:pt-24">
-      <h3 class="text-2xl md:text-3xl font-bold mb-10 text-center text-[#FFFCFC] animate-on-scroll">Por qué elegirnos</h3>
-      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+      <h3 class="text-3xl md:text-5xl font-bold mb-12 md:mb-16 text-center text-[#FFFCFC] animate-on-scroll">Por qué elegirnos</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8">
         {PILLARS.map((pillar, index) => (
-          <div class="animate-on-scroll p-4 md:p-8 rounded-2xl md:rounded-[2rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 shadow-xl hover:-translate-y-2 hover:border-[#FFFCFC]/20 transition-all duration-300 backdrop-blur-xl" style={`transition-delay: ${index * 100}ms`}>
-            <h3 class="text-base md:text-xl font-bold mb-2 md:mb-4 text-[#FFFCFC]">{pillar.title}</h3>
-            <p class="text-blue-100/80 text-xs md:text-sm leading-relaxed line-clamp-4">{pillar.description}</p>
+          <div class="animate-on-scroll" style={`transition-delay: ${index * 100}ms`}>
+            <div class="h-full p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/30 transition-all duration-300 backdrop-blur-xl flex flex-col justify-center">
+              <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-5 text-[#FFFCFC]">{pillar.title}</h3>
+              <p class="text-blue-50 text-sm md:text-lg leading-relaxed font-light">{pillar.description}</p>
+            </div>
           </div>
         ))}
       </div>
