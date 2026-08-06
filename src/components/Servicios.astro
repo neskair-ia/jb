@@ -41,10 +41,10 @@ Object.keys(serviceFiles).forEach(file => {
                 alt={service.title} 
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/80 to-transparent opacity-90 group-hover:opacity-95 backdrop-blur-[3px] transition-all duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/90 via-[#1E2D64]/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
               
-              <!-- Contenido del servicio -->
-              <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
+              <!-- Contenido del servicio con blur solo en el texto -->
+              <div class="absolute inset-x-0 bottom-0 p-4 md:p-8 pt-12 md:pt-24 flex flex-col justify-end bg-gradient-to-t from-[#1E2D64] via-[#1E2D64]/80 to-transparent backdrop-blur-sm group-hover:backdrop-blur-md transition-all duration-500 rounded-b-2xl md:rounded-b-[2rem]">
                 <h4 class="text-base md:text-2xl font-bold text-[#FFFCFC] mb-2 md:mb-3 group-hover:text-blue-300 transition-colors leading-tight">{service.title}</h4>
                 <p class="text-[#FFFCFC]/90 text-[11px] md:text-base leading-snug md:leading-relaxed line-clamp-3 lg:line-clamp-3 group-hover:line-clamp-none transition-all duration-500 hidden sm:block">
                   {service.description}
