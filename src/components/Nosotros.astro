@@ -4,7 +4,7 @@ import { ABOUT } from '../config';
 
 <section id="nosotros" class="pt-28 pb-16 md:py-32 bg-transparent relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto w-full">
       
       <!-- Quiénes Somos -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-24">
@@ -33,7 +33,7 @@ import { ABOUT } from '../config';
             </div>
             
             <div class="mt-4 flex peer-checked:hidden">
-              <label for="about-read-more" class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-blue-400 text-blue-400 text-xs md:text-sm cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+              <label for="about-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-blue-400 text-blue-400 text-sm md:text-base cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
                 Seguir leyendo
               </label>
             </div>
@@ -42,63 +42,81 @@ import { ABOUT } from '../config';
       </div>
 
       <!-- Misión y Visión -->
-      <div class="grid grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-20">
         <!-- Card Misión -->
-        <div class="animate-on-scroll p-4 sm:p-6 md:p-10 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-blue-400 to-blue-900 text-[#FFFCFC] shadow-xl group hover:-translate-y-2 transition-all duration-300">
-          <div class="w-10 h-10 md:w-12 md:h-12 bg-transparent/10 rounded-xl flex items-center justify-center mb-4 md:mb-6 backdrop-blur-sm">
-            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+        <div class="animate-on-scroll p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-gradient-to-br from-blue-400 to-blue-900 text-[#FFFCFC] shadow-xl transition-all duration-300 h-full flex flex-col">
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Nuestra Misión</h3>
+          
+          <div class="relative flex-1 flex flex-col">
+            <input type="checkbox" id="mission-read-more" class="peer hidden" />
+            <div class="line-clamp-4 peer-checked:line-clamp-none transition-all duration-300">
+              <p class="text-blue-50 text-base md:text-lg leading-relaxed font-light">
+                {ABOUT.mission}
+              </p>
+            </div>
+            <div class="mt-6 flex peer-checked:hidden">
+              <label for="mission-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm md:text-base cursor-pointer font-bold transition-colors select-none backdrop-blur-sm">
+                Seguir leyendo
+              </label>
+            </div>
           </div>
-          <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-4">Nuestra Misión</h3>
-          <p class="text-blue-100 leading-relaxed font-light text-xs md:text-base line-clamp-6 md:line-clamp-none hover:line-clamp-none transition-all">
-            {ABOUT.mission}
-          </p>
         </div>
 
         <!-- Card Visión -->
-        <div class="p-6 md:p-10 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 transition-all duration-300">
-          <div class="w-14 h-14 bg-blue-500/20 border border-blue-400/30 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/40 transition-transform duration-300">
-            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
+        <div class="animate-on-scroll p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 h-full flex flex-col">
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-[#FFFCFC]">Nuestra Visión</h3>
+          
+          <div class="relative flex-1 flex flex-col">
+            <input type="checkbox" id="vision-read-more" class="peer hidden" />
+            <div class="line-clamp-4 peer-checked:line-clamp-none transition-all duration-300">
+              <p class="text-[#FFFCFC]/80 text-base md:text-lg leading-relaxed font-light">
+                {ABOUT.vision}
+              </p>
+            </div>
+            <div class="mt-6 flex peer-checked:hidden">
+              <label for="vision-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-blue-400 hover:bg-blue-400 hover:text-[#1E2D64] text-blue-400 text-sm md:text-base cursor-pointer font-bold transition-colors select-none">
+                Seguir leyendo
+              </label>
+            </div>
           </div>
-          <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-[#FFFCFC]">Nuestra Visión</h3>
-          <p class="text-[#FFFCFC]/80 leading-relaxed font-light text-xs md:text-base line-clamp-6 md:line-clamp-none hover:line-clamp-none transition-all">
-            {ABOUT.vision}
-          </p>
         </div>
       </div>
 
       <!-- Valores -->
       <div class="animate-on-scroll">
-        <h3 class="text-2xl md:text-3xl font-bold mb-8 md:mb-10 text-center text-[#FFFCFC]">Nuestros Valores</h3>
-        <div class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
+        <h3 class="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-[#FFFCFC]">Nuestros Valores</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {ABOUT.values.map((value, index) => (
-            <div class="p-5 md:p-8 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] group hover:-translate-y-2 hover:bg-[#FFFCFC]/10 hover:border-blue-400/50 transition-all duration-300 cursor-default flex flex-col xl:flex-row gap-5 md:gap-6">
+            <div class="p-6 md:p-10 rounded-[2rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col xl:flex-row gap-5 md:gap-8 items-stretch h-full">
               
               <!-- Text Content -->
-              <div class="flex-1">
-                <div class="p-4 md:p-5 lg:p-8 rounded-2xl md:rounded-[2rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:shadow-lg transition-all duration-300">
-                  <h4 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-[#FFFCFC] flex flex-col xl:flex-row items-start xl:items-center gap-2 xl:gap-3">
-                    <span class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs shrink-0 text-white">
+              <div class="flex-1 flex flex-col">
+                <div class="p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 h-full flex flex-col relative">
+                  <h4 class="text-xl md:text-2xl font-bold mb-4 text-[#FFFCFC] flex flex-col xl:flex-row items-start xl:items-center gap-3">
+                    <span class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-600 flex items-center justify-center text-sm md:text-base shrink-0 text-white">
                       {index + 1}
                     </span>
                     {value.title}
                   </h4>
-                  <p class="text-[#FFFCFC]/80 text-[11px] md:text-sm leading-relaxed xl:pl-11 line-clamp-4 hover:line-clamp-none transition-all">
-                    {value.description}
-                  </p>
+                  
+                  <input type="checkbox" id={`value-read-more-${index}`} class="peer hidden" />
+                  <div class="text-[#FFFCFC]/80 text-[13px] md:text-base leading-relaxed xl:pl-14 line-clamp-3 peer-checked:line-clamp-none transition-all duration-300">
+                    <p>{value.description}</p>
+                  </div>
+                  <div class="mt-4 xl:pl-14 flex peer-checked:hidden">
+                    <label for={`value-read-more-${index}`} class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-blue-400/50 hover:bg-blue-400 hover:text-[#1E2D64] hover:border-blue-400 text-blue-300 text-xs md:text-sm cursor-pointer font-bold transition-all select-none">
+                      Seguir leyendo
+                    </label>
+                  </div>
                 </div>
               </div>
 
               <!-- Video Placeholder -->
-              <div class="w-full xl:w-56 h-32 xl:h-auto xl:aspect-[9/16] bg-black/20 rounded-[1.5rem] border border-[#FFFCFC]/10 flex flex-col xl:flex-col items-center justify-center gap-2 relative overflow-hidden group-hover:border-blue-400/30 transition-colors shrink-0 shadow-inner">
-                <svg class="w-10 h-10 text-[#FFFCFC]/30 group-hover:text-blue-400 transition-colors drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+              <div class="w-full xl:w-48 h-40 xl:h-auto bg-black/20 rounded-[1.5rem] border border-[#FFFCFC]/10 flex flex-col items-center justify-center gap-3 relative overflow-hidden shrink-0 shadow-inner">
+                <svg class="w-10 h-10 md:w-12 md:h-12 text-[#FFFCFC]/30 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
-                <span class="text-xs uppercase tracking-widest font-bold text-[#FFFCFC]/30 group-hover:text-blue-400 transition-colors drop-shadow-md">Video Reel</span>
+                <span class="text-xs uppercase tracking-widest font-bold text-[#FFFCFC]/30 drop-shadow-md">Video Reel</span>
               </div>
 
             </div>
