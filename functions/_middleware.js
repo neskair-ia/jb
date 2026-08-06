@@ -1,10 +1,14 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   
-  // Si el usuario accede por el subdominio viejo de pages.dev,
+  // Si el usuario accede por el subdominio viejo de pages.dev o por www,
   // lo redirigimos automáticamente (301 Permanente) al dominio oficial.
   // Esto previene contenido duplicado en Google y mejora el SEO.
-  if (url.hostname === "jb-ingenieria-corporativa.pages.dev") {
+  if (
+    url.hostname === "jb-ingenieria-corporativa.pages.dev" || 
+    url.hostname === "www.jbingenieriacorporativa.com" ||
+    url.hostname === "www.jbingenieriacorporativa.com.ar"
+  ) {
     url.hostname = "jbingenieriacorporativa.com";
     return Response.redirect(url.toString(), 301);
   }
