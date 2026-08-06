@@ -32,10 +32,10 @@ export const ABOUT = {
   mission: 'Materializar la identidad visual de nuestros clientes con excelencia técnica, soluciones duraderas y cobertura en todo el territorio nacional. Aportar valor agregado a cada iniciativa, convirtiendo los desafíos de nuestros clientes en oportunidades para posicionar sus marcas a un nuevo nivel.',
   vision: 'Ser la empresa de referencia en imagen corporativa industrial de Argentina, reconocida por la eficiencia de nuestros procesos, la calidad de nuestros materiales y la precisión de cada entrega.',
   values: [
-    { title: 'Excelencia', description: 'Cada trabajo es una oportunidad de superar las expectativas del cliente. No aceptamos medias tintas en ninguna etapa del proceso.' },
-    { title: 'Eficiencia', description: 'Procesos optimizados para cumplir plazos sin comprometer la calidad. Coordinamos producción e instalación para minimizar tiempos y costos.' },
-    { title: 'Compromiso', description: 'Acompañamos cada proyecto de principio a fin. El trabajo no termina con la fabricación: termina cuando el cliente confirma que el resultado es exactamente lo que necesitaba.' },
-    { title: 'Innovación', description: 'Incorporamos materiales, técnicas y maquinaria de última generación para garantizar resultados más precisos, más duraderos y más fieles a la identidad de cada marca.' }
+    { title: 'Excelencia', description: 'Cada trabajo es una oportunidad de superar las expectativas del cliente. No aceptamos medias tintas en ninguna etapa del proceso.', video: '/videos/excelencia.mp4' },
+    { title: 'Eficiencia', description: 'Procesos optimizados para cumplir plazos sin comprometer la calidad. Coordinamos producción e instalación para minimizar tiempos y costos.', video: '/videos/eficiencia.mp4' },
+    { title: 'Compromiso', description: 'Acompañamos cada proyecto de principio a fin. El trabajo no termina con la fabricación: termina cuando el cliente confirma que el resultado es exactamente lo que necesitaba.', video: '/videos/compromiso.mp4' },
+    { title: 'Innovación', description: 'Incorporamos materiales, técnicas y maquinaria de última generación para garantizar resultados más precisos, más duraderos y más fieles a la identidad de cada marca.', video: '/videos/innovacion.mp4' }
   ]
 };
 
