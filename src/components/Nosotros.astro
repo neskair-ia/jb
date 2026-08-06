@@ -45,15 +45,18 @@ import { ABOUT } from '../config';
       <div class="animate-on-scroll grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-24 p-8 md:p-12 rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)]">
         
         <!-- Izquierda: Logo 3M Animado con Brillo -->
-        <div class="relative w-full h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center rounded-[2rem] overflow-hidden bg-gradient-to-br from-red-600/5 to-transparent border border-red-500/20 group">
-          <!-- Glow de fondo animado -->
-          <div class="absolute inset-0 bg-red-600/20 blur-[80px] rounded-full animate-pulse opacity-40 group-hover:opacity-80 transition-opacity duration-700"></div>
+        <div class="relative w-full h-full min-h-[200px] sm:min-h-[250px] md:min-h-[400px] flex items-center justify-center group">
+          <!-- Glow de fondo animado: sutil en móvil (pulse), fuerte en hover en escritorio -->
+          <div class="absolute w-[180px] h-[180px] md:w-[250px] md:h-[250px] bg-red-600/30 blur-[60px] rounded-full opacity-60 animate-pulse md:opacity-0 md:animate-none md:group-hover:opacity-70 transition-all duration-700"></div>
           
           <!-- Logo 3M -->
           <img 
             src="/images/3m-logo.png" 
             alt="3M Certification Logo" 
-            class="relative z-10 w-2/3 max-w-[250px] object-contain drop-shadow-[0_0_25px_rgba(220,38,38,0.6)] group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-700 ease-out" 
+            class="relative z-10 w-1/2 sm:w-2/3 max-w-[250px] object-contain transition-all duration-700 ease-out 
+                   drop-shadow-[0_0_15px_rgba(220,38,38,0.4)] 
+                   md:drop-shadow-[0_0_0_rgba(220,38,38,0)] 
+                   md:group-hover:scale-110 md:group-hover:-rotate-2 md:group-hover:drop-shadow-[0_0_35px_rgba(220,38,38,0.8)]" 
           />
         </div>
 
