@@ -128,16 +128,20 @@ import { ABOUT } from '../config';
               </div>
 
               <!-- Video Container -->
-              <div class="w-full xl:w-48 h-40 xl:h-auto bg-black/20 rounded-[1.5rem] border border-[#FFFCFC]/10 flex flex-col items-center justify-center relative overflow-hidden shrink-0 shadow-inner group">
+              <div class="w-full xl:w-64 2xl:w-72 h-48 sm:h-56 xl:h-auto bg-[#0a1128]/50 rounded-[1.5rem] border border-[#FFFCFC]/15 flex flex-col items-center justify-center relative overflow-hidden shrink-0 shadow-[0_0_25px_rgba(0,0,0,0.3)] group">
                 {value.video ? (
-                  <video 
-                    src={value.video} 
-                    class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" 
-                    autoplay 
-                    loop 
-                    muted 
-                    playsinline
-                  ></video>
+                  <>
+                    <video 
+                      src={value.video} 
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                      autoplay 
+                      loop 
+                      muted 
+                      playsinline
+                    ></video>
+                    <!-- Capa sutil de sombra interior para más estética -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/60 via-transparent to-transparent pointer-events-none"></div>
+                  </>
                 ) : (
                   <>
                     <svg class="w-10 h-10 md:w-12 md:h-12 text-[#FFFCFC]/30 drop-shadow-md z-10" fill="currentColor" viewBox="0 0 24 24">
