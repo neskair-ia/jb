@@ -74,14 +74,13 @@ Object.keys(projectFiles).forEach(file => {
         // Imágenes de la carpeta del proyecto actual
         const images = projectImagesByFolder[projectId] || [];
         
-        // Si no hay imágenes en la carpeta, usamos 4 placeholders
+        // Si no hay imágenes en la carpeta, usamos 3 placeholders
         const displayImages = images.length > 0 
           ? images 
           : [
               `https://placehold.co/600x400/1E2D64/FFFCFC?text=Foto+1+Proy+${projectId}`,
               `https://placehold.co/600x400/0e2146/FFFCFC?text=Foto+2+Proy+${projectId}`,
-              `https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${projectId}`,
-              `https://placehold.co/600x400/394c85/FFFCFC?text=Foto+4+Proy+${projectId}`
+              `https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${projectId}`
             ];
 
         return (
