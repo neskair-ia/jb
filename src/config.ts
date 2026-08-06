@@ -6,13 +6,13 @@ export const SITE = {
 };
 
 // Convert to Base64 to avoid spam
-// +54 9 3816 45-2900 -> KzU0OTM4MTY0NTI5MDA=
+// +54 9 3812 48-1995 -> KzU0OTM4MTI0ODE5OTU=
 // direccion@jbingenieriacorporativa.com.ar -> ZGlyZWNjaW9uQGpiaW5nZW5pZXJpYWNvcnBvcmF0aXZhLmNvbS5hcg==
 
 export const CONTACT = {
-  whatsapp: 'NTQ5MzgxNjQ1MjkwMD90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
-  whatsappRaw: '+54 9 3816 45-2900 (Enrique Boccolini)',
-  phoneBase64: 'KzU0OTM4MTY0NTI5MDA=',
+  whatsapp: 'NTQ5MzgxMjQ4MTk5NT90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
+  whatsappRaw: '+54 9 3812 48-1995',
+  phoneBase64: 'KzU0OTM4MTI0ODE5OTU=',
   emailBase64: 'ZGlyZWNjaW9uQGpiaW5nZW5pZXJpYWNvcnBvcmF0aXZhLmNvbS5hcg==',
   emailRaw: 'direccion@jbingenieriacorporativa.com.ar',
   address: 'Parque Industrial Kanamico Ruta Prov. 301 KM 17.5 - Lules, Tucumán, Argentina.',
