@@ -23,20 +23,10 @@ import { ABOUT } from '../config';
           <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-[#FFFCFC]">
             Quiénes Somos
           </h2>
-          <div class="text-[1.1rem] md:text-[1.25rem] text-[#FFFCFC]/80 leading-loose font-light relative">
-            <input type="checkbox" id="about-read-more" class="peer hidden" />
-            
-            <div class="line-clamp-4 peer-checked:line-clamp-none transition-all duration-300">
-              {ABOUT.whoWeAre.split('\n').map(paragraph => (
-                <p set:html={paragraph} class="mb-6 last:mb-0" />
-              ))}
-            </div>
-            
-            <div class="mt-4 flex peer-checked:hidden">
-              <label for="about-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-blue-400 text-blue-400 text-sm md:text-base cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                Seguir leyendo
-              </label>
-            </div>
+          <div class="text-[1.1rem] md:text-[1.25rem] text-[#FFFCFC]/80 leading-loose font-light">
+            {ABOUT.whoWeAre.split('\n').map(paragraph => (
+              <p set:html={paragraph} class="mb-6 last:mb-0" />
+            ))}
           </div>
         </div>
       </div>
@@ -44,40 +34,22 @@ import { ABOUT } from '../config';
       <!-- Misión y Visión -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-20">
         <!-- Card Misión -->
-        <div class="animate-on-scroll p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-gradient-to-br from-blue-400 to-blue-900 text-[#FFFCFC] shadow-xl transition-all duration-300 h-full flex flex-col">
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Nuestra Misión</h3>
-          
-          <div class="relative flex-1 flex flex-col">
-            <input type="checkbox" id="mission-read-more" class="peer hidden" />
-            <div class="line-clamp-4 peer-checked:line-clamp-none transition-all duration-300">
-              <p class="text-blue-50 text-base md:text-lg leading-relaxed font-light">
-                {ABOUT.mission}
-              </p>
-            </div>
-            <div class="mt-6 flex peer-checked:hidden">
-              <label for="mission-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm md:text-base cursor-pointer font-bold transition-colors select-none backdrop-blur-sm">
-                Seguir leyendo
-              </label>
-            </div>
+        <div class="animate-on-scroll p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 h-full flex flex-col">
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-[#FFFCFC]">Nuestra Misión</h3>
+          <div class="flex-1">
+            <p class="text-[#FFFCFC]/80 text-base md:text-lg leading-relaxed font-light">
+              {ABOUT.mission}
+            </p>
           </div>
         </div>
 
         <!-- Card Visión -->
         <div class="animate-on-scroll p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 h-full flex flex-col">
           <h3 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-[#FFFCFC]">Nuestra Visión</h3>
-          
-          <div class="relative flex-1 flex flex-col">
-            <input type="checkbox" id="vision-read-more" class="peer hidden" />
-            <div class="line-clamp-4 peer-checked:line-clamp-none transition-all duration-300">
-              <p class="text-[#FFFCFC]/80 text-base md:text-lg leading-relaxed font-light">
-                {ABOUT.vision}
-              </p>
-            </div>
-            <div class="mt-6 flex peer-checked:hidden">
-              <label for="vision-read-more" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-blue-400 hover:bg-blue-400 hover:text-[#1E2D64] text-blue-400 text-sm md:text-base cursor-pointer font-bold transition-colors select-none">
-                Seguir leyendo
-              </label>
-            </div>
+          <div class="flex-1">
+            <p class="text-[#FFFCFC]/80 text-base md:text-lg leading-relaxed font-light">
+              {ABOUT.vision}
+            </p>
           </div>
         </div>
       </div>
