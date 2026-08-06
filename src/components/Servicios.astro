@@ -60,12 +60,12 @@ Object.keys(serviceFiles).forEach(file => {
     <!-- Pilares de Servicio (Secundario) -->
     <div class="max-w-7xl mx-auto border-t border-[#FFFCFC]/10 pt-16 md:pt-24">
       <h3 class="text-3xl md:text-5xl font-bold mb-12 md:mb-16 text-center text-[#FFFCFC] animate-on-scroll">Por qué elegirnos</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8">
+      <div class="grid grid-cols-2 gap-2 sm:gap-4 md:gap-8">
         {PILLARS.map((pillar, index) => (
           <div class="animate-on-scroll" style={`transition-delay: ${index * 100}ms`}>
-            <div class="h-full p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/30 transition-all duration-300 backdrop-blur-xl flex flex-col justify-center">
-              <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-5 text-[#FFFCFC]">{pillar.title}</h3>
-              <p class="text-blue-50 text-sm md:text-lg leading-relaxed font-light">{pillar.description}</p>
+            <div class="h-full p-4 sm:p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/30 transition-all duration-300 backdrop-blur-xl flex flex-col justify-center">
+              <h3 class="text-[13px] sm:text-lg md:text-3xl font-bold mb-2 md:mb-5 text-[#FFFCFC] leading-tight">{pillar.title}</h3>
+              <p class="text-blue-50 text-[10px] sm:text-sm md:text-lg leading-snug md:leading-relaxed font-light">{pillar.description}</p>
             </div>
           </div>
         ))}

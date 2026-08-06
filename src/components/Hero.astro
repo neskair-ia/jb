@@ -34,7 +34,7 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
   </div>
 
   <div class="container mx-auto px-4 z-10 relative flex items-start lg:items-center h-full pt-16 lg:pt-0">
-    <div class="w-full lg:w-[60%] text-center lg:text-left py-4 md:py-20 lg:py-32 hero-assemble">
+    <div class="w-full lg:w-[60%] text-center lg:text-left py-4 md:py-20 lg:py-32">
       <!-- Tag / Eyebrow -->
       <div class="inline-block text-[#FFFCFC] uppercase tracking-widest text-[11px] md:text-xs font-bold mb-4 md:mb-6 drop-shadow-lg">
         Ingeniería Corporativa a Escala Industrial
@@ -90,9 +90,6 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
       <a href="https://share.google/0vSbehj4lAvdtl8RY" target="_blank" rel="noopener noreferrer" class="mt-8 md:mt-12 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-[2rem] shadow-lg hover:bg-[#FFFCFC]/15 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer drop-shadow-xl animate-fade-in-up w-fit mx-auto lg:mx-0 group">
         <!-- Avatares separados (Logos reales) -->
         <div class="flex gap-2 sm:gap-3 items-center">
-          <img class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FFFCFC]/20 bg-white object-contain p-1 shadow-sm hover:scale-110 transition-transform" src="https://logo.clearbit.com/ypf.com" alt="YPF">
-          <img class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FFFCFC]/20 bg-white object-contain p-1 shadow-sm hover:scale-110 transition-transform" src="https://logo.clearbit.com/shell.com" alt="Shell">
-          <img class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FFFCFC]/20 bg-white object-contain p-1 shadow-sm hover:scale-110 transition-transform" src="https://logo.clearbit.com/refinor.com" alt="Refinor">
           <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FFFCFC]/20 bg-[#FFFCFC] text-[#1E2D64] flex items-center justify-center text-[10px] sm:text-[11px] font-bold shadow-sm group-hover:bg-blue-100 transition-colors">+50</div>
         </div>
         
@@ -136,22 +133,7 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
     animation: text-glow 4s ease-in-out infinite;
   }
   
-  /* Animación épica de armado del Hero coordinada con la pantalla de carga (1.5s) */
-  .hero-assemble {
-    animation: assemble 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  @keyframes assemble {
-    0% {
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-      filter: blur(15px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
+  /* Se removió hero-assemble para optimizar la carga en celulares y evitar pantallazos blancos */
 
   /* Animaciones para el indicador de scroll */
   @keyframes bounce-slow {
