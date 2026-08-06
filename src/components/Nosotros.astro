@@ -41,70 +41,25 @@ import { ABOUT } from '../config';
         </div>
       </div>
 
-      <!-- Metodología de Trabajo 3M -->
-      <div class="mb-16 md:mb-24 animate-on-scroll">
-        <h3 class="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-[#FFFCFC] uppercase tracking-wider">Certificado de Calidad</h3>
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:border-[#FFFCFC]/20 transition-colors duration-500 group">
-          
-          <!-- Logo 3D 3M -->
-          <div class="w-full md:w-1/3 flex justify-center shrink-0">
-            <div class="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center transition-all duration-700 hover:scale-105 hover:-translate-y-2 cursor-default z-10">
-              <!-- Glow effect behind -->
-              <div class="absolute inset-0 bg-red-600/30 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 group-hover:bg-red-500/40 transition-all duration-700"></div>
-              
-              <!-- 3D style logo -->
-              <img 
-                src="/images/3m-logo.png" 
-                alt="Certificación 3M" 
-                class="relative w-full h-full object-contain filter drop-shadow-[0_20px_20px_rgba(220,38,38,0.5)] transition-all duration-700" 
-                style="transform: perspective(1000px) rotateX(15deg) rotateY(-15deg); transform-style: preserve-3d;"
-                onmouseover="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.1)'; this.style.filter='drop-shadow(0 30px 30px rgba(220,38,38,0.7))';"
-                onmouseout="this.style.transform='perspective(1000px) rotateX(15deg) rotateY(-15deg) scale(1)'; this.style.filter='drop-shadow(0 20px 20px rgba(220,38,38,0.5))';"
-              />
-            </div>
-          </div>
-          
-          <!-- Texto -->
-          <div class="w-full md:w-2/3 z-20">
-            <p class="text-[#FFFCFC]/90 text-[15px] sm:text-base md:text-lg lg:text-[22px] leading-relaxed md:leading-loose font-light">
-              <strong class="font-bold text-white tracking-wide">Bajo el programa de <span class="text-red-500">3M</span></strong>, JB COMPAÑÍA PUBLICITARIA SRL fue certificada como impresor, fabricante e instalador, dando cumplimiento con todos los requisitos y condiciones establecidos por 3M, con el beneficio del prestigio y confiabilidad que dicho reconocimiento provee, como así también una mejora en su modelo de negocios al estandarizar los procesos de fabricación e instalación, maximizando sus niveles de productividad.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
       <!-- Misión y Visión -->
       <div class="grid grid-cols-2 gap-2 sm:gap-4 md:gap-8 mb-16 md:mb-20">
         <!-- Card Misión -->
         <div class="animate-on-scroll p-4 sm:p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:scale-[1.02] hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/30 transition-all duration-300 h-full flex flex-col">
           <h3 class="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-6 tracking-tight text-[#FFFCFC]">Nuestra Misión</h3>
-          <div class="flex-1 relative">
-            <input type="checkbox" id="mission-read-more" class="peer hidden" />
-            <p class="text-[#FFFCFC]/80 text-[13px] sm:text-sm md:text-lg leading-relaxed font-light line-clamp-5 md:line-clamp-none peer-checked:line-clamp-none transition-all duration-300">
+          <div class="flex-1">
+            <p class="text-[#FFFCFC]/80 text-xs sm:text-sm md:text-lg leading-relaxed font-light">
               {ABOUT.mission}
             </p>
-            <div class="mt-4 flex md:hidden peer-checked:hidden">
-              <label for="mission-read-more" class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-blue-400 text-blue-400 text-xs cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                Seguir leyendo
-              </label>
-            </div>
           </div>
         </div>
 
         <!-- Card Visión -->
         <div class="animate-on-scroll p-4 sm:p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-[#FFFCFC]/5 backdrop-blur-xl border border-[#FFFCFC]/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] hover:scale-[1.02] hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/30 transition-all duration-300 h-full flex flex-col">
           <h3 class="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-6 tracking-tight text-[#FFFCFC]">Nuestra Visión</h3>
-          <div class="flex-1 relative">
-            <input type="checkbox" id="vision-read-more" class="peer hidden" />
-            <p class="text-[#FFFCFC]/80 text-[13px] sm:text-sm md:text-lg leading-relaxed font-light line-clamp-5 md:line-clamp-none peer-checked:line-clamp-none transition-all duration-300">
+          <div class="flex-1">
+            <p class="text-[#FFFCFC]/80 text-xs sm:text-sm md:text-lg leading-relaxed font-light">
               {ABOUT.vision}
             </p>
-            <div class="mt-4 flex md:hidden peer-checked:hidden">
-              <label for="vision-read-more" class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-blue-400 text-blue-400 text-xs cursor-pointer font-bold hover:bg-blue-400 hover:text-[#1E2D64] transition-colors select-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                Seguir leyendo
-              </label>
-            </div>
           </div>
         </div>
       </div>
