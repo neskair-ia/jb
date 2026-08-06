@@ -23,10 +23,10 @@ Object.keys(projectFiles).forEach(file => {
 ---
 
 <section id="proyectos" class="pt-28 pb-16 md:py-32 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
-  <div class="max-w-[95rem] mx-auto px-4 relative z-10">
+  <div class="max-w-[95rem] mx-auto px-2 sm:px-4 relative z-10">
     
     <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC] px-2">
         Trabajos que hablan por sí solos
       </h2>
       <!-- Texto versión Desktop -->
@@ -34,7 +34,7 @@ Object.keys(projectFiles).forEach(file => {
         {PROJECTS_INTRO}
       </p>
       <!-- Texto versión Celular -->
-      <p class="md:hidden text-[15px] text-[#FFFCFC]/90 leading-relaxed font-medium px-2">
+      <p class="md:hidden text-[15px] text-[#FFFCFC]/90 leading-relaxed font-medium px-4">
         {PROJECTS_INTRO_MOBILE}
       </p>
     </div>
@@ -68,7 +68,7 @@ Object.keys(projectFiles).forEach(file => {
     </div>
 
     <!-- Galería de Proyectos -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-1.5 md:gap-8">
       {PROJECTS.map((project, index) => {
         const projectId = (index + 1).toString();
         // Imágenes de la carpeta del proyecto actual
@@ -84,10 +84,10 @@ Object.keys(projectFiles).forEach(file => {
             ];
 
         return (
-          <div class="group cursor-pointer project-card flex flex-col gap-5" style={`transition-delay: ${(index % 3) * 100}ms`}>
+          <div class="group cursor-pointer project-card flex flex-col gap-3 md:gap-5" style={`transition-delay: ${(index % 3) * 100}ms`}>
             
             <!-- Contenedor de fotos interactivas (Más alto y minimalista) -->
-            <div class="relative w-full aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
+            <div class="relative w-full aspect-[3/4] md:aspect-[4/5] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-3 md:group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
               <div class="absolute inset-0 w-full h-full rotate-slider">
                 {displayImages.map((imgSrc, imgIndex) => (
                   <img 
