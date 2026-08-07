@@ -97,7 +97,7 @@ export const PROJECTS = [
   { title: 'Mostaza' },
   { title: 'Jumbo' },
   { title: 'Refinor' },
-  { title: 'Proyecto 5' },
+  { title: 'Jeep y RAM' },
   { title: 'Proyecto 6' },
   { title: 'Proyecto 7' },
   { title: 'Proyecto 8' },
