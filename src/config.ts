@@ -101,5 +101,5 @@ export const PROJECTS = [
   { title: 'Vea' },
   { title: 'Shell' },
   { title: 'Fiat' },
-  { title: 'Proyecto 9' }
+  { title: 'BBVA' }
 ];
