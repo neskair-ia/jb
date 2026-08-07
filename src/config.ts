@@ -93,10 +93,10 @@ export const CLIENTS = [
 ];
 
 export const PROJECTS = [
-  { title: 'Proyecto 1' },
-  { title: 'Proyecto 2' },
-  { title: 'Proyecto 3' },
-  { title: 'Proyecto 4' },
+  { title: 'YPF' },
+  { title: 'Mostaza' },
+  { title: 'Jumbo' },
+  { title: 'Refinor' },
   { title: 'Proyecto 5' },
   { title: 'Proyecto 6' },
   { title: 'Proyecto 7' },
