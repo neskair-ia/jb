@@ -23,7 +23,7 @@ Object.keys(projectFiles).forEach(file => {
 ---
 
 <section id="proyectos" class="pt-28 pb-16 md:py-32 bg-transparent relative border-t border-[#FFFCFC]/10 min-h-screen">
-  <div class="max-w-[95rem] mx-auto px-2 sm:px-4 relative z-10">
+  <div class="w-full max-w-[120rem] mx-auto px-2 md:px-8 relative z-10">
     
     <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC] px-2">
@@ -107,15 +107,10 @@ Object.keys(projectFiles).forEach(file => {
               
               <!-- Helper más visual y profesional -->
               {displayImages.length > 1 && (
-                <div class="flex items-center gap-2 mt-1 md:mt-2 opacity-90 md:opacity-75 group-hover:opacity-100 transition-all duration-300">
-                  <div class="w-5 h-5 md:w-7 md:h-7 rounded-full bg-[#FFFCFC]/10 flex items-center justify-center group-hover:bg-blue-500/40 transition-colors shadow-inner border border-white/5">
-                    <svg class="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-300 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </div>
-                  <span class="text-[#FFFCFC] text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-blue-100/70 group-hover:text-blue-200">
-                    <span class="md:hidden">Tocar galería</span>
-                    <span class="hidden md:inline">Ver galería</span>
+                <div class="flex items-center mt-2 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                  <span class="text-[#FFFCFC] text-[9px] md:text-[11px] font-medium tracking-[0.2em] uppercase">
+                    <span class="md:hidden">Toca para ver más</span>
+                    <span class="hidden md:inline">Clic para ver más</span>
                   </span>
                 </div>
               )}
