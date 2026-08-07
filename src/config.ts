@@ -100,6 +100,6 @@ export const PROJECTS = [
   { title: 'Jeep y RAM' },
   { title: 'Vea' },
   { title: 'Shell' },
-  { title: 'Proyecto 8' },
+  { title: 'Fiat' },
   { title: 'Proyecto 9' }
 ];
