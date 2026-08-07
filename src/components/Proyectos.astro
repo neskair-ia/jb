@@ -93,6 +93,7 @@ Object.keys(projectFiles).forEach(file => {
                   <img 
                     src={imgSrc} 
                     class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                    style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
                     alt={`${project.title} - Foto ${imgIndex + 1}`} 
                   />
                 ))}
