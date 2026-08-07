@@ -99,7 +99,7 @@ export const PROJECTS = [
   { title: 'Refinor' },
   { title: 'Jeep y RAM' },
   { title: 'Vea' },
-  { title: 'Proyecto 7' },
+  { title: 'Shell' },
   { title: 'Proyecto 8' },
   { title: 'Proyecto 9' }
 ];
