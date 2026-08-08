@@ -1,10 +1,15 @@
 ---
-const clientFiles = import.meta.glob('/public/clientes/*.{png,jpg,jpeg,svg,webp}');
-// Convertimos la ruta del proyecto (ej: /public/clientes/afip.jpg) a ruta web (ej: /clientes/afip.jpg)
-const clientLogos = Object.keys(clientFiles).map(file => file.replace('/public', ''));
+import { Image } from 'astro:assets';
 
-// Fallback por si no se detectan imágenes
+// Auto-descubrir las imágenes de los clientes usando astro:assets
+const clientFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/clientes/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+const clientLogos = Object.values(clientFiles).map(module => module.default);
+
+// Fallback por si no hay imágenes o la carpeta no se encuentra
 const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
+
+// Duplicamos para asegurar que el marquee sea siempre infinito sin cortes
+const infiniteLogos = [...displayLogos, ...displayLogos, ...displayLogos];
 ---
 
 <section class="py-6 bg-[#FFFCFC]/5 border-t border-b border-[#FFFCFC]/10 overflow-hidden relative backdrop-blur-sm z-10 mt-8 mb-16">
@@ -16,24 +21,24 @@ const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png']
   
   <div class="marquee-wrapper-fast flex overflow-hidden w-full py-4">
     <div class="flex w-max whitespace-nowrap animate-marquee-fast shrink-0 items-center">
-      {displayLogos.map((logoPath) => (
+      {infiniteLogos.map((logoPath) => (
         <div class="mx-3 sm:mx-6 md:mx-10 flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 bg-[#FFFCFC] p-2 md:p-4 rounded-lg md:rounded-xl shrink-0 cursor-default hover:scale-105 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-          <img 
-            src={logoPath} 
-            alt="Logo Cliente" 
-            class="w-full h-full object-contain rounded-sm md:rounded-md"
-          />
+          {typeof logoPath === 'string' ? (
+            <img src={logoPath} alt="Logo Cliente" class="w-full h-full object-contain rounded-sm md:rounded-md" />
+          ) : (
+            <Image src={logoPath} alt="Logo Cliente" width={200} class="w-full h-full object-contain rounded-sm md:rounded-md" />
+          )}
         </div>
       ))}
     </div>
     <div class="flex w-max whitespace-nowrap animate-marquee-fast shrink-0 items-center">
-      {displayLogos.map((logoPath) => (
+      {infiniteLogos.map((logoPath) => (
         <div class="mx-3 sm:mx-6 md:mx-10 flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 bg-[#FFFCFC] p-2 md:p-4 rounded-lg md:rounded-xl shrink-0 cursor-default hover:scale-105 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-          <img 
-            src={logoPath} 
-            alt="Logo Cliente" 
-            class="w-full h-full object-contain rounded-sm md:rounded-md"
-          />
+          {typeof logoPath === 'string' ? (
+            <img src={logoPath} alt="Logo Cliente" class="w-full h-full object-contain rounded-sm md:rounded-md" />
+          ) : (
+            <Image src={logoPath} alt="Logo Cliente" width={200} class="w-full h-full object-contain rounded-sm md:rounded-md" />
+          )}
         </div>
       ))}
     </div>

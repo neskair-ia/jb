@@ -1,23 +1,24 @@
 ---
 import { PROJECTS_INTRO, PROJECTS_INTRO_MOBILE, PROJECTS } from '../config';
+import { Image } from 'astro:assets';
 
-const clientFiles = import.meta.glob('/public/clientes/*.{png,jpg,jpeg,svg,webp}');
-const clientLogos = Object.keys(clientFiles).map(file => file.replace('/public', ''));
+const clientFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/clientes/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+const clientLogos = Object.values(clientFiles).map(module => module.default);
 
 // Fallback por si no se detectan imágenes
 const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
 
 // Auto-descubrir imágenes de los proyectos
-const projectFiles = import.meta.glob('/public/proyectos/**/*.{png,jpg,jpeg,webp,avif}');
-const projectImagesByFolder: Record<string, string[]> = {};
+const projectFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/proyectos/**/*.{png,jpg,jpeg,webp,avif}', { eager: true });
+const projectImagesByFolder: Record<string, ImageMetadata[]> = {};
 
-Object.keys(projectFiles).forEach(file => {
-  // Extraer el número de carpeta (ej: /public/proyectos/1/foto.jpg -> "1")
-  const match = file.match(/\/public\/proyectos\/(\d+)\//);
+Object.entries(projectFiles).forEach(([file, module]) => {
+  // Extraer el número de carpeta (ej: /src/assets/proyectos/1/foto.jpg -> "1")
+  const match = file.match(/\/src\/assets\/proyectos\/(\d+)\//);
   if (match) {
     const folderId = match[1];
     if (!projectImagesByFolder[folderId]) projectImagesByFolder[folderId] = [];
-    projectImagesByFolder[folderId].push(file.replace('/public', ''));
+    projectImagesByFolder[folderId].push(module.default);
   }
 });
 ---
@@ -45,22 +46,22 @@ Object.keys(projectFiles).forEach(file => {
         <div class="flex w-max whitespace-nowrap animate-marquee shrink-0">
           {displayLogos.map((logoPath) => (
             <div class="mx-3 md:mx-5 flex items-center justify-center w-28 h-20 md:w-48 md:h-28 bg-[#FFFCFC] rounded-xl cursor-default group p-3 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-              <img 
-                src={logoPath} 
-                alt="Cliente" 
-                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-              />
+              {typeof logoPath === 'string' ? (
+                <img src={logoPath} alt="Cliente" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              ) : (
+                <Image src={logoPath} alt="Cliente" width={200} class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              )}
             </div>
           ))}
         </div>
         <div class="flex w-max whitespace-nowrap animate-marquee shrink-0">
           {displayLogos.map((logoPath) => (
             <div class="mx-3 md:mx-5 flex items-center justify-center w-28 h-20 md:w-48 md:h-28 bg-[#FFFCFC] rounded-xl cursor-default group p-3 shrink-0 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-              <img 
-                src={logoPath} 
-                alt="Cliente" 
-                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-              />
+              {typeof logoPath === 'string' ? (
+                <img src={logoPath} alt="Cliente" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              ) : (
+                <Image src={logoPath} alt="Cliente" width={200} class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              )}
             </div>
           ))}
         </div>
@@ -90,12 +91,23 @@ Object.keys(projectFiles).forEach(file => {
             <div class="relative w-full aspect-[4/5] rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-2 md:group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
               <div class="absolute inset-0 w-full h-full rotate-slider">
                 {displayImages.map((imgSrc, imgIndex) => (
-                  <img 
-                    src={imgSrc} 
-                    class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
-                    style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
-                    alt={`${project.title} - Foto ${imgIndex + 1}`} 
-                  />
+                  typeof imgSrc === 'string' ? (
+                    <img 
+                      src={imgSrc} 
+                      class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                      style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
+                      alt={`${project.title} - Foto ${imgIndex + 1}`} 
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Image 
+                      src={imgSrc} 
+                      width={800}
+                      class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
+                      style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
+                      alt={`${project.title} - Foto ${imgIndex + 1}`} 
+                    />
+                  )
                 ))}
               </div>
             </div>

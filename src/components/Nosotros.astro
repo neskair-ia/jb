@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { ABOUT } from '../config';
+import quienesSomosImg from '../assets/images/quienes-somos.png';
 ---
 
 <section id="nosotros" class="pt-28 pb-16 md:py-32 bg-transparent relative overflow-hidden">
@@ -10,7 +12,9 @@ import { ABOUT } from '../config';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-24">
         <!-- Imagen -->
         <div class="order-2 lg:order-1 relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#FFFCFC]/10 aspect-[3/4] lg:aspect-auto lg:h-[650px] group">
-          <img src="/images/quienes-somos.png" alt="Instalaciones JB Ingeniería" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x800/1E2D64/FFFCFC?text=Foto+JB'" />
+          <Image src={quienesSomosImg} alt="Instalaciones JB Ingeniería" 
+          width={1000}
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <!-- Sutil gradiente oscuro para que la foto tenga peso -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/80 via-transparent to-transparent opacity-80"></div>
         </div>
