@@ -137,11 +137,11 @@ import quienesSomosImg from '../assets/images/quienes-somos.png';
                   <>
                     <video 
                       src={value.video} 
-                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                      autoplay 
+                      class="lazy-video absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                       loop 
                       muted 
                       playsinline
+                      preload="metadata"
                     ></video>
                     <!-- Capa sutil de sombra interior para más estética -->
                     <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/60 via-transparent to-transparent pointer-events-none"></div>
@@ -164,3 +164,35 @@ import quienesSomosImg from '../assets/images/quienes-somos.png';
     </div>
   </div>
 </section>
+
+<script>
+  // Lazy loading de videos para optimizar recursos en celulares
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('video.lazy-video');
+    
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            // Reproducir suavemente cuando entra a pantalla
+            video.play().catch(() => {});
+          } else {
+            // Pausar para liberar memoria/CPU cuando no se ve
+            video.pause();
+          }
+        });
+      }, { threshold: 0.1 });
+
+      videos.forEach(video => {
+        videoObserver.observe(video);
+      });
+    } else {
+      // Fallback si no soporta IntersectionObserver
+      videos.forEach(video => {
+        const v = video as HTMLVideoElement;
+        v.autoplay = true;
+      });
+    }
+  });
+</script>
