@@ -6,13 +6,13 @@ export const SITE = {
 };
 
 // Convert to Base64 to avoid spam
-// +54 9 3812 48-1995 -> KzU0OTM4MTI0ODE5OTU=
+// +54 9 3814 09-0232 -> KzU0OTM4MTQwOTAyMzI=
 // direccion@jbingenieriacorporativa.com.ar -> ZGlyZWNjaW9uQGpiaW5nZW5pZXJpYWNvcnBvcmF0aXZhLmNvbS5hcg==
 
 export const CONTACT = {
-  whatsapp: 'NTQ5MzgxMjQ4MTk5NT90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
-  whatsappRaw: '+54 9 3812 48-1995',
-  phoneBase64: 'KzU0OTM4MTI0ODE5OTU=',
+  whatsapp: 'NTQ5MzgxNDA5MDIzMj90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
+  whatsappRaw: '+54 9 3814 09-0232',
+  phoneBase64: 'KzU0OTM4MTQwOTAyMzI=',
   emailBase64: 'ZGlyZWNjaW9uQGpiaW5nZW5pZXJpYWNvcnBvcmF0aXZhLmNvbS5hcg==',
   emailRaw: 'direccion@jbingenieriacorporativa.com.ar',
   address: 'Parque Industrial Kanamico Ruta Prov. 301 KM 17.5 - Lules, Tucumán, Argentina.',
