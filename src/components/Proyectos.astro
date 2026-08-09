@@ -84,32 +84,41 @@ Object.entries(projectFiles).forEach(([file, module]) => {
               `https://placehold.co/600x400/293b73/FFFCFC?text=Foto+3+Proy+${projectId}`
             ];
 
+        const imageUrls = displayImages.map(img => typeof img === 'string' ? img : img.src);
+
         return (
-          <div class="group cursor-pointer project-card flex flex-col gap-2 md:gap-4" style={`transition-delay: ${(index % 3) * 100}ms`}>
+          <div class="group cursor-pointer project-card flex flex-col gap-2 md:gap-4" style={`transition-delay: ${(index % 3) * 100}ms`} data-title={project.title} data-images={JSON.stringify(imageUrls)}>
             
-            <!-- Contenedor de fotos interactivas (Más alto y minimalista) -->
+            <!-- Contenedor de foto estática (con overlay al hacer hover) -->
             <div class="relative w-full aspect-[4/5] rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-2 md:group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
-              <div class="absolute inset-0 w-full h-full rotate-slider">
-                {displayImages.map((imgSrc, imgIndex) => (
-                  typeof imgSrc === 'string' ? (
-                    <img 
-                      src={imgSrc} 
-                      class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
-                      style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
-                      alt={`${project.title} - Foto ${imgIndex + 1}`} 
-                      loading="lazy"
-                    />
-                  ) : (
-                    <Image 
-                      src={imgSrc} 
-                      width={800}
-                      class={`slide-img transition-transform duration-700 group-hover:scale-105 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`} 
-                      style={projectId === '5' && imgIndex === 0 ? 'object-position: 15% center;' : ''}
-                      alt={`${project.title} - Foto ${imgIndex + 1}`} 
-                    />
-                  )
-                ))}
+              
+              {typeof displayImages[0] === 'string' ? (
+                <img 
+                  src={displayImages[0]} 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  style={projectId === '5' ? 'object-position: 15% center;' : ''}
+                  alt={`${project.title} - Portada`} 
+                  loading="lazy"
+                />
+              ) : (
+                <Image 
+                  src={displayImages[0]} 
+                  width={800}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  style={projectId === '5' ? 'object-position: 15% center;' : ''}
+                  alt={`${project.title} - Portada`} 
+                />
+              )}
+
+              <!-- Overlay al pasar el mouse (Icono de ampliar) -->
+              <div class="absolute inset-0 bg-[#0e2146]/40 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                <div class="w-12 h-12 rounded-full bg-[#FFFCFC]/20 backdrop-blur-md flex items-center justify-center text-white border border-[#FFFCFC]/30">
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                </div>
               </div>
+
             </div>
 
             <!-- Título del Proyecto y Botón -->
@@ -120,10 +129,10 @@ Object.entries(projectFiles).forEach(([file, module]) => {
               
               <!-- Helper más visual y profesional -->
               {displayImages.length > 1 && (
-                <div class="flex items-center mt-2 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="flex items-center mt-2 opacity-70 md:opacity-50 md:group-hover:opacity-100 transition-opacity duration-500">
                   <span class="text-[#FFFCFC] text-[9px] md:text-[11px] font-medium tracking-[0.2em] uppercase">
-                    <span class="md:hidden">Toca para ver más</span>
-                    <span class="hidden md:inline">Clic para ver más</span>
+                    <span class="md:hidden">Toca para abrir galería</span>
+                    <span class="hidden md:inline">Clic para ver galería</span>
                   </span>
                 </div>
               )}
@@ -131,6 +140,48 @@ Object.entries(projectFiles).forEach(([file, module]) => {
           </div>
         );
       })}
+    </div>
+
+    <!-- MODAL DE GALERÍA -->
+    <div id="gallery-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-[#050b1a]/95 backdrop-blur-2xl opacity-0 transition-opacity duration-300">
+      
+      <!-- Botón Cerrar (X) Minimalista -->
+      <button id="close-modal" class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#FFFCFC]/10 text-white hover:bg-red-500 hover:text-white hover:rotate-90 transition-all duration-300 z-50">
+        <svg class="w-5 h-5 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Info del Proyecto (Título y Contador) -->
+      <div class="absolute top-6 left-6 md:top-10 md:left-10 z-50 text-white pointer-events-none">
+        <h4 id="modal-title" class="text-lg md:text-3xl font-black tracking-widest drop-shadow-lg mb-1 uppercase">Proyecto</h4>
+        <div class="text-xs md:text-sm font-light text-blue-300/80 tracking-[0.3em]"><span id="modal-counter">1</span> / <span id="modal-total">4</span></div>
+      </div>
+
+      <!-- Flecha Izquierda -->
+      <button id="prev-btn" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-transparent md:hover:bg-[#FFFCFC]/10 text-white/50 hover:text-white transition-all z-50 active:scale-90">
+        <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Contenedor Central de Imagen -->
+      <div class="relative w-full h-full max-w-7xl mx-auto flex items-center justify-center p-4 md:p-12 overflow-hidden" id="modal-image-container">
+        <!-- Loader minimalista (se oculta cuando carga la imagen) -->
+        <div id="modal-loader" class="absolute inset-0 flex items-center justify-center z-10">
+          <div class="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+        </div>
+        <!-- Imagen -->
+        <img id="modal-img" src="" alt="Galería" class="relative z-20 max-w-full max-h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 scale-95 opacity-0" />
+      </div>
+
+      <!-- Flecha Derecha -->
+      <button id="next-btn" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-transparent md:hover:bg-[#FFFCFC]/10 text-white/50 hover:text-white transition-all z-50 active:scale-90">
+        <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
     </div>
 
   </div>
@@ -149,43 +200,142 @@ Object.entries(projectFiles).forEach(([file, module]) => {
     100% { transform: translateX(-100%); }
   }
 
-  /* Estilos para las fotos interactivas */
-  .rotate-slider {
-    position: relative;
-  }
-  .rotate-slider .slide-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.6s ease-in-out, transform 0.7s ease-out;
+  /* Eliminar overflow oculto en body al abrir modal */
+  body.modal-open {
+    overflow: hidden;
   }
 </style>
 
 <script>
-  // Script para manejar el clic en las tarjetas de proyectos
   document.addEventListener('DOMContentLoaded', () => {
     const projectCards = document.querySelectorAll('.project-card');
+    const modal = document.getElementById('gallery-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+    const modalTitle = document.getElementById('modal-title');
+    const modalCounter = document.getElementById('modal-counter');
+    const modalTotal = document.getElementById('modal-total');
+    const modalLoader = document.getElementById('modal-loader');
     
-    projectCards.forEach(card => {
-      // Estado local para cada tarjeta
-      let currentIndex = 0;
-      const images = card.querySelectorAll('.slide-img');
-      const totalImages = images.length;
+    let currentImages: string[] = [];
+    let currentIndex = 0;
+
+    const updateModalImage = () => {
+      // Mostrar loader y ocultar imagen anterior
+      modalImg.classList.remove('opacity-100', 'scale-100');
+      modalImg.classList.add('opacity-0', 'scale-95');
+      modalLoader.classList.remove('hidden');
+
+      // Actualizar info
+      modalCounter.textContent = (currentIndex + 1).toString();
       
-      card.addEventListener('click', () => {
-        // Ocultar imagen actual
-        images[currentIndex].classList.remove('opacity-100');
-        images[currentIndex].classList.add('opacity-0');
-        
-        // Calcular siguiente índice
-        currentIndex = (currentIndex + 1) % totalImages;
-        
-        // Mostrar siguiente imagen
-        images[currentIndex].classList.remove('opacity-0');
-        images[currentIndex].classList.add('opacity-100');
-      });
+      // Precargar la imagen
+      const newImg = new Image();
+      newImg.src = currentImages[currentIndex];
+      newImg.onload = () => {
+        modalImg.src = newImg.src;
+        modalLoader.classList.add('hidden');
+        // Mostrar imagen con animación fluida
+        setTimeout(() => {
+          modalImg.classList.remove('opacity-0', 'scale-95');
+          modalImg.classList.add('opacity-100', 'scale-100');
+        }, 50);
+      };
+    };
+
+    const openModal = (card: Element) => {
+      currentImages = JSON.parse(card.getAttribute('data-images') || '[]');
+      const title = card.getAttribute('data-title') || 'Proyecto';
+      
+      if (currentImages.length === 0) return;
+
+      currentIndex = 0;
+      modalTitle.textContent = title;
+      modalTotal.textContent = currentImages.length.toString();
+      
+      // Mostrar modal
+      modal.classList.remove('hidden');
+      document.body.classList.add('modal-open');
+      
+      // Fade in modal
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+      }, 10);
+
+      // Si solo hay 1 foto, ocultar flechas
+      if (currentImages.length <= 1) {
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.add('hidden');
+      } else {
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+      }
+
+      updateModalImage();
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      document.body.classList.remove('modal-open');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modalImg.src = ''; // Limpiar src para evitar saltos en la próxima apertura
+      }, 300); // Esperar que termine la transición
+    };
+
+    const nextImage = () => {
+      if (currentImages.length <= 1) return;
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateModalImage();
+    };
+
+    const prevImage = () => {
+      if (currentImages.length <= 1) return;
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateModalImage();
+    };
+
+    // Event Listeners
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => openModal(card));
     });
+
+    closeBtn.addEventListener('click', closeModal);
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+    
+    // Cerrar al hacer clic en el fondo oscuro
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === document.getElementById('modal-image-container')) {
+        closeModal();
+      }
+    });
+
+    // Soporte para teclado
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      }
+    });
+
+    // Soporte para swipe en celulares
+    let touchstartX = 0;
+    let touchendX = 0;
+    modal.addEventListener('touchstart', e => {
+      touchstartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    modal.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX;
+      if (touchstartX - touchendX > 50) nextImage();
+      if (touchendX - touchstartX > 50) prevImage();
+    }, {passive: true});
   });
 </script>
