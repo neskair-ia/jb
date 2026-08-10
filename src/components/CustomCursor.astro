@@ -1,9 +1,9 @@
 ---
 // src/components/CustomCursor.astro
 ---
-<div id="cursor-dot" class="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10000] hidden lg:block shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%);"></div>
-<div id="cursor-ring" class="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-white/40 rounded-full pointer-events-none z-[9999] hidden lg:flex items-center justify-center transition-[width,height,background-color,border-color,backdrop-filter] duration-300 ease-out backdrop-blur-sm" style="transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%);">
-  <span id="cursor-text" class="text-[10px] font-black text-[#1E2D64] opacity-0 transition-opacity duration-300 uppercase tracking-widest whitespace-nowrap"></span>
+<div id="cursor-dot" class="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[10000] hidden lg:block" style="transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%);"></div>
+<div id="cursor-ring" class="fixed top-0 left-0 w-7 h-7 border border-white/30 rounded-full pointer-events-none z-[9999] hidden lg:flex items-center justify-center transition-[width,height,background-color,border-color,backdrop-filter] duration-300 ease-out" style="transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%);">
+  <span id="cursor-text" class="text-[8px] font-black text-[#1E2D64] opacity-0 transition-opacity duration-300 uppercase tracking-widest whitespace-nowrap"></span>
 </div>
 
 <style is:global>
@@ -25,24 +25,24 @@
 
     /* ESTADO: HOVER NORMAL (Botones, Links) */
     body.cursor-hover #cursor-ring {
-      width: 55px;
-      height: 55px;
+      width: 36px;
+      height: 36px;
       background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.8);
+      border-color: rgba(255, 255, 255, 0.6);
     }
     body.cursor-hover #cursor-dot {
       opacity: 0.2;
-      width: 4px;
-      height: 4px;
+      width: 3px;
+      height: 3px;
     }
     
     /* ESTADO: VER PROYECTO (Tarjetas de galería) */
     body.cursor-view #cursor-ring {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
       background-color: rgba(255, 255, 255, 0.95);
       border-color: rgba(255, 255, 255, 1);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
     body.cursor-view #cursor-dot {
       opacity: 0;
