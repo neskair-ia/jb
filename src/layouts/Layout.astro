@@ -60,7 +60,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
-			<div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#1E2D64] flex items-center justify-center transition-opacity duration-500" oncontextmenu="return false;">
+			<div id="splash-screen" class="fixed inset-0 z-[10001] bg-[#1E2D64] flex items-center justify-center transition-opacity duration-500 cursor-wait" oncontextmenu="return false;">
 				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
 					<img 
 						id="splash-img"
