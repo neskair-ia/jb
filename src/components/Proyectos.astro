@@ -87,7 +87,7 @@ Object.entries(projectFiles).forEach(([file, module]) => {
         const imageUrls = displayImages.map(img => typeof img === 'string' ? img : img.src);
 
         return (
-          <div class="group cursor-pointer project-card flex flex-col gap-2 md:gap-4" style={`transition-delay: ${(index % 3) * 100}ms`} data-title={project.title} data-images={JSON.stringify(imageUrls)}>
+          <div class="group cursor-pointer project-card flex flex-col gap-2 md:gap-4" style={`transition-delay: ${(index % 3) * 100}ms; transform-style: preserve-3d;`} data-title={project.title} data-images={JSON.stringify(imageUrls)}>
             
             <!-- Contenedor de foto estática (con overlay al hacer hover) -->
             <div class="relative w-full aspect-[4/5] rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-2 md:group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
@@ -337,5 +337,73 @@ Object.entries(projectFiles).forEach(([file, module]) => {
       if (touchstartX - touchendX > 50) nextImage();
       if (touchendX - touchstartX > 50) prevImage();
     }, {passive: true});
+
+    // ----------------------------------------------------
+    // EFECTO 3D MAGNÉTICO (Tilt) PARA TARJETAS EN DESKTOP
+    // ----------------------------------------------------
+    if (window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 768px)').matches) {
+      projectCards.forEach(card => {
+        const htmlCard = card as HTMLElement;
+        const imgContainer = htmlCard.querySelector('.aspect-\\[4\\/5\\]') as HTMLElement;
+        const title = htmlCard.querySelector('h3') as HTMLElement;
+        
+        // Brillo sutil dinámico
+        const glare = document.createElement('div');
+        glare.className = 'absolute inset-0 pointer-events-none rounded-xl md:rounded-[2rem] opacity-0 transition-opacity duration-300 z-10';
+        glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%)';
+        if (imgContainer) imgContainer.appendChild(glare);
+
+        htmlCard.addEventListener('mousemove', (e) => {
+          const rect = htmlCard.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Max tilt angle (grados)
+          const rotateX = ((y - centerY) / centerY) * -10; 
+          const rotateY = ((x - centerX) / centerX) * 10;
+          
+          // Remover transiciones para un seguimiento fluido
+          htmlCard.style.transition = 'none';
+          if (imgContainer) imgContainer.style.transition = 'none';
+          
+          // Aplicar la rotación 3D a la tarjeta entera
+          htmlCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          
+          // Efecto Parallax en el contenedor de imagen y el texto
+          if (imgContainer) {
+            imgContainer.style.transform = `translateZ(30px)`;
+            imgContainer.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0,0,0,0.4)`;
+            // Mover el brillo basado en el mouse
+            glare.style.opacity = '1';
+            glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%)`;
+          }
+          if (title) {
+            title.style.transition = 'none';
+            title.style.transform = `translateZ(40px)`;
+          }
+        });
+
+        htmlCard.addEventListener('mouseleave', () => {
+          // Restaurar transiciones
+          htmlCard.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+          if (imgContainer) imgContainer.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+          if (title) title.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+          
+          // Resetear valores
+          htmlCard.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
+          if (imgContainer) {
+            imgContainer.style.transform = `translateZ(0px)`;
+            imgContainer.style.boxShadow = ``;
+            glare.style.opacity = '0';
+          }
+          if (title) {
+            title.style.transform = `translateZ(0px)`;
+          }
+        });
+      });
+    }
   });
 </script>
