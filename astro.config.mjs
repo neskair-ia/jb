@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://jbingenieriacorporativa.com',
   output: 'static',
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
   },

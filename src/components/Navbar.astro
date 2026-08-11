@@ -22,10 +22,10 @@ const getLinkClass = (path: string, isMobile: boolean = false) => {
 
 const mobileMenuLinks = [
   { name: 'Inicio', path: '/' },
-  { name: 'Nosotros', path: '/nosotros' },
-  { name: 'Servicios', path: '/servicios' },
-  { name: 'Infraestructura', path: '/infraestructura' },
-  { name: 'Proyectos', path: '/proyectos' },
+  { name: 'Nosotros', path: '/nosotros/' },
+  { name: 'Servicios', path: '/servicios/' },
+  { name: 'Infraestructura', path: '/infraestructura/' },
+  { name: 'Proyectos', path: '/proyectos/' },
 ];
 ---
 
@@ -53,10 +53,10 @@ const mobileMenuLinks = [
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-2">
         <a href="/" class={getLinkClass('/')}>Inicio</a>
-        <a href="/nosotros" class={getLinkClass('/nosotros')}>Nosotros</a>
-        <a href="/servicios" class={getLinkClass('/servicios')}>Servicios</a>
-        <a href="/infraestructura" class={getLinkClass('/infraestructura')}>Infraestructura</a>
-        <a href="/proyectos" class={getLinkClass('/proyectos')}>Proyectos</a>
+        <a href="/nosotros/" class={getLinkClass('/nosotros/')}>Nosotros</a>
+        <a href="/servicios/" class={getLinkClass('/servicios/')}>Servicios</a>
+        <a href="/infraestructura/" class={getLinkClass('/infraestructura/')}>Infraestructura</a>
+        <a href="/proyectos/" class={getLinkClass('/proyectos/')}>Proyectos</a>
       </nav>
 
       <!-- Contact Buttons -->
