@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import { SITE, CONTACT } from '../config';
 import AmbientLight from '../components/AmbientLight.astro';
-import CustomCursor from '../components/CustomCursor.astro';
 
 interface Props {
 	title?: string;
@@ -74,7 +73,6 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		)}
 
 		<AmbientLight />
-		<CustomCursor />
 
 		<!-- Barra de progreso de scroll animada (Barra lateral celular/desktop) -->
 		<div id="scroll-progress-container" class="fixed top-0 right-0 h-screen w-1 md:w-1.5 bg-[#0f172a]/40 z-[9999] overflow-hidden">
