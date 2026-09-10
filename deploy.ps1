@@ -14,8 +14,9 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "✅ Build exitoso. El código es estable." -ForegroundColor Green
 
-# Definir ruta al ejecutable de Git embebido en GitHub Desktop
-$git = "C:\Users\User\AppData\Local\GitHubDesktop\app-3.6.3\resources\app\git\cmd\git.exe"
+# Buscar dinámicamente la última versión de GitHub Desktop
+$githubAppDir = Get-ChildItem -Path "C:\Users\User\AppData\Local\GitHubDesktop" -Filter "app-*" -Directory | Sort-Object Name -Descending | Select-Object -First 1
+$git = Join-Path $githubAppDir.FullName "resources\app\git\cmd\git.exe"
 
 # 2. Agregar cambios a Git
 Write-Host "`n[2/3] Agregando archivos a Git..." -ForegroundColor Yellow
