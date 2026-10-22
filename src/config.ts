@@ -47,10 +47,30 @@ export const SERVICES_INTRO = 'Nos especializamos en el desarrollo integral de p
 export const SERVICES_INTRO_MOBILE = 'Soluciones visuales de alto impacto. Especialistas en imagen corporativa integral para industrias, estaciones y grandes marcas.';
 
 export const PILLARS = [
-  { title: 'Seguridad', description: 'Todas las estructuras y carteles son diseñadas y fabricadas en nuestra planta por personal altamente calificado para cada requerimiento.' },
-  { title: 'Herramientas', description: 'Contamos con todas las herramientas y maquinarias específicas para cada tipo de trabajo solicitado.' },
-  { title: 'Alto rendimiento', description: 'Contamos con equipos de alta tecnología desde la impresión hasta la terminación para lograr una excelente calidad.' },
-  { title: 'Excelencia', description: 'Trabajamos con los materiales más exigentes del mercado para garantizar durabilidad y fidelidad visual.' }
+  {
+    tag: 'Normas AWS',
+    title: 'Seguridad Estructural',
+    description: 'Cálculo de ingeniería y soldadores certificados nivel 2. Estructuras preparadas para alta exigencia climática.',
+    icon: 'shield'
+  },
+  {
+    tag: 'Planta Propia',
+    title: 'Tecnología CNC y Láser',
+    description: 'Corte de fibra óptica y plegado hidráulico de gran tonelaje. Precisión milimétrica sin intermediarios.',
+    icon: 'laser'
+  },
+  {
+    tag: 'Horno Continuo',
+    title: 'Pintura Electrostática',
+    description: 'Curado en horno para máxima resistencia a golpes, rayos UV, humedad constante y corrosión.',
+    icon: 'sparkles'
+  },
+  {
+    tag: 'Sin Terceros',
+    title: 'Compromiso Total',
+    description: 'Acompañamos el proyecto de punta a punta: desde el cálculo y fabricación hasta el montaje en obra.',
+    icon: 'check'
+  }
 ];
 
 export const SERVICES = [
