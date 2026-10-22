@@ -45,9 +45,27 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
         Corporativa S.R.L
       </h1>
       
-      <p class="mt-2 md:mt-4 text-base md:text-2xl text-[#FFFCFC] max-w-2xl mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed font-medium drop-shadow-lg">
+      <p class="mt-2 md:mt-4 text-base md:text-2xl text-[#FFFCFC] max-w-2xl mx-auto lg:mx-0 mb-6 md:mb-8 leading-relaxed font-medium drop-shadow-lg">
         {HERO.subtitle}
       </p>
+
+      <!-- Insignias de Confianza (Minimalistas, sin emojis) -->
+      <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 mb-8 md:mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFCFC]/10 border border-[#FFFCFC]/20 backdrop-blur-md shadow-sm hover:bg-[#FFFCFC]/15 transition-colors">
+          <svg class="w-4 h-4 text-blue-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="text-xs sm:text-sm font-semibold text-[#FFFCFC] tracking-wide">Cobertura en las 24 Provincias</span>
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFCFC]/10 border border-[#FFFCFC]/20 backdrop-blur-md shadow-sm hover:bg-[#FFFCFC]/15 transition-colors">
+          <svg class="w-4 h-4 text-blue-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+          <span class="text-xs sm:text-sm font-semibold text-[#FFFCFC] tracking-wide">Certificación Oficial 3M</span>
+        </div>
+      </div>
 
       <div class="flex flex-row items-center justify-center lg:justify-start gap-3 md:gap-5 flex-wrap">
         
