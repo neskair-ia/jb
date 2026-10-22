@@ -33,6 +33,41 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={SITE.keywords} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="author" content={SITE.author} />
+		<meta name="language" content="es" />
+		<meta name="geo.region" content="AR-T" />
+		<meta name="geo.placename" content="San Isidro de Lules, Tucumán" />
+
+		<!-- Schema.org JSON-LD para Empresas (LocalBusiness) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": "JB Ingeniería Corporativa S.R.L",
+			"image": new URL(image, Astro.url).toString(),
+			"@id": Astro.url.toString(),
+			"url": Astro.url.toString(),
+			"telephone": "+54 9 3816 45-2900",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Parque Industrial Kanamico Ruta Prov. 301 KM 17.5",
+				"addressLocality": "Lules",
+				"addressRegion": "Tucumán",
+				"addressCountry": "AR"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": -26.9248,
+				"longitude": -65.3411
+			},
+			"description": description,
+			"sameAs": [
+				CONTACT.instagram,
+				CONTACT.linkedin,
+				CONTACT.facebook
+			]
+		})} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -63,7 +98,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 				<div class="relative w-full h-full md:w-4/5 md:h-4/5 flex items-center justify-center animate-pulse-glow">
 					<img 
 						id="splash-img"
-						src="/hero-foto.png" 
+						src="/hero-foto.webp" 
 						alt="JB Ingeniería Corporativa"
 						class="w-full h-full object-contain pointer-events-none select-none mix-blend-screen contrast-125 brightness-110 drop-shadow-2xl"
 						oncontextmenu="return false;"

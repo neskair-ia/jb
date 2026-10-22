@@ -6,7 +6,7 @@ const clientFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/cl
 const clientLogos = Object.values(clientFiles).map(module => module.default);
 
 // Fallback por si no hay imágenes o la carpeta no se encuentra
-const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
+const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.svg'];
 
 // Duplicamos para asegurar que el marquee sea siempre infinito sin cortes
 const infiniteLogos = [...displayLogos, ...displayLogos, ...displayLogos];

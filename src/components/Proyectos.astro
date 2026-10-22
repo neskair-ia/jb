@@ -6,7 +6,7 @@ const clientFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/cl
 const clientLogos = Object.values(clientFiles).map(module => module.default);
 
 // Fallback por si no se detectan imágenes
-const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.png'];
+const displayLogos = clientLogos.length > 0 ? clientLogos : ['/images/logo.svg'];
 
 // Auto-descubrir imágenes de los proyectos
 const projectFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/proyectos/**/*.{png,jpg,jpeg,webp,avif}', { eager: true });

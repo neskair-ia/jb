@@ -1,6 +1,7 @@
 export const SITE = {
-  title: 'JB Ingeniería Corporativa S.R.L',
-  description: 'Especialistas en imagen corporativa a escala industrial. Diseñamos, fabricamos e instalamos cada proyecto con los más altos estándares de calidad.',
+  title: 'JB Ingeniería Corporativa S.R.L | Especialistas en Imagen y Cartelería Industrial',
+  description: 'Somos expertos en imagen corporativa a escala industrial. Fabricación e instalación de cartelería, tótems, corpóreos y revestimientos para grandes marcas.',
+  keywords: 'imagen corporativa, cartelería industrial, tótems, letras corpóreas, revestimientos, fabricación de carteles, Tucumán, Argentina, JB ingeniería',
   url: 'https://jbingenieriacorporativa.com',
   author: 'JB Ingeniería',
 };
@@ -12,8 +13,8 @@ export const SITE = {
 export const CONTACT = {
   whatsapp: 'NTQ5MzgxNjQ1MjkwMD90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
   whatsappRaw: '+54 9 3816 45-2900',
-  phoneBase64: 'KzU0OTM4MTY0NTI5MDA=',
-  callBase64: 'KzU0OTM4MTY0NTI5MDA=',
+  phoneBase64: 'KzU0IDkgMzgxNiA0NS0yOTAw',
+  callBase64: 'KzU0IDkgMzgxNiA0NS0yOTAw',
   callRaw: '+54 9 3816 45-2900',
   emailBase64: 'amJAamJpbmdlbmllcmlhY29ycG9yYXRpdmEuY29tLmFy',
   emailRaw: 'jb@jbingenieriacorporativa.com.ar',
