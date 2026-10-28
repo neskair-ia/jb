@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { SITE, CONTACT } from '../config';
 import AmbientLight from '../components/AmbientLight.astro';
+import PageSkeleton from '../components/PageSkeleton.astro';
 
 interface Props {
 	title?: string;
@@ -105,6 +106,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 					/>
 				</div>
 			</div>
+		)}
+
+		{!isHome && (
+			<PageSkeleton />
 		)}
 
 		<AmbientLight />

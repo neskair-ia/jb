@@ -35,7 +35,7 @@ Object.keys(serviceFiles).forEach(file => {
         {SERVICES.map((service, index) => (
           <div class="group cursor-default flex flex-col gap-5">
             
-            <div class="relative w-full aspect-[4/5] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
+            <div class="relative w-full aspect-[4/5] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl bg-[#FFFCFC]/5 skeleton-shimmer border border-[#FFFCFC]/10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
               <img 
                 src={serviceImages[service.id.toString()] || `https://placehold.co/800x1000/0A1538/FFFCFC?text=${service.title.split(' ').join('+')}`} 
                 alt={service.title} 

@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+/* ========================================================
+   SKELETON SHIMMER (EFECTO DE BRILLO LATERAL FLUIDO)
+   ======================================================== */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-150%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 20%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(147, 197, 253, 0.28) 55%,
+    rgba(255, 255, 255, 0.03) 80%,
+    transparent 100%
+  );
+  animation: skeleton-sweep 1.7s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes skeleton-sweep {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}

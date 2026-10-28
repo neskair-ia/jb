@@ -1,0 +1,117 @@
+---
+// src/components/PageSkeleton.astro
+// Skeleton Loader de alta gama con efecto shimmer lateral para pestañas secundarias
+---
+
+<div 
+  id="page-skeleton" 
+  class="fixed inset-0 z-[10000] bg-[#1E2D64] flex flex-col pointer-events-auto overflow-hidden select-none"
+  aria-hidden="true"
+>
+  <!-- Resplandor ambiental de fondo -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 -right-40 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- 1. Navbar Skeleton -->
+  <div class="w-full border-b border-white/10 bg-[#1E2D64]/90 backdrop-blur-md px-4 sm:px-8 py-4 shrink-0">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo Skeleton -->
+      <div class="flex items-center gap-3">
+        <div class="skeleton-shimmer w-10 h-10 rounded-xl"></div>
+        <div class="skeleton-shimmer w-28 sm:w-36 h-6 rounded-lg"></div>
+      </div>
+
+      <!-- Links Skeleton (Desktop) -->
+      <div class="hidden md:flex items-center gap-6">
+        <div class="skeleton-shimmer w-16 h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-20 h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-20 h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-28 h-4 rounded-md"></div>
+      </div>
+
+      <!-- Contact Button Skeleton -->
+      <div class="flex items-center gap-3">
+        <div class="skeleton-shimmer w-24 sm:w-32 h-10 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Content Skeleton -->
+  <div class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-14 pb-12 flex flex-col justify-start overflow-hidden">
+    
+    <!-- Hero / Title Area -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-14">
+      <!-- Badge / Tag Skeleton -->
+      <div class="skeleton-shimmer w-36 h-7 rounded-full mb-4"></div>
+      
+      <!-- Headline Skeleton -->
+      <div class="skeleton-shimmer w-4/5 sm:w-2/3 max-w-xl h-10 sm:h-12 md:h-14 rounded-2xl mb-4"></div>
+      
+      <!-- Subtitle Lines Skeleton -->
+      <div class="flex flex-col gap-2.5 w-full max-w-lg items-center md:items-start">
+        <div class="skeleton-shimmer w-full h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-3/4 h-4 rounded-md"></div>
+      </div>
+    </div>
+
+    <!-- Cards Grid Area Skeleton -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 w-full">
+      
+      <!-- Card 1 -->
+      <div class="rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex flex-col gap-4 overflow-hidden shadow-xl">
+        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
+        <div class="flex flex-col gap-2.5 pt-1">
+          <div class="skeleton-shimmer w-3/4 h-5 rounded-lg"></div>
+          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
+          <div class="skeleton-shimmer w-1/2 h-3.5 rounded-md"></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex flex-col gap-4 overflow-hidden shadow-xl">
+        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
+        <div class="flex flex-col gap-2.5 pt-1">
+          <div class="skeleton-shimmer w-2/3 h-5 rounded-lg"></div>
+          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
+          <div class="skeleton-shimmer w-3/5 h-3.5 rounded-md"></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="hidden lg:flex rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex-col gap-4 overflow-hidden shadow-xl">
+        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
+        <div class="flex flex-col gap-2.5 pt-1">
+          <div class="skeleton-shimmer w-4/5 h-5 rounded-lg"></div>
+          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
+          <div class="skeleton-shimmer w-2/3 h-3.5 rounded-md"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Quitar el skeleton suavemente cuando la página termine de procesar
+  const dismissPageSkeleton = () => {
+    const skeleton = document.getElementById('page-skeleton');
+    if (skeleton && !skeleton.dataset.dismissed) {
+      skeleton.dataset.dismissed = 'true';
+      skeleton.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+      skeleton.style.opacity = '0';
+      skeleton.style.pointerEvents = 'none';
+      setTimeout(() => {
+        skeleton.remove();
+      }, 500);
+    }
+  };
+
+  // Se muestra un momento controlado para que el usuario aprecie la transición fluida
+  if (document.readyState === 'complete') {
+    setTimeout(dismissPageSkeleton, 380);
+  } else {
+    window.addEventListener('load', () => setTimeout(dismissPageSkeleton, 380));
+    setTimeout(dismissPageSkeleton, 1200); // Fallback de seguridad
+  }
+</script>
