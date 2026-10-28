@@ -7,12 +7,13 @@ export const SITE = {
 };
 
 // Convert to Base64 to avoid spam
+// +54 9 381 409-0229 -> KzU0IDkgMzgxIDQwOS0wMjI5
 // +54 9 3816 45-2900 -> KzU0IDkgMzgxNiA0NS0yOTAw
 // jb@jbingenieriacorporativa.com.ar -> amJAamJpbmdlbmllcmlhY29ycG9yYXRpdmEuY29tLmFy
 
 export const CONTACT = {
-  whatsapp: 'NTQ5MzgxNjQ1MjkwMD90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
-  whatsappRaw: '+54 9 3816 45-2900',
+  whatsapp: 'NTQ5MzgxNDA5MDIyOT90ZXh0PVF1aWVybyUyMHNvbGljaXRhciUyMHVuYSUyMGNvdGl6YWNpJUMzJUIzbiUyMGRlLi4u', 
+  whatsappRaw: '+54 9 381 409-0229',
   phoneBase64: 'KzU0IDkgMzgxNiA0NS0yOTAw',
   callBase64: 'KzU0IDkgMzgxNiA0NS0yOTAw',
   callRaw: '+54 9 3816 45-2900',
