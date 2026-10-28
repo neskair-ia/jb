@@ -1,6 +1,10 @@
 ---
 // src/components/PageSkeleton.astro
-// Skeleton Loader de alta gama con efecto shimmer lateral para pestañas secundarias
+// Skeleton Loader de alta gama adaptativo con efecto shimmer lateral para pestañas secundarias
+
+const pathname = Astro.url.pathname;
+const isNosotros = pathname.includes('nosotros');
+const isInfra = pathname.includes('infraestructura');
 ---
 
 <div 
@@ -12,82 +16,118 @@
   <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute top-1/3 -right-40 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <!-- 1. Navbar Skeleton -->
-  <div class="w-full border-b border-white/10 bg-[#1E2D64]/90 backdrop-blur-md px-4 sm:px-8 py-4 shrink-0">
+  <!-- 1. Navbar Skeleton (Alineado con el Navbar real) -->
+  <div class="w-full bg-[#1E2D64]/95 backdrop-blur-md px-4 sm:px-8 py-3.5 sm:py-5 shrink-0 border-b border-white/5">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Logo Skeleton -->
       <div class="flex items-center gap-3">
-        <div class="skeleton-shimmer w-10 h-10 rounded-xl"></div>
-        <div class="skeleton-shimmer w-28 sm:w-36 h-6 rounded-lg"></div>
+        <div class="skeleton-shimmer w-9 sm:w-10 h-9 sm:h-10 rounded-xl"></div>
+        <div class="skeleton-shimmer w-28 sm:w-36 h-5 sm:h-6 rounded-lg"></div>
       </div>
 
       <!-- Links Skeleton (Desktop) -->
       <div class="hidden md:flex items-center gap-6">
-        <div class="skeleton-shimmer w-16 h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-14 h-4 rounded-md"></div>
+        <div class={`skeleton-shimmer w-18 h-7 rounded-full ${isNosotros ? 'bg-white/20' : ''}`}></div>
+        <div class="skeleton-shimmer w-18 h-4 rounded-md"></div>
+        <div class="skeleton-shimmer w-24 h-4 rounded-md"></div>
         <div class="skeleton-shimmer w-20 h-4 rounded-md"></div>
-        <div class="skeleton-shimmer w-20 h-4 rounded-md"></div>
-        <div class="skeleton-shimmer w-28 h-4 rounded-md"></div>
       </div>
 
       <!-- Contact Button Skeleton -->
       <div class="flex items-center gap-3">
-        <div class="skeleton-shimmer w-24 sm:w-32 h-10 rounded-full"></div>
+        <div class="skeleton-shimmer w-24 sm:w-32 h-9 sm:h-10 rounded-full"></div>
       </div>
     </div>
   </div>
 
   <!-- 2. Main Content Skeleton -->
-  <div class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-14 pb-12 flex flex-col justify-start overflow-hidden">
+  <div class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-6 sm:pt-8 md:pt-12 pb-12 flex flex-col justify-start overflow-hidden">
     
-    <!-- Hero / Title Area -->
-    <div class="flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-14">
-      <!-- Badge / Tag Skeleton -->
-      <div class="skeleton-shimmer w-36 h-7 rounded-full mb-4"></div>
-      
-      <!-- Headline Skeleton -->
-      <div class="skeleton-shimmer w-4/5 sm:w-2/3 max-w-xl h-10 sm:h-12 md:h-14 rounded-2xl mb-4"></div>
-      
-      <!-- Subtitle Lines Skeleton -->
-      <div class="flex flex-col gap-2.5 w-full max-w-lg items-center md:items-start">
-        <div class="skeleton-shimmer w-full h-4 rounded-md"></div>
-        <div class="skeleton-shimmer w-3/4 h-4 rounded-md"></div>
-      </div>
-    </div>
+    {isNosotros ? (
+      <div class="w-full">
+        {/* Bloque Principal: Quiénes Somos (2 Columnas idéntico a Nosotros.astro) */}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16">
+          
+          {/* Imagen Vertical (Izquierda en desktop, abajo en móvil) */}
+          <div class="order-2 lg:order-1 relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] sm:aspect-[3/4] lg:aspect-auto lg:h-[620px] skeleton-shimmer">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D64]/80 via-transparent to-transparent"></div>
+          </div>
 
-    <!-- Cards Grid Area Skeleton -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 w-full">
-      
-      <!-- Card 1 -->
-      <div class="rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex flex-col gap-4 overflow-hidden shadow-xl">
-        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
-        <div class="flex flex-col gap-2.5 pt-1">
-          <div class="skeleton-shimmer w-3/4 h-5 rounded-lg"></div>
-          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
-          <div class="skeleton-shimmer w-1/2 h-3.5 rounded-md"></div>
+          {/* Columna Editorial Texto (Derecha en desktop, arriba en móvil) */}
+          <div class="order-1 lg:order-2 text-left flex flex-col justify-center">
+            
+            {/* Badge 'Nuestra Historia' */}
+            <div class="skeleton-shimmer w-36 h-7.5 rounded-full mb-6"></div>
+            
+            {/* Título 'Quiénes Somos' */}
+            <div class="skeleton-shimmer w-56 sm:w-72 md:w-80 h-10 sm:h-12 md:h-14 rounded-2xl mb-8"></div>
+            
+            {/* Párrafo 1 */}
+            <div class="flex flex-col gap-3 mb-6">
+              <div class="skeleton-shimmer w-full h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[96%] h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[92%] h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[68%] h-4 sm:h-4.5 rounded-md"></div>
+            </div>
+
+            {/* Párrafo 2 */}
+            <div class="flex flex-col gap-3 mb-6">
+              <div class="skeleton-shimmer w-full h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[94%] h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[88%] h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[55%] h-4 sm:h-4.5 rounded-md"></div>
+            </div>
+
+            {/* Párrafo 3 (Visible en sm y desktop) */}
+            <div class="hidden sm:flex flex-col gap-3">
+              <div class="skeleton-shimmer w-full h-4 sm:h-4.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[75%] h-4 sm:h-4.5 rounded-md"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bloque Secundario: Certificación 3M (Desktop / Tablet) */}
+        <div class="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/10 shadow-xl">
+          <div class="flex items-center justify-center">
+            <div class="skeleton-shimmer w-48 sm:w-60 h-28 sm:h-36 rounded-2xl"></div>
+          </div>
+          <div class="flex flex-col justify-center text-left">
+            <div class="skeleton-shimmer w-40 h-6.5 rounded-full mb-5"></div>
+            <div class="skeleton-shimmer w-64 md:w-80 h-8 md:h-10 rounded-xl mb-5"></div>
+            <div class="flex flex-col gap-2.5">
+              <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[95%] h-3.5 rounded-md"></div>
+              <div class="skeleton-shimmer w-[70%] h-3.5 rounded-md"></div>
+            </div>
+          </div>
         </div>
       </div>
+    ) : (
+      <div class="w-full flex flex-col">
+        {/* Hero / Title Area Centrado */}
+        <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 md:mb-14">
+          <div class="skeleton-shimmer w-36 h-7 rounded-full mb-4"></div>
+          <div class="skeleton-shimmer w-64 sm:w-80 h-10 sm:h-12 md:h-14 rounded-2xl mb-4"></div>
+          <div class="skeleton-shimmer w-full max-w-xl h-4 rounded-md mb-2"></div>
+          <div class="skeleton-shimmer w-3/4 max-w-md h-4 rounded-md"></div>
+        </div>
 
-      <!-- Card 2 -->
-      <div class="rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex flex-col gap-4 overflow-hidden shadow-xl">
-        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
-        <div class="flex flex-col gap-2.5 pt-1">
-          <div class="skeleton-shimmer w-2/3 h-5 rounded-lg"></div>
-          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
-          <div class="skeleton-shimmer w-3/5 h-3.5 rounded-md"></div>
+        {/* Cards Grid Area: 2 columnas en móvil, 3 en desktop */}
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 w-full">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div class={`rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-2 sm:p-4 md:p-5 flex flex-col gap-3 md:gap-4 overflow-hidden shadow-xl ${i >= 4 ? 'hidden lg:flex' : ''}`}>
+              <div class={`skeleton-shimmer w-full rounded-xl md:rounded-2xl ${isInfra ? 'aspect-[4/3]' : 'aspect-[4/5]'}`}></div>
+              <div class="flex flex-col gap-2 pt-1 px-1">
+                <div class="skeleton-shimmer w-3/4 h-4 sm:h-5 rounded-lg"></div>
+                <div class="skeleton-shimmer w-full h-3 sm:h-3.5 rounded-md hidden sm:block"></div>
+                <div class="skeleton-shimmer w-1/2 h-3 sm:h-3.5 rounded-md"></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="hidden lg:flex rounded-2xl md:rounded-[2rem] bg-white/[0.03] border border-white/10 p-4 sm:p-5 flex-col gap-4 overflow-hidden shadow-xl">
-        <div class="skeleton-shimmer w-full aspect-[4/3] rounded-xl md:rounded-2xl"></div>
-        <div class="flex flex-col gap-2.5 pt-1">
-          <div class="skeleton-shimmer w-4/5 h-5 rounded-lg"></div>
-          <div class="skeleton-shimmer w-full h-3.5 rounded-md"></div>
-          <div class="skeleton-shimmer w-2/3 h-3.5 rounded-md"></div>
-        </div>
-      </div>
-
-    </div>
+    )}
 
   </div>
 </div>
