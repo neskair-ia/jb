@@ -29,7 +29,7 @@ Object.keys(infraFiles).forEach(file => {
       {INFRASTRUCTURE.map((item, index) => (
         <div class="group flex flex-col gap-5 cursor-default">
           <!-- Contenedor de Imagen -->
-          <div class="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden bg-black/20 skeleton-shimmer border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+          <div class="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden bg-black/20 border border-[#FFFCFC]/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
             <!-- Imagen dinámica o placeholder -->
             <img 
               src={infraImages[item.id.toString()] || `https://placehold.co/800x600/1E2D64/FFFCFC?text=${item.title.split(' ').join('+')}`} 

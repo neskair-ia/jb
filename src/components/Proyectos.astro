@@ -90,7 +90,7 @@ Object.entries(projectFiles).forEach(([file, module]) => {
           <div class="group cursor-pointer project-card flex flex-col gap-2 md:gap-4" style={`transition-delay: ${(index % 3) * 100}ms;`} data-title={project.title} data-images={JSON.stringify(imageUrls)}>
             
             <!-- Contenedor de foto estática (con overlay al hacer hover) -->
-            <div class="relative w-full aspect-[4/5] rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-2 md:group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5 skeleton-shimmer">
+            <div class="relative w-full aspect-[4/5] rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 md:group-hover:-translate-y-2 md:group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] bg-[#FFFCFC]/5">
               
               {typeof displayImages[0] === 'string' ? (
                 <img 
