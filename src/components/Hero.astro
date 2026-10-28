@@ -69,31 +69,34 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
 
       <div class="flex flex-row items-center justify-center lg:justify-start gap-3 md:gap-5 flex-wrap">
         
-        <!-- Botón Secundario: Conócenos -->
-        <a href="/nosotros/" class="group inline-flex h-11 md:h-14 items-center justify-center rounded-full bg-[#1E2D64]/90 md:bg-[#FFFCFC]/10 px-6 md:px-8 text-sm md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/30 backdrop-blur-md hover:bg-[#1E2D64] md:hover:bg-[#FFFCFC]/20 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-          <span class="flex items-center gap-2">
+        <!-- Botón Secundario: Conócenos (Titanio Cepillado Industrial) -->
+        <a href="/nosotros/" class="group btn-metallic-titanium inline-flex h-12 md:h-14 items-center justify-center rounded-full px-6 md:px-8 text-sm md:text-base font-semibold text-[#FFFCFC] tracking-wide whitespace-nowrap">
+          <span class="metallic-shine-dark"></span>
+          <span class="relative z-10 flex items-center gap-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
             {HERO.ctaText}
-            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </span>
         </a>
 
-        <!-- Botón Secundario: Servicios -->
-        <a href="/servicios/" class="group inline-flex h-11 md:h-14 items-center justify-center rounded-full bg-[#1E2D64]/90 md:bg-[#FFFCFC]/10 px-6 md:px-8 text-sm md:text-base font-medium text-[#FFFCFC] border border-[#FFFCFC]/30 backdrop-blur-md hover:bg-[#1E2D64] md:hover:bg-[#FFFCFC]/20 hover:border-[#FFFCFC]/60 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-          <span class="flex items-center gap-2">
+        <!-- Botón Secundario: Servicios (Titanio Cepillado Industrial) -->
+        <a href="/servicios/" class="group btn-metallic-titanium inline-flex h-12 md:h-14 items-center justify-center rounded-full px-6 md:px-8 text-sm md:text-base font-semibold text-[#FFFCFC] tracking-wide whitespace-nowrap">
+          <span class="metallic-shine-dark"></span>
+          <span class="relative z-10 flex items-center gap-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
             Servicios
-            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </span>
         </a>
 
-        <!-- Botón Principal: Proyectos -->
-        <a href="/proyectos/" class="group relative inline-flex h-12 md:h-14 items-center justify-center overflow-hidden rounded-full bg-[#FFFCFC] px-8 md:px-8 text-sm md:text-base font-bold text-[#1E2D64] shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
-          <span class="relative z-10 flex items-center gap-2">
+        <!-- Botón Principal: Proyectos (Acero Líquido / Cromo Pulido CNC) -->
+        <a href="/proyectos/" class="group btn-metallic-steel inline-flex h-12 md:h-14 items-center justify-center rounded-full px-7 md:px-9 text-sm md:text-base font-extrabold text-[#0B1536] tracking-tight whitespace-nowrap">
+          <span class="metallic-shine"></span>
+          <span class="relative z-10 flex items-center gap-2.5 drop-shadow-[0_1px_0_rgba(255,255,255,0.9)]">
             Proyectos
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 text-[#0B1536]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </span>
@@ -136,6 +139,121 @@ const heroImages = Object.keys(heroFiles).map(file => file.replace('/public', ''
 </section>
 
 <style>
+  /* ========================================================
+     BOTONES METÁLICOS INDUSTRIALES (ESTILO JB INGENIERÍA)
+     ======================================================== */
+
+  /* Botón Principal: Acero Líquido / Cromo Pulido */
+  .btn-metallic-steel {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      140deg,
+      #ffffff 0%,
+      #f8fafc 18%,
+      #e2e8f0 44%,
+      #cbd5e1 49%,
+      #94a3b8 51%,
+      #f1f5f9 55%,
+      #ffffff 82%,
+      #e2e8f0 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 
+      inset 0 1.5px 1px 0 #ffffff,
+      inset 0 -2px 3px 0 rgba(71, 85, 105, 0.4),
+      0 10px 25px -4px rgba(0, 0, 0, 0.45),
+      0 0 25px rgba(255, 255, 255, 0.35);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-metallic-steel:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      inset 0 2px 2px 0 #ffffff,
+      inset 0 -2px 4px 0 rgba(51, 65, 85, 0.5),
+      0 18px 35px -5px rgba(0, 0, 0, 0.55),
+      0 0 35px rgba(255, 255, 255, 0.65);
+  }
+
+  /* Botones Secundarios: Titanio Cepillado / Acero Industrial */
+  .btn-metallic-titanium {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.1) 32%,
+      rgba(15, 23, 42, 0.6) 47%,
+      rgba(30, 45, 100, 0.8) 52%,
+      rgba(255, 255, 255, 0.18) 75%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    background-color: rgba(18, 28, 64, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+      inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.55),
+      0 10px 22px -4px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-metallic-titanium:hover {
+    transform: translateY(-2px);
+    border-color: rgba(147, 197, 253, 0.85);
+    background-color: rgba(28, 45, 98, 0.9);
+    box-shadow: 
+      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.4),
+      0 16px 32px -4px rgba(0, 0, 0, 0.5),
+      0 0 25px rgba(59, 130, 246, 0.45);
+  }
+
+  /* Reflejo / Shimmer Metálico Dinámico */
+  .metallic-shine {
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    left: -120%;
+    width: 60%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.7) 50%,
+      transparent 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .btn-metallic-steel:hover .metallic-shine {
+    transform: translateX(450%) skewX(-25deg);
+  }
+
+  .metallic-shine-dark {
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    left: -120%;
+    width: 60%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .btn-metallic-titanium:hover .metallic-shine-dark {
+    transform: translateX(450%) skewX(-25deg);
+  }
+
   @keyframes text-glow {
     0%, 100% { 
       text-shadow: 0 0 10px rgba(255, 252, 252, 0.2), 0 0 20px rgba(255, 252, 252, 0.1); 
