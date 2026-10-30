@@ -11,7 +11,6 @@ const REELS = [
     tag: "Tecnología CNC",
     video: "/videos/innovacion.mp4",
     poster: "/infraestructura/7.webp",
-    views: "18.4K",
   },
   {
     id: 2,
@@ -20,7 +19,6 @@ const REELS = [
     tag: "Precisión",
     video: "/videos/eficiencia.mp4",
     poster: "/infraestructura/9.webp",
-    views: "12.1K",
   },
   {
     id: 3,
@@ -29,7 +27,6 @@ const REELS = [
     tag: "Alta Resistencia",
     video: "/videos/excelencia.mp4",
     poster: "/infraestructura/13.webp",
-    views: "24.6K",
   },
   {
     id: 4,
@@ -38,7 +35,6 @@ const REELS = [
     tag: "Cobertura Nacional",
     video: "/videos/compromiso.mp4",
     poster: "/infraestructura/14.webp",
-    views: "15.9K",
   },
   {
     id: 5,
@@ -47,7 +43,6 @@ const REELS = [
     tag: "Nivel 2",
     video: null,
     poster: "/infraestructura/6.webp",
-    views: "9.8K",
   },
   {
     id: 6,
@@ -56,7 +51,6 @@ const REELS = [
     tag: "Polímeros & Metales",
     video: null,
     poster: "/infraestructura/11.webp",
-    views: "11.3K",
   }
 ];
 ---
@@ -189,12 +183,10 @@ const REELS = [
 
             <!-- Footer de la tarjeta con Información -->
             <div class="absolute bottom-4 left-4 right-4 z-10">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-400 bg-pink-950/60 px-2 py-0.5 rounded border border-pink-500/20">
+              <!-- Tag de categoría -->
+              <div class="mb-2">
+                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-400 bg-pink-950/60 px-2.5 py-0.5 rounded-md border border-pink-500/20">
                   {reel.tag}
-                </span>
-                <span class="text-[11px] text-white/60 font-medium">
-                  {reel.views} vistas
                 </span>
               </div>
               <h3 class="text-white text-sm sm:text-base font-bold leading-snug line-clamp-2 drop-shadow-md group-hover/card:text-pink-200 transition-colors">
