@@ -15,7 +15,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "✅ Build exitoso. El código es estable." -ForegroundColor Green
 
 # Buscar dinámicamente la última versión de GitHub Desktop
-$githubAppDir = Get-ChildItem -Path "C:\Users\User\AppData\Local\GitHubDesktop" -Filter "app-*" -Directory | Sort-Object Name -Descending | Select-Object -First 1
+$githubAppDir = Get-ChildItem -Path (if (Test-Path "$env:LOCALAPPDATA\GitHubDesktop") { "$env:LOCALAPPDATA\GitHubDesktop" } else { "C:\Users\User\AppData\Local\GitHubDesktop" }) -Filter "app-*" -Directory | Sort-Object Name -Descending | Select-Object -First 1
 $git = Join-Path $githubAppDir.FullName "resources\app\git\cmd\git.exe"
 
 # 2. Agregar cambios a Git

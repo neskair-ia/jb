@@ -20,7 +20,7 @@ export const CONTACT = {
   emailBase64: 'amJAamJpbmdlbmllcmlhY29ycG9yYXRpdmEuY29tLmFy',
   emailRaw: 'jb@jbingenieriacorporativa.com.ar',
   address: 'Parque Industrial Kanamico Ruta Prov. 301 KM 17.5 - Lules, Tucumán, Argentina.',
-  instagram: 'https://www.instagram.com/jbingenieriacorporativa/',
+  instagram: 'https://www.instagram.com/jbingenieriacorporativa?utm_source=ig_web_button_share_sheet&cplk=ZDNlZDc0MzIxNw==',
   linkedin: 'https://ar.linkedin.com/company/jb-ingenieria-corporativa',
   facebook: 'https://www.facebook.com/JBCiaPublicitaria',
 };
