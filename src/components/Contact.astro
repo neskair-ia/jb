@@ -9,53 +9,53 @@ const { showReviews = false } = Astro.props;
 
 const REVIEWS = [
   {
-    name: "Refinor",
-    text: "Excelente calidad en cartelería y cumplimiento en los plazos de entrega.",
+    name: "Juan Pablo M.",
+    text: "Impecable, productos de primera calidad, muy buena atención y predisposición con el cliente.",
     source: "Google Maps"
   },
   {
-    name: "Cencosud",
-    text: "Gran capacidad de respuesta y un equipo técnico de primer nivel en cada montaje.",
+    name: "Carlos G.",
+    text: "Cumplieron con los plazos y la calidad de los materiales es insuperable. Muy recomendables.",
     source: "Google Maps"
   },
   {
-    name: "YPF",
-    text: "Estructuras sólidas y terminaciones impecables que resisten el paso del tiempo.",
+    name: "Lucas V.",
+    text: "Empresa dedicada a la cartelería industrial. Excelente atención y montaje prolijo.",
     source: "Google Maps"
   },
   {
-    name: "Arcor",
-    text: "Soluciones a medida con un nivel de detalle y precisión únicos en la región.",
+    name: "Martín R.",
+    text: "Trabajo muy profesional en la cartelería exterior y tótems de nuestra empresa. Quedó espectacular.",
     source: "Google Maps"
   },
   {
-    name: "Shell",
-    text: "Impecable terminación en pintura y materiales de alta durabilidad.",
+    name: "Facundo A.",
+    text: "El diseño y la estructura de los corpóreos superaron ampliamente nuestras expectativas.",
     source: "Google Maps"
   },
   {
-    name: "Goodyear",
-    text: "Puntualidad, asesoramiento y excelente predisposición en todo el proceso.",
+    name: "Diego M.",
+    text: "Atención personalizada de principio a fin. Excelentes terminaciones y pintura de gran durabilidad.",
     source: "Google Maps"
   },
   {
-    name: "Mostaza",
-    text: "Compromiso absoluto en cada una de las aperturas y remodelaciones.",
+    name: "Juan Cruz L.",
+    text: "Excelente respuesta técnica y un equipo muy preparado en cada etapa de la instalación.",
     source: "Google Maps"
   },
   {
-    name: "Easy",
-    text: "El soporte post-instalación y la garantía que ofrecen nos dan total tranquilidad.",
+    name: "Alejandro B.",
+    text: "Gran capacidad de fabricación propia y precisión en cada detalle. Totalmente confiables.",
     source: "Google Maps"
   },
   {
-    name: "Jumbo",
-    text: "La atención personalizada y el estándar de calidad superaron nuestras expectativas.",
+    name: "Gonzalo S.",
+    text: "Puntualidad en la entrega y materiales de altísima resistencia al sol y la intemperie.",
     source: "Google Maps"
   },
   {
-    name: "Line Up",
-    text: "Materiales de máxima resistencia y acabados que realzan la presencia de marca.",
+    name: "Javier N.",
+    text: "Excelente servicio de ingeniería e instalación. Muy conformes con el resultado final.",
     source: "Google Maps"
   }
 ];
@@ -168,7 +168,7 @@ const REVIEWS = [
                   </div>
                   <p class="text-xs sm:text-sm md:text-[15px] text-[#FFFCFC]/90 line-clamp-3 mb-3 sm:mb-4 font-light leading-relaxed">"{review.text}"</p>
                   <div class="flex items-center gap-2 sm:gap-3 mt-auto">
-                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
+                    <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(review.name)}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
                     <div class="flex flex-col">
                       <span class="text-xs sm:text-sm font-bold text-[#FFFCFC]">{review.name}</span>
                       <span class="text-[10px] sm:text-xs text-[#FFFCFC]/50 tracking-wider">
@@ -189,7 +189,7 @@ const REVIEWS = [
                   </div>
                   <p class="text-xs sm:text-sm md:text-[15px] text-[#FFFCFC]/90 line-clamp-3 mb-3 sm:mb-4 font-light leading-relaxed">"{review.text}"</p>
                   <div class="flex items-center gap-2 sm:gap-3 mt-auto">
-                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
+                    <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(review.name)}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
                     <div class="flex flex-col">
                       <span class="text-xs sm:text-sm font-bold text-[#FFFCFC]">{review.name}</span>
                       <span class="text-[10px] sm:text-xs text-[#FFFCFC]/50 tracking-wider">
