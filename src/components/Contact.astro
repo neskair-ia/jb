@@ -1,7 +1,7 @@
 ---
 import { CONTACT } from '../config';
 
-export interface Props {
+interface Props {
   showReviews?: boolean;
 }
 
@@ -9,125 +9,147 @@ const { showReviews = false } = Astro.props;
 
 const REVIEWS = [
   {
-    initials: "J.P.M.",
-    name: "Juan Pablo M.",
-    text: "Impecable, productos de primera calidad, muy buena atención y predisposición con el cliente.",
-    source: "Google"
+    name: "Refinor",
+    text: "Excelente calidad en cartelería y cumplimiento en los plazos de entrega.",
+    source: "Google Maps"
   },
   {
-    initials: "J.C.L.",
-    name: "Juan Cruz L.",
-    text: "Excelente atención y productos de alta calidad.",
-    source: "Google"
+    name: "Cencosud",
+    text: "Gran capacidad de respuesta y un equipo técnico de primer nivel en cada montaje.",
+    source: "Google Maps"
   },
   {
-    initials: "L.V.",
-    name: "Lucas V.",
-    text: "Empresa dedicada a la cartelería. Excelente atención.",
-    source: "Instagram"
+    name: "YPF",
+    text: "Estructuras sólidas y terminaciones impecables que resisten el paso del tiempo.",
+    source: "Google Maps"
   },
   {
-    initials: "J.N.",
-    name: "Javier N.",
-    text: "Excelente.",
-    source: "Google"
+    name: "Arcor",
+    text: "Soluciones a medida con un nivel de detalle y precisión únicos en la región.",
+    source: "Google Maps"
   },
   {
-    initials: "M.R.",
-    name: "Martín R.",
-    text: "Trabajo muy profesional en la cartelería exterior de nuestra empresa. Quedó espectacular.",
-    source: "Google"
+    name: "Shell",
+    text: "Impecable terminación en pintura y materiales de alta durabilidad.",
+    source: "Google Maps"
   },
   {
-    initials: "C.G.",
-    name: "Carlos G.",
-    text: "Cumplieron con los plazos y la calidad de los materiales es insuperable. Muy recomendables.",
-    source: "Google"
+    name: "Goodyear",
+    text: "Puntualidad, asesoramiento y excelente predisposición en todo el proceso.",
+    source: "Google Maps"
   },
   {
-    initials: "F.A.",
-    name: "Facundo A.",
-    text: "El diseño y la estructura de los tótems superaron nuestras expectativas.",
-    source: "Instagram"
+    name: "Mostaza",
+    text: "Compromiso absoluto en cada una de las aperturas y remodelaciones.",
+    source: "Google Maps"
   },
   {
-    initials: "D.M.",
-    name: "Diego M.",
-    text: "Atención personalizada de principio a fin. Excelentes terminaciones.",
-    source: "Google"
+    name: "Easy",
+    text: "El soporte post-instalación y la garantía que ofrecen nos dan total tranquilidad.",
+    source: "Google Maps"
+  },
+  {
+    name: "Jumbo",
+    text: "La atención personalizada y el estándar de calidad superaron nuestras expectativas.",
+    source: "Google Maps"
+  },
+  {
+    name: "Line Up",
+    text: "Materiales de máxima resistencia y acabados que realzan la presencia de marca.",
+    source: "Google Maps"
   }
 ];
 ---
 
-<section id="contacto" class="py-24 bg-[#1E2D64] text-[#FFFCFC] shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
+<section id="contacto" class="py-24 bg-[#1E2D64] text-[#FFFCFC] shadow-[0_-20px_40px_rgba(0,0,0,0.1)] relative">
+  <!-- Línea superior metálica de transición -->
+  <div class="metallic-hairline absolute top-0 left-0 right-0"></div>
+
   <div class="container mx-auto px-4 animate-on-scroll">
     <div class="max-w-7xl mx-auto w-full">
 
       <div class="text-center mb-16">
+        <!-- Pastilla de acero quirúrgico -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full metallic-steel-pill backdrop-blur-md mb-4 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse"></span>
+          <span class="text-xs font-semibold text-[#FFFCFC] tracking-wide">Atención Comercial y Cotizaciones</span>
+        </div>
+
         <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[#FFFCFC]">
           Comencemos tu próximo proyecto
         </h2>
         <p class="text-lg text-blue-100/80 max-w-2xl mx-auto">
-          Contáctanos hoy mismo y descubre cómo podemos transformar tu presencia digital con una infraestructura sólida y duradera.
+          Contáctanos hoy mismo y descubre cómo podemos transformar tu presencia visual con ingeniería sólida, duradera y certificada.
         </p>
       </div>
 
+      <!-- Tarjetas de Acción de Contacto (Titanio Cepillado con bisel e interacción) -->
       <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-16 max-w-4xl mx-auto">
         <!-- WhatsApp -->
         <button 
-          class="secure-contact-btn flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl bg-transparent/5 border border-[#FFFCFC]/10 hover:bg-transparent/15 hover:scale-110 hover:-translate-y-2 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.15)] transition-all duration-300"
+          class="secure-contact-btn group metallic-titanium-card flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer"
           data-type="whatsapp"
           data-target={CONTACT.whatsapp}
         >
-          <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-transparent/10 rounded-full flex items-center justify-center mb-2 md:mb-4">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#FFFCFC]" fill="currentColor" viewBox="0 0 24 24">
+          <span class="metallic-shine-dark"></span>
+          
+          <div class="metallic-medallion w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 group-hover:border-[#25D366]/60 transition-all duration-300">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 text-[#25D366] drop-shadow-[0_0_8px_rgba(37,211,102,0.4)]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
           </div>
-          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC]">WhatsApp</span>
-          <span class="text-[10px] sm:text-sm text-blue-100/70 hidden sm:block">{CONTACT.whatsappRaw}</span>
-          <span class="text-[10px] text-blue-100/70 sm:hidden">Chat</span>
+          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC] group-hover:text-blue-200 transition-colors">WhatsApp</span>
+          <span class="text-[10px] sm:text-sm text-slate-300/80 font-light hidden sm:block">{CONTACT.whatsappRaw}</span>
+          <span class="text-[10px] text-slate-300/80 sm:hidden">Chat</span>
         </button>
 
         <!-- Email -->
         <button 
-          class="secure-contact-btn flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl bg-transparent/5 border border-[#FFFCFC]/10 hover:bg-transparent/15 hover:scale-110 hover:-translate-y-2 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.15)] transition-all duration-300"
+          class="secure-contact-btn group metallic-titanium-card flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer"
           data-type="email"
           data-target={CONTACT.emailBase64}
         >
-          <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-transparent/10 rounded-full flex items-center justify-center mb-2 md:mb-4">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#FFFCFC]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span class="metallic-shine-dark"></span>
+
+          <div class="metallic-medallion w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 group-hover:border-blue-400/60 transition-all duration-300">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC]">Email</span>
-          <span class="text-[10px] sm:text-sm text-blue-100/70 truncate w-[90%] md:w-auto">Mensaje</span>
+          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC] group-hover:text-blue-200 transition-colors">Email</span>
+          <span class="text-[10px] sm:text-sm text-slate-300/80 font-light truncate w-[90%] md:w-auto">Mensaje</span>
         </button>
 
         <!-- Teléfono -->
         <button 
-          class="secure-contact-btn flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl bg-transparent/5 border border-[#FFFCFC]/10 hover:bg-transparent/15 hover:scale-110 hover:-translate-y-2 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.15)] transition-all duration-300"
+          class="secure-contact-btn group metallic-titanium-card flex flex-col items-center p-3 sm:p-5 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer"
           data-type="tel"
           data-target={CONTACT.callBase64}
         >
-          <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-transparent/10 rounded-full flex items-center justify-center mb-2 md:mb-4">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#FFFCFC]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span class="metallic-shine-dark"></span>
+
+          <div class="metallic-medallion w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 group-hover:border-emerald-400/60 transition-all duration-300">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 text-emerald-300 drop-shadow-[0_0_8px_rgba(110,231,183,0.4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
           </div>
-          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC]">Llamar</span>
-          <span class="text-[10px] sm:text-sm text-blue-100/70 truncate w-[90%] md:w-auto hidden sm:block">{CONTACT.callRaw}</span>
-          <span class="text-[10px] text-blue-100/70 sm:hidden">Línea</span>
+          <span class="text-xs sm:text-base font-bold mb-1 text-[#FFFCFC] group-hover:text-blue-200 transition-colors">Llamar</span>
+          <span class="text-[10px] sm:text-sm text-slate-300/80 font-light truncate w-[90%] md:w-auto hidden sm:block">{CONTACT.callRaw}</span>
+          <span class="text-[10px] text-slate-300/80 sm:hidden">Línea</span>
         </button>
       </div>
 
-      <!-- Divider -->
-      <div class="w-full h-px bg-transparent/10 my-10"></div>
+      <!-- Línea divisoria metálica -->
+      <div class="metallic-hairline my-12 md:my-16"></div>
 
       <!-- Apartado de Reseñas (Condicional) -->
       {showReviews && (
-      <div class="animate-on-scroll mb-20 pt-10 border-t border-[#FFFCFC]/10">
+      <div class="animate-on-scroll mb-20">
         <div class="text-center mb-10 md:mb-12">
+          <!-- Pastilla de acero para reseñas -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full metallic-steel-pill backdrop-blur-md mb-4 shadow-sm">
+            <span class="text-xs font-semibold text-[#FFFCFC] tracking-wide">Testimonios Reales</span>
+          </div>
           <h3 class="text-2xl md:text-4xl font-bold tracking-tight text-[#FFFCFC]">
             Lo que dicen nuestros clientes
           </h3>
@@ -138,15 +160,15 @@ const REVIEWS = [
           <div class="marquee-wrapper-right flex overflow-hidden w-full">
             <div class="flex w-max whitespace-nowrap animate-marquee-right shrink-0 py-4">
               {REVIEWS.map((review, index) => (
-                <div class="mx-3 md:mx-4 flex flex-col justify-center w-60 sm:w-80 h-44 sm:h-52 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-5 md:p-8 whitespace-normal shrink-0 hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-300">
+                <div class="mx-3 md:mx-4 flex flex-col justify-center w-60 sm:w-80 h-44 sm:h-52 metallic-titanium-panel rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-5 md:p-8 whitespace-normal shrink-0 hover:border-white/40 hover:-translate-y-2 hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 relative group">
                   <div class="flex items-center gap-1 text-yellow-400 mb-2 sm:mb-3 md:mb-4">
                     {[1, 2, 3, 4, 5].map(() => (
-                      <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     ))}
                   </div>
                   <p class="text-xs sm:text-sm md:text-[15px] text-[#FFFCFC]/90 line-clamp-3 mb-3 sm:mb-4 font-light leading-relaxed">"{review.text}"</p>
                   <div class="flex items-center gap-2 sm:gap-3 mt-auto">
-                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-[#FFFCFC]/20" />
+                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
                     <div class="flex flex-col">
                       <span class="text-xs sm:text-sm font-bold text-[#FFFCFC]">{review.name}</span>
                       <span class="text-[10px] sm:text-xs text-[#FFFCFC]/50 tracking-wider">
@@ -159,15 +181,15 @@ const REVIEWS = [
             </div>
             <div class="flex w-max whitespace-nowrap animate-marquee-right shrink-0 py-4">
               {REVIEWS.map((review, index) => (
-                <div class="mx-3 md:mx-4 flex flex-col justify-center w-60 sm:w-80 h-44 sm:h-52 bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-5 md:p-8 whitespace-normal shrink-0 hover:bg-[#FFFCFC]/10 hover:border-[#FFFCFC]/20 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-300">
+                <div class="mx-3 md:mx-4 flex flex-col justify-center w-60 sm:w-80 h-44 sm:h-52 metallic-titanium-panel rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-5 md:p-8 whitespace-normal shrink-0 hover:border-white/40 hover:-translate-y-2 hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.6)] transition-all duration-300 relative group">
                   <div class="flex items-center gap-1 text-yellow-400 mb-2 sm:mb-3 md:mb-4">
                     {[1, 2, 3, 4, 5].map(() => (
-                      <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-4 h-4 sm:w-5 sm:h-5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     ))}
                   </div>
                   <p class="text-xs sm:text-sm md:text-[15px] text-[#FFFCFC]/90 line-clamp-3 mb-3 sm:mb-4 font-light leading-relaxed">"{review.text}"</p>
                   <div class="flex items-center gap-2 sm:gap-3 mt-auto">
-                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-[#FFFCFC]/20" />
+                    <img src={`https://ui-avatars.com/api/?name=${review.name}&background=1E2D64&color=fff&rounded=true&bold=true`} alt={review.name} class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-inner border border-white/35" />
                     <div class="flex flex-col">
                       <span class="text-xs sm:text-sm font-bold text-[#FFFCFC]">{review.name}</span>
                       <span class="text-[10px] sm:text-xs text-[#FFFCFC]/50 tracking-wider">
@@ -181,25 +203,28 @@ const REVIEWS = [
           </div>
         </div>
 
-        <!-- Botón Ver más reseñas -->
+        <!-- Botón Ver más reseñas (Acero Líquido / Cromo Pulido) -->
         <div class="flex justify-center">
           <a 
             href="https://share.google/0vSbehj4lAvdtl8RY" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#FFFCFC] text-[#0e2146] font-bold hover:bg-gray-100 transition-all shadow-[0_10px_20px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_30px_-10px_rgba(255,255,255,0.4)] hover:-translate-y-1"
+            class="group btn-metallic-steel inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-[#0B1536] font-extrabold tracking-tight cursor-pointer"
           >
-            <svg class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.016 1.488c.114-.303.407-.5.732-.488.324.011.603.232.698.552l2.366 7.915h8.175c.348 0 .653.22.756.548.103.328-.021.685-.307.884l-6.602 4.582 2.705 7.64c.111.314.004.662-.266.866-.27.204-.633.221-.921.042l-6.335-3.957-6.335 3.957c-.288.179-.651.162-.921-.042-.27-.204-.377-.552-.266-.866l2.705-7.64-6.602-4.582c-.286-.199-.41-.556-.307-.884.103-.328.408-.548.756-.548h8.175l2.366-7.915z" />
-            </svg>
-            Ver más reseñas en Google
+            <span class="metallic-shine"></span>
+            <span class="relative z-10 flex items-center gap-3">
+              <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.016 1.488c.114-.303.407-.5.732-.488.324.011.603.232.698.552l2.366 7.915h8.175c.348 0 .653.22.756.548.103.328-.021.685-.307.884l-6.602 4.582 2.705 7.64c.111.314.004.662-.266.866-.27.204-.633.221-.921.042l-6.335-3.957-6.335 3.957c-.288.179-.651.162-.921-.042-.27-.204-.377-.552-.266-.866l2.705-7.64-6.602-4.582c-.286-.199-.41-.556-.307-.884.103-.328.408-.548.756-.548h8.175l2.366-7.915z" />
+              </svg>
+              Ver más reseñas en Google
+            </span>
           </a>
         </div>
       </div>
       )}
 
-      <!-- Centro: Mapa Ampliado arriba del footer -->
-      <div class="w-full h-[250px] rounded-[1.5rem] overflow-hidden relative border border-[#FFFCFC]/10 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] group shrink-0 mb-10">
+      <!-- Centro: Mapa Ampliado arriba del footer con marco de titanio -->
+      <div class="w-full h-[250px] rounded-[1.5rem] overflow-hidden relative border border-white/20 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)] group shrink-0 mb-10">
         <div class="absolute inset-0 bg-[#0e2146]/20 pointer-events-none z-10 transition-colors duration-700 group-hover:bg-transparent"></div>
         <iframe 
           src="https://maps.google.com/maps?q=Parque%20Industrial%20Kanamico,%20Lules,%20Tucuman&t=k&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -210,7 +235,6 @@ const REVIEWS = [
         </iframe>
       </div>
 
-      <!-- Footer Info -->
       <!-- Footer Info -->
       <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 w-full px-4 lg:px-0 max-w-7xl mx-auto">
         
@@ -225,11 +249,11 @@ const REVIEWS = [
         </div>
 
         <!-- Centro: Dirección y Contacto -->
-        <div class="text-[14px] lg:text-[15px] text-[#FFFCFC]/90 flex flex-col items-center gap-5 w-full lg:w-auto text-center font-light lg:border-x border-[#FFFCFC]/10 py-4 lg:py-0 lg:px-12">
+        <div class="text-[14px] lg:text-[15px] text-[#FFFCFC]/90 flex flex-col items-center gap-5 w-full lg:w-auto text-center font-light lg:border-x border-white/10 py-4 lg:py-0 lg:px-12">
           <!-- Dirección -->
           <a href="https://maps.app.goo.gl/EMcxxEBpR6eLVWNu5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group">
-            <div class="w-10 h-10 rounded-full bg-[#FFFCFC]/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors shrink-0">
-              <svg class="w-5 h-5 text-blue-400 group-hover:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="w-10 h-10 rounded-full metallic-medallion flex items-center justify-center group-hover:scale-110 group-hover:border-blue-400 transition-all shrink-0">
+              <svg class="w-5 h-5 text-blue-300 group-hover:text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -242,8 +266,8 @@ const REVIEWS = [
             <!-- Números de Contacto -->
             <div class="flex flex-col items-center sm:items-start gap-2.5">
               <!-- Teléfono Llamadas -->
-              <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group" data-type="tel" data-target={CONTACT.callBase64}>
-                <div class="w-10 h-10 rounded-full bg-[#FFFCFC]/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors shrink-0">
+              <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group cursor-pointer" data-type="tel" data-target={CONTACT.callBase64}>
+                <div class="w-10 h-10 rounded-full metallic-medallion flex items-center justify-center group-hover:border-green-400/80 transition-all shrink-0">
                   <svg class="w-5 h-5 text-green-400 group-hover:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
@@ -252,8 +276,8 @@ const REVIEWS = [
               </button>
 
               <!-- WhatsApp -->
-              <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group" data-type="whatsapp" data-target={CONTACT.whatsapp}>
-                <div class="w-10 h-10 rounded-full bg-[#FFFCFC]/5 flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors shrink-0">
+              <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group cursor-pointer" data-type="whatsapp" data-target={CONTACT.whatsapp}>
+                <div class="w-10 h-10 rounded-full metallic-medallion flex items-center justify-center group-hover:border-[#25D366]/80 transition-all shrink-0">
                   <svg class="w-5 h-5 text-[#25D366] group-hover:text-green-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
@@ -263,8 +287,8 @@ const REVIEWS = [
             </div>
 
             <!-- Email -->
-            <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group" data-type="email" data-target={CONTACT.emailBase64}>
-              <div class="w-10 h-10 rounded-full bg-[#FFFCFC]/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors shrink-0">
+            <button class="secure-contact-btn flex items-center justify-center gap-3 hover:text-white hover:scale-105 transition-all group cursor-pointer" data-type="email" data-target={CONTACT.emailBase64}>
+              <div class="w-10 h-10 rounded-full metallic-medallion flex items-center justify-center group-hover:border-blue-400/80 transition-all shrink-0">
                 <svg class="w-5 h-5 text-blue-400 group-hover:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -274,19 +298,19 @@ const REVIEWS = [
           </div>
         </div>
 
-        <!-- Derecha: Redes Sociales -->
+        <!-- Derecha: Redes Sociales (Medallones Metálicos) -->
         <div class="flex items-center justify-center gap-4 lg:gap-5 w-auto">
-          <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 flex items-center justify-center text-[#FFFCFC]/80 hover:bg-blue-600 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(37,99,235,0.4)] transition-all duration-300">
+          <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full metallic-medallion flex items-center justify-center text-[#FFFCFC]/80 hover:bg-blue-600 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(37,99,235,0.4)] transition-all duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-          <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 flex items-center justify-center text-[#FFFCFC]/80 hover:bg-pink-600 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(219,39,119,0.4)] transition-all duration-300">
+          <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full metallic-medallion flex items-center justify-center text-[#FFFCFC]/80 hover:bg-pink-600 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(219,39,119,0.4)] transition-all duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
             </svg>
           </a>
-          <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-[#FFFCFC]/5 border border-[#FFFCFC]/10 flex items-center justify-center text-[#FFFCFC]/80 hover:bg-blue-700 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(29,78,216,0.4)] transition-all duration-300">
+          <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full metallic-medallion flex items-center justify-center text-[#FFFCFC]/80 hover:bg-blue-700 hover:border-transparent hover:text-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(29,78,216,0.4)] transition-all duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
@@ -294,8 +318,8 @@ const REVIEWS = [
         </div>
       </div>
 
-      <!-- Copyright / Legal -->
-      <div class="w-full h-px bg-transparent/10 mt-16 mb-6"></div>
+      <!-- Copyright / Legal con línea metálica superior -->
+      <div class="metallic-hairline mt-16 mb-6"></div>
       <div class="text-center text-xs text-[#FFFCFC]/40 pb-4 tracking-wider">
         &copy; {new Date().getFullYear()} JB Ingeniería Corporativa S.R.L. Todos los derechos reservados.
       </div>
@@ -312,11 +336,38 @@ const REVIEWS = [
     animation-play-state: paused;
   }
   @keyframes marquee-right {
-    0% { transform: translateX(-100%); }
+    0% { transform: translateX(-50%); }
     100% { transform: translateX(0%); }
   }
-  .mask-image-fade {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
 </style>
+
+<script>
+  // Decodificación segura en cliente de WhatsApp, Email y Teléfono (Anti-Spam Scrapers)
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.secure-contact-btn');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const type = btn.getAttribute('data-type');
+        const target = btn.getAttribute('data-target');
+        
+        if (!target) return;
+        
+        try {
+          // Decodificar Base64
+          const decoded = atob(target);
+          
+          if (type === 'whatsapp') {
+            window.open(`https://wa.me/${decoded}`, '_blank', 'noopener,noreferrer');
+          } else if (type === 'email') {
+            window.location.href = `mailto:${decoded}`;
+          } else if (type === 'tel') {
+            window.location.href = `tel:${decoded}`;
+          }
+        } catch (err) {
+          console.error("Error al procesar enlace de contacto seguro", err);
+        }
+      });
+    });
+  });
+</script>

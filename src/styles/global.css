@@ -41,7 +41,75 @@
    Inspirados en acero quirúrgico, titanio cepillado y cromo
    ======================================================== */
 
-/* Panel Titanio / Acero Industrial (Fondos estructurados con bisel CNC) */
+/* 1. Botón Principal: Acero Líquido / Cromo Pulido */
+.btn-metallic-steel {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #f8fafc 18%,
+    #e2e8f0 44%,
+    #cbd5e1 49%,
+    #94a3b8 51%,
+    #f1f5f9 55%,
+    #ffffff 82%,
+    #e2e8f0 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    inset 0 1.5px 1px 0 #ffffff,
+    inset 0 -2px 3px 0 rgba(71, 85, 105, 0.4),
+    0 10px 25px -4px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(255, 255, 255, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-metallic-steel:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    inset 0 2px 2px 0 #ffffff,
+    inset 0 -2px 4px 0 rgba(51, 65, 85, 0.5),
+    0 18px 35px -5px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(255, 255, 255, 0.65);
+}
+
+/* 2. Botón Secundario: Titanio Cepillado / Acero Industrial */
+.btn-metallic-titanium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.1) 32%,
+    rgba(15, 23, 42, 0.6) 47%,
+    rgba(30, 45, 100, 0.8) 52%,
+    rgba(255, 255, 255, 0.18) 75%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  background-color: rgba(18, 28, 64, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.55),
+    0 10px 22px -4px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-metallic-titanium:hover {
+  transform: translateY(-2px);
+  border-color: rgba(147, 197, 253, 0.85);
+  background-color: rgba(28, 45, 98, 0.9);
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.4),
+    0 16px 32px -4px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(59, 130, 246, 0.45);
+}
+
+/* 3. Panel Titanio / Acero Industrial (Fondos estructurados con bisel CNC) */
 .metallic-titanium-panel {
   position: relative;
   background: linear-gradient(
@@ -61,7 +129,7 @@
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Tarjeta Interactiva de Titanio Cepillado (Botones de contacto y cards) */
+/* 4. Tarjeta Interactiva de Titanio Cepillado (Botones de contacto y cards) */
 .metallic-titanium-card {
   position: relative;
   overflow: hidden;
@@ -94,7 +162,7 @@
     0 0 25px rgba(59, 130, 246, 0.35);
 }
 
-/* Medallón Circular Metálico (Para íconos, botones circulares, etc.) */
+/* 5. Medallón Circular Metálico (Para íconos y botones circulares) */
 .metallic-medallion {
   position: relative;
   background: linear-gradient(
@@ -112,7 +180,7 @@
   transition: all 0.3s ease;
 }
 
-/* Pastilla / Badge de Acero Quirúrgico con Reflejo de Cromo */
+/* 6. Pastilla / Badge de Acero Quirúrgico con Reflejo de Cromo */
 .metallic-steel-pill {
   position: relative;
   background: linear-gradient(
@@ -129,7 +197,7 @@
     0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Línea Divisoria Metálica con Destello Central */
+/* 7. Línea Divisoria Metálica con Destello Central */
 .metallic-hairline {
   height: 1px;
   width: 100%;
@@ -143,7 +211,7 @@
   );
 }
 
-/* Texto Metálico Plateado / Cromo */
+/* 8. Texto Metálico Plateado / Cromo */
 .metallic-text-steel {
   background: linear-gradient(
     180deg,
@@ -157,8 +225,8 @@
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 }
 
-/* Barrido de luz para tarjetas */
-.metallic-shine-sweep {
+/* 9. Destellos Shimmer Dinámicos */
+.metallic-shine {
   position: absolute;
   top: -50%;
   bottom: -50%;
@@ -167,14 +235,36 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.7) 50%,
     transparent 100%
   );
   transform: skewX(-25deg);
   pointer-events: none;
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.metallic-titanium-card:hover .metallic-shine-sweep {
+.btn-metallic-steel:hover .metallic-shine {
+  transform: translateX(450%) skewX(-25deg);
+}
+
+.metallic-shine-dark {
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: -120%;
+  width: 60%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-metallic-titanium:hover .metallic-shine-dark,
+.metallic-titanium-card:hover .metallic-shine-dark {
   transform: translateX(450%) skewX(-25deg);
 }
