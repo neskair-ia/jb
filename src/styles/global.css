@@ -35,3 +35,146 @@
     transform: translateX(150%);
   }
 }
+
+/* ========================================================
+   ACABADOS METÁLICOS INDUSTRIALES (ESTILO JB INGENIERÍA)
+   Inspirados en acero quirúrgico, titanio cepillado y cromo
+   ======================================================== */
+
+/* Panel Titanio / Acero Industrial (Fondos estructurados con bisel CNC) */
+.metallic-titanium-panel {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    rgba(15, 23, 42, 0.55) 55%,
+    rgba(30, 45, 100, 0.7) 100%
+  );
+  background-color: rgba(18, 28, 64, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.5),
+    0 20px 45px -10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Tarjeta Interactiva de Titanio Cepillado (Botones de contacto y cards) */
+.metallic-titanium-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(15, 23, 42, 0.6) 55%,
+    rgba(30, 45, 100, 0.8) 100%
+  );
+  background-color: rgba(18, 28, 64, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.55),
+    0 12px 28px -5px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metallic-titanium-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(147, 197, 253, 0.85);
+  background-color: rgba(28, 45, 98, 0.9);
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.4),
+    0 20px 40px -5px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(59, 130, 246, 0.35);
+}
+
+/* Medallón Circular Metálico (Para íconos, botones circulares, etc.) */
+.metallic-medallion {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(15, 23, 42, 0.5) 70%,
+    rgba(30, 45, 100, 0.65) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 1.5px 0 rgba(0, 0, 0, 0.45),
+    0 6px 16px -2px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* Pastilla / Badge de Acero Quirúrgico con Reflejo de Cromo */
+.metallic-steel-pill {
+  position: relative;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(241, 245, 249, 0.08) 35%,
+    rgba(148, 163, 184, 0.14) 70%,
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Línea Divisoria Metálica con Destello Central */
+.metallic-hairline {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 15%,
+    rgba(203, 213, 225, 0.45) 50%,
+    rgba(255, 255, 255, 0.08) 85%,
+    transparent 100%
+  );
+}
+
+/* Texto Metálico Plateado / Cromo */
+.metallic-text-steel {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fafc 30%,
+    #e2e8f0 60%,
+    #94a3b8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+
+/* Barrido de luz para tarjetas */
+.metallic-shine-sweep {
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: -120%;
+  width: 60%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.metallic-titanium-card:hover .metallic-shine-sweep {
+  transform: translateX(450%) skewX(-25deg);
+}
