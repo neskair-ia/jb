@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
-import { SITE, CONTACT } from '../config';
+import { SITE, CONTACT, MAINTENANCE_MODE } from '../config';
 import AmbientLight from '../components/AmbientLight.astro';
 import PageSkeleton from '../components/PageSkeleton.astro';
+import Maintenance from '../components/Maintenance.astro';
 
 interface Props {
 	title?: string;
@@ -11,8 +12,8 @@ interface Props {
 }
 
 const { 
-	title = SITE.title, 
-	description = SITE.description, 
+	title = MAINTENANCE_MODE ? 'Sitio no disponible | JB Ingeniería Corporativa' : SITE.title, 
+	description = MAINTENANCE_MODE ? 'Sitio web temporalmente fuera de servicio por falta de mantenimiento.' : SITE.description, 
 	image = '/og-image.jpg' 
 } = Astro.props;
 
@@ -92,6 +93,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body class="font-sans antialiased text-slate-800 bg-[#F8F9FA] min-h-screen overflow-x-hidden">
+		{MAINTENANCE_MODE ? (
+			<Maintenance />
+		) : (
+			<>
 		
 		<!-- Splash Screen (Pantalla de carga - Solo en Inicio) -->
 		{isHome && (
@@ -147,6 +152,9 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html
 				</svg>
 			</button>
 		</div>
+
+					</>
+		)}
 
 		<script>
 			// Lógica Anti-Spam global y Pantalla de Carga
