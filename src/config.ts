@@ -1,5 +1,5 @@
 // Interruptor global de mantenimiento (poner en false para reactivar la web inmediatamente)
-export const MAINTENANCE_MODE = true;
+export const MAINTENANCE_MODE = false;
 
 export const SITE = {
   title: 'JB Ingeniería Corporativa S.R.L | Especialistas en Imagen y Cartelería Industrial',
